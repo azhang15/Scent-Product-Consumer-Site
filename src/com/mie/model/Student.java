@@ -60,6 +60,5 @@ public class Student {
 				+ ", lastName=" + lastName + ", dob=" + dob + ", email="
 				+ email + "]";
 	}
-
-	}
+	
 }
