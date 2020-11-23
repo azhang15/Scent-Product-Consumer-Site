@@ -1,7 +1,6 @@
 package com.mie.dao;
 
 import com.mie.model.Product;
-import com.mie.model.ProductLinks;
 import com.mie.model.User;
 import com.mie.model.WishlistItem;
 import com.mie.util.DbUtil;
