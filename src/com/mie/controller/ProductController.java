@@ -11,6 +11,7 @@ import com.mie.model.Product;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ProductController extends HttpServlet{
 	
@@ -44,12 +45,21 @@ public class ProductController extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Product product = new Product();
+		
 		product.setTitle(request.getParameter("title"));
 		product.setCategory(request.getParameter("category"));
 		product.setBrand(request.getParameter("brand"));
 		product.setFragranceFamily(request.getParameter("fragrancefamily"));
-//		product.setLinks(request.getParameter("links"));
-//		product.setNotes(request.getParameter("notes"));
+
+		String[] linksArr = request.getParameterValues("links");
+		List<String> linksArrList = new ArrayList<>();
+		Collections.addAll(linksArrList, linksArr);
+		product.setLinks(linksArrList);
+
+		String[] notesArr = request.getParameterValues("notes");
+		List<String> notesArrList = new ArrayList<>();
+		Collections.addAll(notesArrList, notesArr);
+		product.setLinks(notesArrList);
 		String prodid = request.getParameter("prodid");
 		
 		/**
