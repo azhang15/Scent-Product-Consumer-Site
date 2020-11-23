@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 	
 public class WishlistItemDao {
@@ -60,19 +61,38 @@ public class WishlistItemDao {
 //	}
 	
 	public List<WishlistItem> getWishlist(int userId) {
-		
-	}
-	
-	public void deleteWishlistItem(WishlistItem wishlist) {
-		
+		List<WishlistItem> items = new ArrayList<WishlistItem>();
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from wishlist where userid=?");
+			preparedStatement.setInt(1, userId);
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				WishlistItem item = new WishlistItem();
+				item.setWLItemId(rs.getInt("wlitemid"));
+				item.setProdId(rs.getInt("prodid"));
+				item.setUserId(rs.getInt("userid"));
+				items.add(item);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} return items;
 	}
 	
 	public void deleteWishlistItem(int WLItemId) {
-		
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("delete from wishlist where wlitemid=?");
+			preparedStatement.setInt(1, WLItemId);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	public List<WishlistItem> getAllWishlistItems() {
-		
-	}
+//	public List<WishlistItem> getAllWishlistItems() {
+	
+//		
+//	}
 
 }

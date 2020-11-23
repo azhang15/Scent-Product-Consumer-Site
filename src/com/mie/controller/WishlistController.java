@@ -30,14 +30,23 @@ public class WishlistController extends HttpServlet{
 		
 		if (action.equalsIgnoreCase("delete")) {
 			int WLItemId = Integer.parseInt(request.getParameter("WLItemId"));
+			int userId = Integer.parseInt(request.getParameter("userId"));
 			dao.deleteWishlistItem(WLItemId);
 //			forward = WISHLIST;
-			request.setAttribute("wishlist", dao.getAllWishlistItems());
+			request.setAttribute("wishlist", dao.getWishlist(userId));
 		} else if (action.equalsIgnoreCase("insert")) {
-			dao.addWishlistItem(Integer.parseInt(request.getParameter("WLItemId")));
-			request.setAttribute("wishlist", dao.getAllWishlistItems());
+			int WLItemId = Integer.parseInt(request.getParameter("WLItemId"));
+			int userId = Integer.parseInt(request.getParameter("userId"));
+			int prodId = Integer.parseInt(request.getParameter("prodId"));
+			WishlistItem item = new WishlistItem();
+			item.setWLItemId(WLItemId);
+			item.setProdId(prodId);
+			item.setUserId(userId);
+			dao.addWishlistItem(item);
+			request.setAttribute("wishlist", dao.getWishlist(userId));
 		} else if (action.equalsIgnoreCase("listWishlist")) {
-			request.setAttribute("wishlist", dao.getAllWishlistItems());
+			int userId = Integer.parseInt(request.getParameter("userId"));
+			request.setAttribute("wishlist", dao.getWishlist(userId));
 		} else if (action.equalsIgnoreCase("filter")) {
 			//TODO:
 		} 
@@ -55,7 +64,7 @@ public class WishlistController extends HttpServlet{
 		wlitem.setUserId(Integer.parseInt(request.getParameter("userId")));
 		
 		RequestDispatcher view = request.getRequestDispatcher(WISHLIST);
-		request.setAttribute("wishlist", dao.getAllWishlistItems());
+		request.setAttribute("wishlist", dao.getWishlist(Integer.parseInt(request.getParameter("userId"))));
 		view.forward(request, response);
 	}
 }

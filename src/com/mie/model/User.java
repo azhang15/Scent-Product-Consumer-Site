@@ -35,16 +35,6 @@ public class User {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public void setValid(boolean b) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public boolean isValid() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	public String getFirstName() {
 		// TODO Auto-generated method stub
@@ -64,6 +54,21 @@ public class User {
 	public String getPassword() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean newValid) {
+		valid = newValid;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", firstName=" + fname
+				+ ", lastName=" + lname + ", email=" + email
+				+ ", password=" + password + "]";
 	}
 
 }

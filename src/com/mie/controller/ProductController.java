@@ -12,6 +12,7 @@ import com.mie.model.Product;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class ProductController extends HttpServlet{
 	
@@ -52,12 +53,12 @@ public class ProductController extends HttpServlet{
 		product.setFragranceFamily(request.getParameter("fragrancefamily"));
 
 		String[] linksArr = request.getParameterValues("links");
-		List<String> linksArrList = new ArrayList<>();
+		List<String> linksArrList = new ArrayList<String>();
 		Collections.addAll(linksArrList, linksArr);
 		product.setLinks(linksArrList);
 
 		String[] notesArr = request.getParameterValues("notes");
-		List<String> notesArrList = new ArrayList<>();
+		List<String> notesArrList = new ArrayList<String>();
 		Collections.addAll(notesArrList, notesArr);
 		product.setLinks(notesArrList);
 		String prodid = request.getParameter("prodid");
