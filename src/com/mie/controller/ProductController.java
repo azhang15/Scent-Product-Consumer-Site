@@ -10,8 +10,11 @@ import com.mie.dao.ProductDao;
 import com.mie.model.Product;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ProductController extends HttpServlet{
+	
+	//TODO: add filtering functionality
 	
 	private static final long serialVersionUID = 1L;
 	private static String LIST_PRODUCT_PUBLIC = "/products.jsp";
@@ -45,7 +48,10 @@ public class ProductController extends HttpServlet{
 		product.setCategory(request.getParameter("category"));
 		product.setBrand(request.getParameter("brand"));
 		product.setFragranceFamily(request.getParameter("fragrancefamily"));
+//		product.setLinks(request.getParameter("links"));
+//		product.setNotes(request.getParameter("notes"));
 		String prodid = request.getParameter("prodid");
+		
 		/**
 		 * If the 'prodid' field in the form is empty, the new product will
 		 * be added to the list of Product objects.

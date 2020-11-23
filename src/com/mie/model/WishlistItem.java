@@ -7,7 +7,7 @@ public class WishlistItem {
 	private int userId;
 	
 	//TODO: getters, setters, & toString method for all attributes
-	public void setWLItemId(String parameter) {
+	public void setWLItemId(int i) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -20,5 +20,15 @@ public class WishlistItem {
 	public void setUserId(int i) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public String getProdId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getUserId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

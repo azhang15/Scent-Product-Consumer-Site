@@ -14,7 +14,6 @@ import java.io.IOException;
 
 public class WishlistController extends HttpServlet{
 	
-	//TODO: add JSP page variables
 	private static final long serialVersionUID = 1L;
 	private static String WISHLIST = "/recom.jsp";
 	

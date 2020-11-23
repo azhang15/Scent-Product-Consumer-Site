@@ -28,7 +28,7 @@ public class ProductDao {
 	}
 	
 	public List<Product> getProductByKeyword(String keyword) {
-		
+		return null;
 	}
 	
 	public void updateProduct(Product product) {
@@ -44,6 +44,6 @@ public class ProductDao {
 	}
 	
 	public List<Product> getAllProducts() {
-		
+		return null;
 	}
 }

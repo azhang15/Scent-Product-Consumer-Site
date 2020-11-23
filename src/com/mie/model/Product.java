@@ -1,5 +1,7 @@
 package com.mie.model;
 
+import java.util.ArrayList;
+
 public class Product {
 	
 	private int prodId;
@@ -8,6 +10,8 @@ public class Product {
 	private String brand;
 	private String fragranceFamily;
 	private float price;
+	private ArrayList<String> links;
+	private ArrayList<String> notes;
 	
 	
 	//TODO: getters, setters, & toString method for all attributes
@@ -60,8 +64,14 @@ public class Product {
 		
 	}
 	
+	public void setLinks(ArrayList<String> links) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	@Override
 	public String toString() {
 		
 	}
+
 }

@@ -29,11 +29,11 @@ public class ProductLinksDao {
 	}
 	
 	public List<ProductLinks> getProductLinkList(Product product) {
-		
+		return null;
 	}
 	
 	public List<ProductLinks> getProductLinkListById(int prodId) {
-		
+		return null;
 	}
 	
 	public void updateProductLink(ProductLinks productLink) {
@@ -45,6 +45,6 @@ public class ProductLinksDao {
 	}
 	
 	public List<ProductLinks> getAllProductLinks() {
-		
+		return null;
 	}
 }

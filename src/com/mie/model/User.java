@@ -10,12 +10,33 @@ public class User {
 	private boolean valid;
 	
 	//TODO: getters, setters, & toString method for all attributes (see Member.java)
+	
+	public void setUserId(int int1) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void setFirstName(String firstName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLastName(String lastName) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public void setEmail(String parameter) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void setPassword(String parameter) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void setValid(boolean b) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -36,6 +57,11 @@ public class User {
 	}
 	
 	public String getEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getPassword() {
 		// TODO Auto-generated method stub
 		return null;
 	}

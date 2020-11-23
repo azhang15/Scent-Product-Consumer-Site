@@ -29,11 +29,11 @@ public class ProductNotesDao {
 	}
 	
 	public List<ProductNotes> getProductNotesList(Product product) {
-		
+		return null;
 	}
 	
 	public List<ProductNotes> getProductNotesListById(int prodId) {
-		
+		return null;
 	}
 	
 	public void updateProductNote(ProductNotes productNote) {
@@ -45,6 +45,6 @@ public class ProductNotesDao {
 	}
 	
 	public List<ProductNotes> getAllProductNotes() {
-		
+		return null;
 	}
 }

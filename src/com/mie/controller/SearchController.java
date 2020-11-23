@@ -16,7 +16,7 @@ import com.mie.model.Product;
 
 public class SearchController extends HttpServlet {
 	
-	//TODO: add filter by ProductNotes and other attributes functionality
+	//TODO: add search by filters functionality
 	
 	/**
 	 * This class only handles the SEARCH feature of the web app.
