@@ -27,7 +27,7 @@ public class ProductDao {
 		
 	}
 	
-	public List<Product> getProductByKeyword() {
+	public List<Product> getProductByKeyword(String keyword) {
 		
 	}
 	
@@ -36,6 +36,10 @@ public class ProductDao {
 	}
 	
 	public void deleteProduct(Product product) {
+		
+	}
+	
+	public void deleteProduct(int prodId) {
 		
 	}
 	

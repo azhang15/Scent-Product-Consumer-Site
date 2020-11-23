@@ -22,11 +22,15 @@ public class WishlistItemDao {
 		
 	}
 	
+	public void addWishlistItem(int WLItemId) {
+		
+	}
+	
 	public void getWishlistItem(WishlistItem item) {
 		
 	}
 	
-	public void getWishlistItemById(int WLItemId) {
+	public void getWishlistItem(int WLItemId) {
 		
 	}
 	
@@ -34,11 +38,15 @@ public class WishlistItemDao {
 		
 	}
 	
-	public List<WishlistItem> getWishlistByUserId(int userId) {
+	public List<WishlistItem> getWishlistByUser(int userId) {
 		
 	}
 	
 	public void deleteWishlistItem(WishlistItem wishlist) {
+		
+	}
+	
+	public void deleteWishlistItem(int WLItemId) {
 		
 	}
 	
