@@ -2,8 +2,6 @@ package com.mie.controller;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mie.dao.ProductDao;
+import com.mie.dao.WishlistItemDao;
 import com.mie.model.Product;
 
 public class SearchController extends HttpServlet {
@@ -29,6 +28,7 @@ public class SearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String SEARCH_PRODUCT = "/products.jsp";
 	private ProductDao dao;
+	private WishlistItemDao wldao;
 
 	/**
 	 * Constructor for this class.
@@ -36,6 +36,7 @@ public class SearchController extends HttpServlet {
 	public SearchController() {
 		super();
 		dao = new ProductDao();
+		wldao = new WishlistItemDao();
 	}
 
 	protected void doPost(HttpServletRequest request,

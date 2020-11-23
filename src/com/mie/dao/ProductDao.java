@@ -48,7 +48,7 @@ public class ProductDao {
 				while (j < notes.size()) {
 					PreparedStatement preparedStatement3 = connection
 						.prepareStatement("insert into productnotes(note, prodId) values (?, ?)");
-					preparedStatement3.setString(1, notes.get(i));
+					preparedStatement3.setString(1, notes.get(j));
 					// figure out how to get new auto-created prodid for second parameter
 					preparedStatement3.setInt(2, );
 					boolean result3 = preparedStatement3.execute();
@@ -89,18 +89,18 @@ public class ProductDao {
 		return null;
 	}
 	
+	public List<Product> filterProducts(Object args) {
+		return null;
+	}
+	
 	public void updateProduct(Product product) {
 		
 	}
 	
-	public void deleteProduct(Product product) {
+	// public void deleteProduct(int prodId) {
 		
-	}
-	
-	public void deleteProduct(int prodId) {
+	// }
 		
-	}
-	
 	public List<Product> getAllProducts() {
 		return null;
 	}

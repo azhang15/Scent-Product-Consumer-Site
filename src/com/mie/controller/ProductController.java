@@ -19,26 +19,26 @@ public class ProductController extends HttpServlet{
 	//TODO: add filtering functionality
 	
 	private static final long serialVersionUID = 1L;
-	private static String LIST_PRODUCT_PUBLIC = "/products.jsp";
+	private static String LIST_PRODUCT = "/products.jsp";
+	private static String MAIN = "/main.jsp";
 	
-	private ProductDao dao;
+	private ProductDao pdao;
 	
 	public ProductController() {
 		super();
-		dao = new ProductDao();
+		pdao = new ProductDao();
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String forward = LIST_PRODUCT_PUBLIC;
+		String forward = LIST_PRODUCT;
 		String action = request.getParameter("action");
 		
 		if (action.equalsIgnoreCase("listProduct")) {
-//			forward = LIST_PRODUCT_PUBLIC;
-			request.setAttribute("products", dao.getAllProducts());
+			request.setAttribute("products", pdao.getAllProducts());
 		} else if (action.equalsIgnoreCase("filter")) {
 			//TODO:
-		} 
+		}
 		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request,response);
@@ -68,15 +68,15 @@ public class ProductController extends HttpServlet{
 		 * be added to the list of Product objects.
 		 */
 		if (prodid == null || prodid.isEmpty()) {
-			dao.addProduct(product);
+			pdao.addProduct(product);
 		} else {
 			// editing a student --> update accordingly
 			product.setProdId(Integer.parseInt(prodid));
-			dao.updateProduct(product);
+			pdao.updateProduct(product);
 		}
 		
-		RequestDispatcher view = request.getRequestDispatcher(LIST_PRODUCT_PUBLIC);
-		request.setAttribute("product", dao.getAllProducts());
+		RequestDispatcher view = request.getRequestDispatcher(LIST_PRODUCT);
+		request.setAttribute("product", pdao.getAllProducts());
 		view.forward(request,  response);
 		
 	}

@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mie.dao.ProductDao;
 import com.mie.dao.WishlistItemDao;
 import com.mie.model.WishlistItem;
 
@@ -28,21 +27,10 @@ public class WishlistController extends HttpServlet{
 		String forward = WISHLIST;
 		String action = request.getParameter("action");
 		
-		if (action.equalsIgnoreCase("delete")) {
+		if (action.equalsIgnoreCase("deleteWishlistItem")){
 			int WLItemId = Integer.parseInt(request.getParameter("WLItemId"));
 			int userId = Integer.parseInt(request.getParameter("userId"));
 			dao.deleteWishlistItem(WLItemId);
-//			forward = WISHLIST;
-			request.setAttribute("wishlist", dao.getWishlist(userId));
-		} else if (action.equalsIgnoreCase("insert")) {
-			int WLItemId = Integer.parseInt(request.getParameter("WLItemId"));
-			int userId = Integer.parseInt(request.getParameter("userId"));
-			int prodId = Integer.parseInt(request.getParameter("prodId"));
-			WishlistItem item = new WishlistItem();
-			item.setWLItemId(WLItemId);
-			item.setProdId(prodId);
-			item.setUserId(userId);
-			dao.addWishlistItem(item);
 			request.setAttribute("wishlist", dao.getWishlist(userId));
 		} else if (action.equalsIgnoreCase("listWishlist")) {
 			int userId = Integer.parseInt(request.getParameter("userId"));
@@ -63,6 +51,8 @@ public class WishlistController extends HttpServlet{
 		wlitem.setProdId(Integer.parseInt(request.getParameter("prodId")));
 		wlitem.setUserId(Integer.parseInt(request.getParameter("userId")));
 		
+		dao.addWishlistItem(wlitem);
+
 		RequestDispatcher view = request.getRequestDispatcher(WISHLIST);
 		request.setAttribute("wishlist", dao.getWishlist(Integer.parseInt(request.getParameter("userId"))));
 		view.forward(request, response);

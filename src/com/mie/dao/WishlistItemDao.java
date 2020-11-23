@@ -33,10 +33,6 @@ public class WishlistItemDao {
 		}
 	}
 	
-//	public void getWishlistItem(WishlistItem item) {
-//		
-//	}
-	
 	public WishlistItem getWishlistItem(int WLItemId) {
 		WishlistItem item = new WishlistItem();
 		try {
@@ -54,10 +50,6 @@ public class WishlistItemDao {
 			e.printStackTrace();
 		} return item;
 	}
-	
-//	public List<WishlistItem> getWishlist(User user) {
-//		
-//	}
 	
 	public List<WishlistItem> getWishlist(int userId) {
 		List<WishlistItem> items = new ArrayList<WishlistItem>();
