@@ -36,7 +36,7 @@ public class SearchController extends HttpServlet {
 	public SearchController() {
 		super();
 		dao = new ProductDao();
-		wldao = new WishlistItemDao();
+//		wldao = new WishlistItemDao();
 	}
 
 	protected void doPost(HttpServletRequest request,

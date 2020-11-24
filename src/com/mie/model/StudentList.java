@@ -9,13 +9,13 @@ public class StudentList {
 	private Map map = new HashMap();
 	
 	public void add(Student new_student){
-		getMap().put(new Integer(new_student.getStudentId()),new_student);
+		getMap().put(new Integer(new_student.getStudentid()),new_student);
 	}
 	public boolean has(int student_id){
 		return getMap().containsKey(new Integer(student_id));
 	}
 	public boolean has(Student student){
-		return getMap().containsKey(new Integer(student.getStudentId()));
+		return getMap().containsKey(new Integer(student.getStudentid()));
 	}
 	public int size(){
 		return getMap().size();
@@ -46,9 +46,8 @@ public class StudentList {
 
 	public boolean insert(Student student) {
 
-		int stid = student.getStudentId();
+		int stid = student.getStudentid();
 		String stfname = student.getFirstName();
-		String stinitial = student.getInitial();
 		String stlname = student.getLastName();
 		String stemail = student.getEmail();
 

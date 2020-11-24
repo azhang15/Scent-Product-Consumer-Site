@@ -46,15 +46,15 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("firstname", user.getFirstName());
 				session.setAttribute("lastname", user.getLastName());
 				/**
-				 * Redirect to the recommendations page.
+				 * Redirect to the main page.
 				 */
-				response.sendRedirect("recom.jsp");
+				response.sendRedirect("main.jsp");
 
 				/**
 				 * Set a timeout variable of 900 seconds (15 minutes) for this
 				 * user who has logged into the system.
 				 */
-//				session.setMaxInactiveInterval(900);
+				session.setMaxInactiveInterval(900);
 			}
 
 			else {

@@ -33,7 +33,7 @@ public class Product {
 	}
 	
 	public String getCategory() {
-		
+		return null;
 	}
 	
 	public void setCategory(String brand) {
@@ -41,7 +41,7 @@ public class Product {
 	}
 	
 	public String getBrand() {
-		
+		return null;
 	}
 	
 	public void setBrand(String brand) {
@@ -49,7 +49,7 @@ public class Product {
 	}
 	
 	public String getFragranceFamily() {
-		
+		return null;
 	}
 	
 	public void setFragranceFamily(String fragranceFamily) {
@@ -57,7 +57,7 @@ public class Product {
 	}
 	
 	public float getPrice() {
-		
+		return price;
 	}
 	
 	public void setPrice(float price) {
@@ -83,7 +83,7 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		
+		return null;
 	}
 
 }
