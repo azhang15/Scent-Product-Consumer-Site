@@ -11,49 +11,49 @@ public class User {
 	
 	//TODO: getters, setters, & toString method for all attributes (see Member.java)
 	
-	public void setUserId(int int1) {
+	public void setUserId(int userId) {
 		// TODO Auto-generated method stub
-		
+		this.userid = userId;
 	}
 	
 	public void setFirstName(String firstName) {
 		// TODO Auto-generated method stub
-		
+		this.fname = firstName;
 	}
 
 	public void setLastName(String lastName) {
 		// TODO Auto-generated method stub
-		
+		this.lname = lastName;
 	}
 	
-	public void setEmail(String parameter) {
+	public void setEmail(String email) {
 		// TODO Auto-generated method stub
-		
+		this.email = email;
 	}
 
-	public void setPassword(String parameter) {
+	public void setPassword(String password) {
 		// TODO Auto-generated method stub
-		
+		this.password = password;
 	}
 
 	public String getFirstName() {
 		// TODO Auto-generated method stub
-		return null;
+		return fname;
 	}
 
 	public String getLastName() {
 		// TODO Auto-generated method stub
-		return null;
+		return lname;
 	}
 	
 	public String getEmail() {
 		// TODO Auto-generated method stub
-		return null;
+		return email;
 	}
 
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return null;
+		return password;
 	}
 	
 	public boolean isValid() {

@@ -7,28 +7,32 @@ public class WishlistItem {
 	private int userId;
 	
 	//TODO: getters, setters, & toString method for all attributes
-	public void setWLItemId(int i) {
+	public void setWLItemId(int wId) {
 		// TODO Auto-generated method stub
-		
+		this.WLItemId = wId;
 	}
 	
-	public void setProdId(int i) {
+	public void setProdId(int pId) {
 		// TODO Auto-generated method stub
-		
+		this.prodId = pId;
 	}
 
-	public void setUserId(int i) {
+	public void setUserId(int uId) {
 		// TODO Auto-generated method stub
-		
+		this.userId = uId;
 	}
 
-	public String getProdId() {
+	public int getWishListItemId() {
+		return WLItemId;
+	}
+	
+	public int getProdId() {
 		// TODO Auto-generated method stub
-		return null;
+		return prodId;
 	}
 
-	public String getUserId() {
+	public int getUserId() {
 		// TODO Auto-generated method stub
-		return null;
+		return userId;
 	}
 }

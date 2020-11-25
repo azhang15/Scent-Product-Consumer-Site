@@ -33,27 +33,27 @@ public class Product {
 	}
 	
 	public String getCategory() {
-		return null;
+		return category;
 	}
 	
-	public void setCategory(String brand) {
-		
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	public String getBrand() {
-		return null;
+		return brand;
 	}
 	
 	public void setBrand(String brand) {
-		
+		this.brand = brand;
 	}
 	
 	public String getFragranceFamily() {
-		return null;
+		return fragranceFamily;
 	}
 	
 	public void setFragranceFamily(String fragranceFamily) {
-		
+		this.fragranceFamily = fragranceFamily;
 	}
 	
 	public float getPrice() {
@@ -61,7 +61,7 @@ public class Product {
 	}
 	
 	public void setPrice(float price) {
-		
+		this.price = price;
 	}
 
 	public List<String> getLinks() {
@@ -70,7 +70,7 @@ public class Product {
 	
 	public void setLinks(List<String> links) {
 		// TODO Auto-generated method stub
-		
+		this.links = links;
 	}
 
 	public List<String> getNotes() {
