@@ -83,7 +83,9 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		return null;
+		return "Product [prodid=" + prodId + ", title=" + title
+				+ ", category=" + category + ", brand=" + brand + ", fragranceFamily="
+				+ fragranceFamily + ", price=" + price + ", links=" + links + ", notes=" + notes + "]";
 	}
 
 }

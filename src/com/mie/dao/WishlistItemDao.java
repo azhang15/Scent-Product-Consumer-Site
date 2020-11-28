@@ -25,8 +25,8 @@ public class WishlistItemDao {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("insert into wishlist(prodid,itemid) values (?, ?)");
-			preparedStatement.setString(1, item.getProdId());
-			preparedStatement.setString(2, item.getUserId());
+			preparedStatement.setInt(1, item.getProdId());
+			preparedStatement.setInt(2, item.getUserId());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
