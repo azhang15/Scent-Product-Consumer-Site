@@ -20,7 +20,7 @@ public class ProductController extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
 	private static String LIST_PRODUCT = "/products.jsp";
-	private static String MAIN = "/main.jsp";
+	private static String MAIN = "/index.jsp";
 	
 	private ProductDao pdao;
 	

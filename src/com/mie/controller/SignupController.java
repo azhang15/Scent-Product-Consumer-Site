@@ -37,7 +37,7 @@ public class SignupController extends HttpServlet{
 				user.setEmail(request.getParameter("email"));
 				user.setPassword(request.getParameter("password"));
 			} else {
-//				response.
+				request.setAttribute("error", "Error: user already exists.");
 			}
 		} catch (Throwable theException) {
 			System.out.println(theException);

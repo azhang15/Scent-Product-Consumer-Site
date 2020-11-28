@@ -48,7 +48,7 @@ public class LoginController extends HttpServlet {
 				/**
 				 * Redirect to the main page.
 				 */
-				response.sendRedirect("main.jsp");
+				response.sendRedirect("index.jsp");
 
 				/**
 				 * Set a timeout variable of 900 seconds (15 minutes) for this
@@ -62,7 +62,8 @@ public class LoginController extends HttpServlet {
 				 * Otherwise, redirect the user to the invalid login page and
 				 * ask them to log in again with the proper credentials.
 				 */
-				response.sendRedirect("invalidLogin.jsp");
+				request.setAttribute("error", "Error: invalid login");
+//				response.sendRedirect("invalidLogin.jsp");
 			}
 		}
 
