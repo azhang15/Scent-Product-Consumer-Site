@@ -153,13 +153,14 @@ public class ProductDao {
 	}
 	
 	public List<Product> filterProducts(Filter filter) {
+		List<Product> originalProductList = new ArrayList<Product>();
 		List<Product> productList = new ArrayList<Product>();
 		List<Product> productByKeyword = new ArrayList<Product>();
 		ProductDao allProducts = new ProductDao();
 		
-		productList.addAll(allProducts.getAllProducts());
+		originalProductList.addAll(allProducts.getAllProducts());
 		
-		for (Product product : productList) {
+		for (Product product : originalProductList) {
 			//filtering by gender
 			if (filter.getGender().equalsIgnoreCase("Women's")) {
 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
