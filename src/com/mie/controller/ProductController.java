@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mie.dao.ProductDao;
+import com.mie.model.Filter;
 import com.mie.model.Product;
 
 import java.io.IOException;
@@ -38,6 +39,19 @@ public class ProductController extends HttpServlet{
 			request.setAttribute("products", pdao.getAllProducts());
 		} else if (action.equalsIgnoreCase("filter")) {
 			//TODO:
+			Filter filter = new Filter();
+
+			filter.setGender(request.getParameter("gender"));
+			filter.setBrand(request.getParameter("brand"));
+			filter.setCategory(request.getParameter("category"));
+			filter.setFragranceFamily(request.getParameter("fragrancefamily"));
+			filter.setNote(request.getParameter("note"));
+			filter.setPriceRange(request.getParameter("pricerange"));
+			// filter.setOccasion(request.getParameter("occasion"));
+			// filter.setPersonality(request.getParameter("personality"));
+
+			request.setAttribute("products", pdao.filterProducts(filter));
+
 		}
 		
 		RequestDispatcher view = request.getRequestDispatcher(forward);

@@ -222,27 +222,27 @@ public class ProductDao {
 				}
 			}
 			
-			//filtering by occasion
-			if (filter.getOccasion().equalsIgnoreCase("Date Night")) {
+			// //filtering by occasion
+			// if (filter.getOccasion().equalsIgnoreCase("Date Night")) {
 				
-			}
-			else if (filter.getOccasion().equalsIgnoreCase("Office")) {
+			// }
+			// else if (filter.getOccasion().equalsIgnoreCase("Office")) {
 				
-			}
-			else if (filter.getOccasion().equalsIgnoreCase("Outdoors Adventures")) {
+			// }
+			// else if (filter.getOccasion().equalsIgnoreCase("Outdoors Adventures")) {
 				
-			}
+			// }
 			
-			//filtering by personality	
-			if (filter.getPersonality().equalsIgnoreCase("Seductive")) {
+			// //filtering by personality	
+			// if (filter.getPersonality().equalsIgnoreCase("Seductive")) {
 				
-			}
-			else if (filter.getPersonality().equalsIgnoreCase("Bright and Bubbly")) {
+			// }
+			// else if (filter.getPersonality().equalsIgnoreCase("Bright and Bubbly")) {
 				
-			}
-			else if (filter.getPersonality().equalsIgnoreCase("Sweet")) {
+			// }
+			// else if (filter.getPersonality().equalsIgnoreCase("Sweet")) {
 				
-			}
+			// }
 		}
 		
 		return productList;
