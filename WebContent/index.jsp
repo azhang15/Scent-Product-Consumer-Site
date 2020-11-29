@@ -58,7 +58,7 @@
         <h1>Find your perfect fragrance.</h1>
         <div class="filterbar">
             <!-- TODO: Add the controller name inside the action -->
-            <form action="">
+            <form action="filter">
                 <div style="margin-top:10px;">
                     <label>Who are you shopping for?</label>
                     <br>
@@ -160,6 +160,12 @@
                         <hr>
                         <label for="email"><b>Email</b></label>
                         <input class="email" type="text" placeholder="Enter Email" name="email" required>
+
+                        <label for="fname"><b>First Name</b></label>
+                        <input class="fname" type="text" placeholder="First Name" name="fname" required>
+
+                        <label for="lname"><b>Last Name</b></label>
+                        <input class="lname" type="text" placeholder="Last Name" name="lname" required>
 
                         <label for="psw"><b>Password</b></label>
                         <input class="pswinput" type="password" placeholder="Enter Password" name="psw" required>

@@ -35,8 +35,6 @@ public class WishlistController extends HttpServlet{
 		} else if (action.equalsIgnoreCase("listWishlist")) {
 			int userId = Integer.parseInt(request.getParameter("userId"));
 			request.setAttribute("wishlist", dao.getWishlist(userId));
-		} else if (action.equalsIgnoreCase("filter")) {
-			//TODO:
 		} 
 		
 		

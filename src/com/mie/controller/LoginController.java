@@ -25,7 +25,7 @@ public class LoginController extends HttpServlet {
 		 * Retrieve the entered username and password from the login.jsp form.
 		 */
 		User user = new User();
-		user.setEmail(request.getParameter("uname"));
+		user.setEmail(request.getParameter("email"));
 		user.setPassword(request.getParameter("psw"));
 
 		try {
@@ -48,6 +48,7 @@ public class LoginController extends HttpServlet {
 				/**
 				 * Redirect to the main page.
 				 */
+				
 				response.sendRedirect("index.jsp");
 
 				/**
