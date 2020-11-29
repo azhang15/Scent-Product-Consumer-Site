@@ -162,17 +162,17 @@ public class ProductDao {
 		
 		for (Product product : originalProductList) {
 			//filtering by gender
-			if (filter.getGender().equalsIgnoreCase("Women's")) {
+			if (filter.getGender().equalsIgnoreCase("women")) {
 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
 					productList.add(product);
 				}
 			}
-			else if (filter.getGender().equalsIgnoreCase("Men's")) {
+			else if (filter.getGender().equalsIgnoreCase("men")) {
 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
 					productList.add(product);
 				}
 			}
-			else if (filter.getGender().equalsIgnoreCase("Gender Neutral")) {
+			else if (filter.getGender().equalsIgnoreCase("neutral")) {
 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
 					productList.add(product);
 				}
@@ -184,8 +184,20 @@ public class ProductDao {
 			}
 			
 			//filtering by category
-			if (filter.getCategory().equalsIgnoreCase(product.getCategory())) {
-				productList.add(product);
+			if (filter.getCategory().equalsIgnoreCase("wear")) {
+				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+					productList.add(product);
+				}
+			}
+			else if (filter.getCategory().equalsIgnoreCase("body")) {
+				if (product.getCategory().equals("Hair Mist")) {
+					productList.add(product);
+				}
+			}
+			else if (filter.getCategory().equalsIgnoreCase("home")) {
+				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+					productList.add(product);
+				}
 			}
 			
 			//filtering by fragrance family
@@ -194,6 +206,7 @@ public class ProductDao {
 			}
 			
 			//filtering by price
+			//finish after front end is done, to ensure the filter price variable matches up properly
 			if (filter.getPriceRange().equals("Under $50")) {
 				if (product.getPrice() < 50) {
 					productList.add(product);
