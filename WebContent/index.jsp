@@ -128,8 +128,8 @@
                     </div>
                     <!-- log in questions  -->
                     <div class="container">
-                        <label for="uname"><b>Username</b></label>
-                        <input class="uname" type="text" placeholder="Enter Username" name="uname" required>
+                        <label for="email"><b>Email</b></label>
+                        <input class="email" type="text" placeholder="Enter Email" name="email" required>
 
                         <label for="psw"><b>Password</b></label>
                         <input class="pswinput" type="password" placeholder="Enter Password" name="psw" required>
@@ -158,8 +158,8 @@
                         <h1>Sign Up</h1>
                         <p>Please fill in this form to create an account.</p>
                         <hr>
-                        <label for="uname"><b>Username</b></label>
-                        <input class="uname" type="text" placeholder="Create Your Own Username" name="uname" required>
+                        <label for="email"><b>Email</b></label>
+                        <input class="email" type="text" placeholder="Enter Email" name="email" required>
 
                         <label for="psw"><b>Password</b></label>
                         <input class="pswinput" type="password" placeholder="Enter Password" name="psw" required>
