@@ -1,8 +1,10 @@
 package com.mie.dao;
 
+import com.mie.model.Filter;
 import com.mie.model.Product;
 import com.mie.model.User;
 import com.mie.util.DbUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,7 +50,6 @@ public class ProductDao {
 					PreparedStatement preparedStatement2 = connection
 						.prepareStatement("insert into productlinks(link, prodId) values (?, ?)");
 					preparedStatement2.setString(1, links.get(i));
-					// figure out how to get new auto-created prodid for second parameter
 					preparedStatement2.setInt(2, rs.getInt("prodId"));
 					boolean result2 = preparedStatement2.execute();
 				}
@@ -59,7 +60,6 @@ public class ProductDao {
 					PreparedStatement preparedStatement3 = connection
 						.prepareStatement("insert into productnotes(note, prodId) values (?, ?)");
 					preparedStatement3.setString(1, notes.get(j));
-					// figure out how to get new auto-created prodid for second parameter
 					preparedStatement3.setInt(2, rs.getInt("prodId"));
 					boolean result3 = preparedStatement3.execute();
 				}
@@ -99,7 +99,7 @@ public class ProductDao {
 				product.setBrand(rs.getString("brand"));
 				product.setFragranceFamily(rs.getString("fragrancefamily"));
 				product.setPrice(rs.getFloat("price"));
-				//TODO: set links and notes
+				
 				while (rs2.next()) {
 					links.add(rs2.getString("links"));
 				}
@@ -152,8 +152,99 @@ public class ProductDao {
 		return productByKeyword;
 	}
 	
-	public List<Product> filterProducts(Object args) {
-		return null;
+	public List<Product> filterProducts(Filter filter) {
+		List<Product> productList = new ArrayList<Product>();
+		List<Product> productByKeyword = new ArrayList<Product>();
+		ProductDao allProducts = new ProductDao();
+		
+		productList.addAll(allProducts.getAllProducts());
+		
+		for (Product product : productList) {
+			//filtering by gender
+			if (filter.getGender().equalsIgnoreCase("Women's")) {
+				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+					productList.add(product);
+				}
+			}
+			else if (filter.getGender().equalsIgnoreCase("Men's")) {
+				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+					productList.add(product);
+				}
+			}
+			else if (filter.getGender().equalsIgnoreCase("Gender Neutral")) {
+				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+					productList.add(product);
+				}
+			}
+			
+			//filtering by brand
+			if (filter.getBrand().equalsIgnoreCase(product.getBrand())) {
+				productList.add(product);
+			}
+			
+			//filtering by category
+			if (filter.getCategory().equalsIgnoreCase(product.getCategory())) {
+				productList.add(product);
+			}
+			
+			//filtering by fragrance family
+			if (filter.getFragranceFamily().equalsIgnoreCase(product.getFragranceFamily())) {
+				productList.add(product);
+			}
+			
+			//filtering by price
+			if (filter.getPriceRange().equals("Under $50")) {
+				if (product.getPrice() < 50) {
+					productList.add(product);
+				}
+			}
+			else if (filter.getPriceRange().equals("$50 to $100")) {
+				if (product.getPrice() >= 50 && product.getPrice() < 100) {
+					productList.add(product);
+				}
+			}
+			else if (filter.getPriceRange().equals("$100 to $200")) {
+				if (product.getPrice() >= 100 && product.getPrice() < 200) {
+					productList.add(product);
+				}
+			}
+			else if (filter.getPriceRange().equals("Over $2000")) {
+				if (product.getPrice() >= 200) {
+					productList.add(product);
+				}
+			}
+			
+			//filtering by scent notes
+			for (String note : product.getNotes()) {
+				if (filter.getNote().equalsIgnoreCase(note)) {
+					productList.add(product);
+				}
+			}
+			
+			//filtering by occasion
+			if (filter.getOccasion().equalsIgnoreCase("Date Night")) {
+				
+			}
+			else if (filter.getOccasion().equalsIgnoreCase("Office")) {
+				
+			}
+			else if (filter.getOccasion().equalsIgnoreCase("Outdoors Adventures")) {
+				
+			}
+			
+			//filtering by personality	
+			if (filter.getPersonality().equalsIgnoreCase("Seductive")) {
+				
+			}
+			else if (filter.getPersonality().equalsIgnoreCase("Bright and Bubbly")) {
+				
+			}
+			else if (filter.getPersonality().equalsIgnoreCase("Sweet")) {
+				
+			}
+		}
+		
+		return productList;
 	}
 	
 	public void updateProduct(Product product) {
@@ -168,9 +259,41 @@ public class ProductDao {
 			preparedStatment.setInt(6, product.getProdId());
 			ResultSet rs = preparedStatment.executeQuery();
 			
-			//figure out how to update mulitple links and notes with the same product id
+			//update ProductLinks table
+			//delete original links associated with prodId
+			String query2 = "DELETE FROM ProductLinks WHERE prodId = ?";
+			PreparedStatement preparedStatment2 = connection.prepareStatement(query2);
+			preparedStatment.setInt(1, product.getProdId());
+			int rs2 = preparedStatment2.executeUpdate();
 			
-			//String query2 = "UPDATE ProductLinks SET link = ? WHERE prodId = ?";
+			//insert new links
+			List<String> linkList = product.getLinks();
+			String query3 = "INSERT INTO ProductLinks(link, prodId) values (?, ?)";
+			PreparedStatement preparedStatement3 = connection.prepareStatement(query3);
+			for (String link : linkList) {
+				preparedStatment.setString(1, link);
+				preparedStatment.setInt(2, product.getProdId());
+			}
+			boolean rs3 = preparedStatement3.execute();
+			
+			//update ProductNotes table
+			//delete original links associated with prodId
+			String query4 = "DELETE FROM ProductNotes WHERE prodId = ?";
+			PreparedStatement preparedStatment4 = connection.prepareStatement(query4);
+			preparedStatment4.setInt(1, product.getProdId());
+			int rs4 = preparedStatment4.executeUpdate();
+			
+			//insert new notes
+			List<String> noteList = product.getNotes();
+			String query5 = "INSERT INTO ProductNotes(note, prodId) values (?, ?)";
+			PreparedStatement preparedStatement5 = connection.prepareStatement(query5);
+			for (String note : noteList) {
+				preparedStatment.setString(1, note);
+				preparedStatment.setInt(2, product.getProdId());
+			}
+			boolean rs5 = preparedStatement5.execute();
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} 
