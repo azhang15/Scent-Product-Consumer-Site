@@ -209,7 +209,7 @@ public class ProductDao {
 					productList.add(product);
 				}
 			}
-			else if (filter.getPriceRange().equals("Over $2000")) {
+			else if (filter.getPriceRange().equals("Over $200")) {
 				if (product.getPrice() >= 200) {
 					productList.add(product);
 				}
