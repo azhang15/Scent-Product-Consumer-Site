@@ -27,8 +27,8 @@
             display: none;
         } */
     </style>
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/loginsignup.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/loginsignup.css">
 </head>
 
 <body>
@@ -46,7 +46,7 @@
     <!-- the good afternoon what do you want to smell part -->
     <div class="header">
         <h1 id="greetings"></h1>
-        <img src="/img/headerimg.jpg" alt="headerimage" width=100%>
+        <img src="img/headerimg.jpg" alt="headerimage" width=100%>
         <!-- the header pic  -->
         <!-- <div class="headerimg">
             <img class="mySlides" src="/img/headerimg.png" style="width:100%">
@@ -102,7 +102,7 @@
                     <br>
                     <input type="submit" value="Apply">
                     <div class="loginimg">
-                        <img src="/img/loginimage.png" alt="img" class="loginimg">
+                        <img src="img/loginimage.png" alt="img" class="loginimg">
                     </div>
             </form>
             </div>
@@ -124,7 +124,7 @@
                 <form class="modal1_content" action="/data/login.php">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('loginsheet').style.display='none'" class="closeit" title="Close Modal1">&times;</span>
-                        <img src="/img/avatar.jpg" alt="Avatar" class="avatar">
+                        <img src="img/avatar.jpg" alt="Avatar" class="avatar">
                     </div>
                     <!-- log in questions  -->
                     <div class="container">
