@@ -4,9 +4,9 @@ var d = new Date();
 var hr = d.getHours();
 if (hr < 11 && hr > 4) {
     statement = "Good Morning, start your day with your favorite scent.";
-} else if (hr < 16) {
+} else if (hr < 16 && hr >= 11) {
     statement = "Good Afternoon, choose a fragrance for going out or staying in.";
-} else if (hr < 21) {
+} else if (hr < 21 && hr >= 16) {
     statement = "Good evening, pick a fragrance to sleep soundly.";
 } else {
     statement = "Fill your day with scents you love!";
