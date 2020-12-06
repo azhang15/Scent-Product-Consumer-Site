@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/products.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
@@ -104,7 +104,7 @@
         <!-- product card 1 -->
         <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
             <div class="images">
-                <img src="../img/perfume.png" />
+                <img src="img/perfume.png" />
             </div>
             <div class="product">
                 <p>Victor & Rolf</p>
@@ -129,7 +129,7 @@
         <!-- product card 2 -->
         <div class="container" style="margin-top: 75px ; " ;>
             <div class="images">
-                <img src="../img/perfume.png" />
+                <img src="img/perfume.png" />
             </div>
             <div class="product">
                 <p>Victor & Rolf</p>
