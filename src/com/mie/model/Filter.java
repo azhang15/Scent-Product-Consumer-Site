@@ -8,8 +8,8 @@ public class Filter {
 	private String fragranceFamily;
 	private String note;
 	private String priceRange;
-	// private String occasion;
-	// private String personality;
+	 private String occasion;
+	 private String personality;
 	
 	public String getGender() {
 		return gender;
@@ -35,13 +35,13 @@ public class Filter {
 		return priceRange;
 	}
 	
-	// public String getOccasion() {
-	// 	return occasion;
-	// }
+	 public String getOccasion() {
+	 	return occasion;
+	 }
 	
-	// public String getPersonality() {
-	// 	return personality;
-	// }
+	 public String getPersonality() {
+	 	return personality;
+	 }
 	
 	public void setGender(String gender) {
 		this.gender = gender;
@@ -67,11 +67,11 @@ public class Filter {
 		this.priceRange = priceRange;
 	}
 	
-	// public void setOccasion(String occasion) {
-	// 	this.occasion = occasion;
-	// }
+	 public void setOccasion(String occasion) {
+	 	this.occasion = occasion;
+	 }
 	
-	// public void setPersonality(String personality) {
-	// 	this.personality = personality;
-	// }
+	 public void setPersonality(String personality) {
+	 	this.personality = personality;
+	 }
 }

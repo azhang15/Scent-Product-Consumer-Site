@@ -25,22 +25,28 @@ public class ProductDao {
 	public void addProduct(Product product) {
 		try {
 			PreparedStatement preparedStatement1 = connection
-					.prepareStatement("insert into products(title,category,brand,fragranceFamily,price) values (?, ?, ?, ?, ? )");
+					.prepareStatement("insert into products(title,category,brand,fragranceFamily,price,occasion,personality,imageLink) values (?, ?, ?, ?, ?,?,?,? )");
 			preparedStatement1.setString(1, product.getTitle());
 			preparedStatement1.setString(2, product.getCategory());
 			preparedStatement1.setString(3, product.getBrand());
 			preparedStatement1.setString(4, product.getFragranceFamily());
 			preparedStatement1.setFloat(5, product.getPrice());
+			preparedStatement1.setString(6, product.getOccasion());
+			preparedStatement1.setString(7, product.getPersonality());
+			preparedStatement1.setString(8, product.getImageLink());
 			boolean result1 = preparedStatement1.execute();
 			
 			//read prodid of the product that was just added
-			String query = "SELECT prodId FROM Products WHERE title = ? AND category = ? AND brand = ? AND fragranceFamily = ? AND price = ?";
+			String query = "SELECT prodId FROM Products WHERE title = ? AND category = ? AND brand = ? AND fragranceFamily = ? AND price = ? AND occasion = ? AND personality = ? AND imageLink = ?";
 			PreparedStatement preparedStatement4 = connection.prepareStatement(query);
 			preparedStatement4.setString(1, product.getTitle());
 			preparedStatement4.setString(2, product.getCategory());
 			preparedStatement4.setString(3, product.getBrand());
 			preparedStatement4.setString(4, product.getFragranceFamily());
 			preparedStatement4.setFloat(5, product.getPrice());
+			preparedStatement1.setString(6, product.getOccasion());
+			preparedStatement1.setString(7, product.getPersonality());
+			preparedStatement1.setString(8, product.getImageLink());
 			ResultSet rs = preparedStatement4.executeQuery();
 			
 			if (result1) {
@@ -99,6 +105,9 @@ public class ProductDao {
 				product.setBrand(rs.getString("brand"));
 				product.setFragranceFamily(rs.getString("fragrancefamily"));
 				product.setPrice(rs.getFloat("price"));
+				product.setOccasion(rs.getString("occasion"));
+				product.setPersonality(rs.getString("personality"));
+				product.setImageLink(rs.getString("imageLink"));
 				
 				while (rs2.next()) {
 					links.add(rs2.getString("links"));
@@ -235,27 +244,45 @@ public class ProductDao {
 				}
 			}
 			
-			// //filtering by occasion
-			// if (filter.getOccasion().equalsIgnoreCase("Date Night")) {
-				
-			// }
-			// else if (filter.getOccasion().equalsIgnoreCase("Office")) {
-				
-			// }
-			// else if (filter.getOccasion().equalsIgnoreCase("Outdoors Adventures")) {
-				
-			// }
+			//filtering by occasion
+			if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+				productList.add(product);
+			}
+			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+				productList.add(product);
+			}
+			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+				productList.add(product);
+			}
+			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+				productList.add(product);
+			}
+			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+				productList.add(product);
+			}
+			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+				productList.add(product);
+			}
 			
-			// //filtering by personality	
-			// if (filter.getPersonality().equalsIgnoreCase("Seductive")) {
-				
-			// }
-			// else if (filter.getPersonality().equalsIgnoreCase("Bright and Bubbly")) {
-				
-			// }
-			// else if (filter.getPersonality().equalsIgnoreCase("Sweet")) {
-				
-			// }
+			//filtering by personality	
+			if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+				productList.add(product);
+			}
+			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+				productList.add(product);
+			}
+			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+				productList.add(product);
+			}
+			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+				productList.add(product);
+			}
+			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+				productList.add(product);
+			}
+			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+				productList.add(product);
+			}
 		}
 		
 		return productList;
@@ -263,14 +290,17 @@ public class ProductDao {
 	
 	public void updateProduct(Product product) {
 		try {
-			String query = "UPDATE Products SET title = ?, category = ?, brand = ?, fragrenceFamily = ?, price = ? WHERE prodId = ?";
+			String query = "UPDATE Products SET title = ?, category = ?, brand = ?, fragrenceFamily = ?, price = ?, occasion = ?, personality = ?, imageLink = ? WHERE prodId = ?";
 			PreparedStatement preparedStatment = connection.prepareStatement(query);
 			preparedStatment.setString(1, product.getTitle());
 			preparedStatment.setString(2, product.getCategory());
 			preparedStatment.setString(3, product.getBrand());
 			preparedStatment.setString(4, product.getFragranceFamily());
 			preparedStatment.setFloat(5, product.getPrice());
-			preparedStatment.setInt(6, product.getProdId());
+			preparedStatment.setString(6, product.getOccasion());
+			preparedStatment.setString(7, product.getPersonality());
+			preparedStatment.setString(8, product.getImageLink());
+			preparedStatment.setInt(9, product.getProdId());
 			ResultSet rs = preparedStatment.executeQuery();
 			
 			//update ProductLinks table
@@ -362,7 +392,10 @@ public class ProductDao {
 				product.setBrand(rs.getString("brand"));
 				product.setFragranceFamily(rs.getString("fragrancefamily"));
 				product.setPrice(rs.getFloat("price"));
-				//TODO: set links and notes 
+				product.setOccasion(rs.getString("occasion"));
+				product.setPersonality(rs.getString("personality"));
+				product.setImageLink(rs.getString("imageLink"));
+				 
 				while (rs2.next()) {
 					if (rs.getInt("prodid") == rs2.getInt("prodid")) {
 						links.add(rs2.getString("link"));

@@ -12,6 +12,9 @@ public class Product {
 	private float price;
 	private List<String> links;
 	private List<String> notes;
+	private String imageLink;
+	private String occasion;
+	private String personality;
 	
 	
 	//TODO: getters, setters, & toString method for all attributes
@@ -79,6 +82,30 @@ public class Product {
 
 	public void setNotes(List<String> notes) {
 		this.notes = notes;
+	}
+	
+	public String getImageLink() {
+		return this.imageLink;
+	}
+
+	public void setImageLink(String link) {
+		this.imageLink = link;
+	}
+	
+	public String getOccasion() {
+		return this.occasion;
+	}
+
+	public void setOccasion(String occasion) {
+		this.imageLink = occasion;
+	}
+	
+	public String getPersonality() {
+		return this.personality;
+	}
+
+	public void setPersonality(String personality) {
+		this.personality = personality;
 	}
 	
 	@Override
