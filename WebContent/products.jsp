@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/products.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -31,10 +31,10 @@
     <!-- the very top part -->
     <div class="top" style="letter-spacing: 2px;">
         <ul>
-            <li style="float:left!important" class="barlist"><a href="index.html">Fragrance Finder</a></li>
-            <li style="padding-right: 30px;" class="barlist"><a href="myAccount.html">My Account</a></li>
+            <li style="float:left!important" class="barlist"><a href="index.jsp">Fragrance Finder</a></li>
+            <li style="padding-right: 30px;" class="barlist"><a href="myAccount.jsp">My Account</a></li>
             <li style="padding-right: 30px;" class="barlist"><a href="#">Find Products</a></li>
-            <li class="barlist"><a href="index.html#filter">Home</a></li>
+            <li class="barlist"><a href="index.jsp#filter">Home</a></li>
         </ul>
     </div>
 

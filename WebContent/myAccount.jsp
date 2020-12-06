@@ -17,10 +17,10 @@
         <!-- the very top part -->
         <div class="top" style="letter-spacing: 2px;">
             <ul>
-                <li style="float:left!important" class="barlist"><a href="index.html">Fragrance Finder</a></li>
-                <li style="padding-right: 30px;" class="barlist"><a href="index.html#login">Log Out</a></li>
-                <li style="padding-right: 30px;" class="barlist"><a href="products.html">Find Products</a></li>
-                <li class="barlist"><a href="index.html#filter">Home</a></li>
+                <li style="float:left!important" class="barlist"><a href="index.jsp">Fragrance Finder</a></li>
+                <li style="padding-right: 30px;" class="barlist"><a href="index.jsp#login">Log Out</a></li>
+                <li style="padding-right: 30px;" class="barlist"><a href="products.jsp">Find Products</a></li>
+                <li class="barlist"><a href="index.jsp#filter">Home</a></li>
             </ul>
         </div>
 
