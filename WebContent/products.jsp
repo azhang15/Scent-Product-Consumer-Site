@@ -31,10 +31,10 @@
     <!-- the very top part -->
     <div class="top" style="letter-spacing: 2px;">
         <ul>
-            <li style="float:left!important" class="barlist"><a href="main.html">Fragrance Finder</a></li>
+            <li style="float:left!important" class="barlist"><a href="index.html">Fragrance Finder</a></li>
             <li style="padding-right: 30px;" class="barlist"><a href="myAccount.html">My Account</a></li>
             <li style="padding-right: 30px;" class="barlist"><a href="#">Find Products</a></li>
-            <li class="barlist"><a href="main.html#filter">Home</a></li>
+            <li class="barlist"><a href="index.html#filter">Home</a></li>
         </ul>
     </div>
 

@@ -27,7 +27,7 @@
             display: none;
         } */
     </style>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/loginsignup.css">
 </head>
 
@@ -194,7 +194,7 @@
 
 
         <!-- myscript -->
-        <script src=" /js/main.js "></script>
+        <script src=" /js/index.js "></script>
         <script src="/js/login.js "></script>
 
 </body>
