@@ -5,6 +5,7 @@ public class WishlistItem {
 	private int WLItemId;
 	private int prodId;
 	private int userId;
+	private String dateAdded;
 	
 	//TODO: getters, setters, & toString method for all attributes
 	public void setWLItemId(int wId) {
@@ -21,6 +22,10 @@ public class WishlistItem {
 		// TODO Auto-generated method stub
 		this.userId = uId;
 	}
+	
+	public void setDateAdded(String date) {
+		this.dateAdded = date;
+	}
 
 	public int getWishListItemId() {
 		return WLItemId;
@@ -34,5 +39,9 @@ public class WishlistItem {
 	public int getUserId() {
 		// TODO Auto-generated method stub
 		return userId;
+	}
+	
+	public String getDateAdded() {
+		return dateAdded;
 	}
 }

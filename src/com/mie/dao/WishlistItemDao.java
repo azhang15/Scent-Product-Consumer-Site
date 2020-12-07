@@ -4,6 +4,7 @@ import com.mie.model.Product;
 import com.mie.model.User;
 import com.mie.model.WishlistItem;
 import com.mie.util.DbUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -81,9 +82,26 @@ public class WishlistItemDao {
 		}
 	}
 	
-//	public List<WishlistItem> getAllWishlistItems() {
+	public List<WishlistItem> getAllWishlistItems() {
+		List<WishlistItem> itemsList = new ArrayList<WishlistItem>();
+		try {
+			PreparedStatement preparedStatment = connection.prepareStatement("select * from Wishlist");
+			ResultSet rs = preparedStatment.executeQuery();
+			
+			while (rs.next()) {
+				WishlistItem item = new WishlistItem();
+				item.setWLItemId(rs.getInt("WEItemId"));
+				item.setProdId(rs.getInt("prodId"));
+				item.setUserId(rs.getInt("userId"));
+				item.setDateAdded(rs.getString("dateAdded"));
+				
+				itemsList.add(item);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return itemsList;
 	
-//		
-//	}
+	}
 
 }
