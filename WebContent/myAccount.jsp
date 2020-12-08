@@ -33,7 +33,7 @@
                     <img src="img/avatar.jpg">
                 </div>
                 <!-- TODO -->
-                <div id="u-name">Sherry Zuo</div>
+                <div id="u-name" action="/Scent-Product-Consumer-Site/LoginController"><c:out value="${sessionScope.currentSessionUser.getFirstName()}"/> <c:out value="${sessionScope.lastname}"/></div>
             </div>
             <div id="black-grd"></div>
         </div>
@@ -42,8 +42,9 @@
         <div class="myCollection" style="letter-spacing: 2px;">
             My Fragrance Collection
         </div>
-
-		<c:forEach items="${products}" var="product">
+		
+		<div action="/Scent-Product-Consumer-Site/wishlist">
+			<c:forEach items="${wishlist}" var="product">
 	        <!-- product card 1 -->
 	        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
 	            <div class="images">
@@ -69,6 +70,8 @@
 	            </div>
 	        </div>
         </c:forEach>
+		</div>
+
 
         <!-- product card 2 -->
         <div class="container" style="margin-right: 25px" ;>

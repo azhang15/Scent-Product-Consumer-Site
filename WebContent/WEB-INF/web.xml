@@ -57,6 +57,16 @@
 		<servlet-name>Product</servlet-name>
 		<url-pattern>/product</url-pattern>
 	</servlet-mapping>
+		<servlet>
+		<description></description>
+		<display-name>Wishlist</display-name>
+		<servlet-name>Wishlist</servlet-name>
+		<servlet-class>com.mie.controller.WishlistController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Wishlist</servlet-name>
+		<url-pattern>/wishlist</url-pattern>
+	</servlet-mapping>
 	<session-config>
 		<session-timeout>15</session-timeout>
 	</session-config>

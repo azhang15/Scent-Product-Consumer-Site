@@ -35,6 +35,10 @@ public class User {
 		// TODO Auto-generated method stub
 		this.password = password;
 	}
+	
+	public int getUserId() {
+		return userid;
+	}
 
 	public String getFirstName() {
 		// TODO Auto-generated method stub

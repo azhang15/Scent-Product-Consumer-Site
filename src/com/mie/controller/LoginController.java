@@ -45,10 +45,11 @@ public class LoginController extends HttpServlet {
 			if (user.isValid()) {
 
 				HttpSession session = request.getSession(true);
-				session.setAttribute("currentSessionuser", user);
+				session.setAttribute("currentSessionUser", user);
 				session.setAttribute("email", user.getEmail());
 				session.setAttribute("firstname", user.getFirstName());
 				session.setAttribute("lastname", user.getLastName());
+				
 				/**
 				 * Redirect to the main page.
 				 */

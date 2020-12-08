@@ -71,7 +71,7 @@ public class WishlistItemDao {
 			Iterator i = items.iterator();
 			while (i.hasNext()) {
 				WishlistItem item = (WishlistItem) i.next();
-				Product product = ProductDao.getProduct(item.getProdId());
+				Product product = (new ProductDao()).getProduct(item.getProdId());
 				products.add(product);	
 			}
 		} catch (SQLException e) {

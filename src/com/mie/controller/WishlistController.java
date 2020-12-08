@@ -5,8 +5,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mie.dao.WishlistItemDao;
+import com.mie.model.User;
 import com.mie.model.WishlistItem;
 
 import java.io.IOException;
@@ -27,15 +29,25 @@ public class WishlistController extends HttpServlet{
 		String forward = WISHLIST;
 		String action = request.getParameter("action");
 		
-		if (action.equalsIgnoreCase("deleteWishlistItem")){
-			int WLItemId = Integer.parseInt(request.getParameter("WLItemId"));
-			int userId = Integer.parseInt(request.getParameter("userId"));
-			dao.deleteWishlistItem(WLItemId);
-			request.setAttribute("wishlist", dao.getWishlist(userId));
-		} else if (action.equalsIgnoreCase("listWishlist")) {
-			int userId = Integer.parseInt(request.getParameter("userId"));
-			request.setAttribute("wishlist", dao.getWishlist(userId));
-		} 
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("currentSessionUser");
+		
+		int userId = user.getUserId();
+//		int userId = Integer.parseInt(request.getParameter("userId"));
+		request.setAttribute("wishlist", dao.getWishlist(userId));
+		System.out.println(userId);
+		
+		
+		
+//		if (action.equalsIgnoreCase("deleteWishlistItem")){
+//			int WLItemId = Integer.parseInt(request.getParameter("WLItemId"));
+//			int userId = Integer.parseInt(request.getParameter("userId"));
+//			dao.deleteWishlistItem(WLItemId);
+//			request.setAttribute("wishlist", dao.getWishlist(userId));
+//		} else if (action.equalsIgnoreCase("listWishlist")) {
+//			int userId = Integer.parseInt(request.getParameter("userId"));
+//			request.setAttribute("wishlist", dao.getWishlist(userId));
+//		} 
 		
 		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
