@@ -100,7 +100,7 @@
 
     </div>
 
-    <div class="contents" style="margin-left:25%;padding:1px 16px;">
+    <div class="contents" style="margin-left:25%;padding:1px 16px;" method="GET" href="ProductController?action=listProduct" name="products" >
     	<!-- 
     		<tr>
 				<td> title: <c:out value="${product.title}"/></td>

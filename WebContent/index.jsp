@@ -121,7 +121,7 @@
             <br>
             <br>
             <div id="loginsheet" class="modal1">
-                <form class="modal1_content" action="/data/login.php">
+                <form class="modal1_content" action="/Scent-Product-Consumer-Site/LoginController">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('loginsheet').style.display='none'" class="closeit" title="Close Modal1">&times;</span>
                         <img src="img/avatar.jpg" alt="Avatar" class="avatar">
@@ -150,7 +150,7 @@
             </div>
 
             <div id="signupsheet" class="modal1">
-                <form class="modal2_content" action="/data/signup.php">
+                <form class="modal2_content" action="/LoginController">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('signupsheet').style.display='none'" class="closeit" title="Close Modal1">&times;</span>
                     </div>

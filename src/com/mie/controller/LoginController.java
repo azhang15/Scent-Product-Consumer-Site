@@ -29,6 +29,8 @@ public class LoginController extends HttpServlet {
 		User user = new User();
 		user.setEmail(request.getParameter("email"));
 		user.setPassword(request.getParameter("psw"));
+//		System.out.println(request.getParameter("email"));
+//		System.out.println(request.getParameter("psw"));
 
 		try {
 			/**
@@ -66,7 +68,7 @@ public class LoginController extends HttpServlet {
 				 * ask them to log in again with the proper credentials.
 				 */
 				request.setAttribute("error", "Error: invalid login");
-//				response.sendRedirect("invalidLogin.jsp");
+				response.sendRedirect("index.jsp");
 			}
 		}
 

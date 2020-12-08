@@ -22,7 +22,7 @@ public class UserDao {
 	public void addUser(User user) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into users(fname,lname,email,password) values (?, ?, ?, ? )");
+					.prepareStatement("insert into users(FirstName,LastName,email,password) values (?, ?, ?, ? )");
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
 			preparedStatement.setString(3, user.getEmail());
@@ -47,8 +47,8 @@ public class UserDao {
 			
 			if (rs.next()) {
 				user.setUserId(rs.getInt("userid"));
-				user.setFirstName(rs.getString("firstname"));
-				user.setLastName(rs.getString("lastname"));
+				user.setFirstName(rs.getString("FirstName"));
+				user.setLastName(rs.getString("LastName"));
 				user.setEmail(rs.getString("email"));
 				user.setPassword(rs.getString("password"));
 			}
@@ -65,8 +65,8 @@ public class UserDao {
 			while (rs.next()) {
 				User user = new User();
 				user.setUserId(rs.getInt("userid"));
-				user.setFirstName(rs.getString("firstname"));
-				user.setLastName(rs.getString("lastname"));
+				user.setFirstName(rs.getString("FirstName"));
+				user.setLastName(rs.getString("LastName"));
 				user.setEmail(rs.getString("email"));
 				user.setPassword(rs.getString("password"));
 				users.add(user);
@@ -81,7 +81,7 @@ public class UserDao {
 		List<User> users = new ArrayList<User>();
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("select * from users where firstname LIKE ? OR lastname LIKE ? or email LIKE ?");
+					.prepareStatement("select * from users where FirstName LIKE ? OR LastName LIKE ? or email LIKE ?");
 			preparedStatement.setString(1, "%" + keyword + "%");
 			preparedStatement.setString(2, "%" + keyword + "%");
 			preparedStatement.setString(3, "%" + keyword + "%");
@@ -90,8 +90,8 @@ public class UserDao {
 			while (rs.next()) {
 				User user = new User();
 				user.setUserId(rs.getInt("userid"));
-				user.setFirstName(rs.getString("firstname"));
-				user.setLastName(rs.getString("lastname"));
+				user.setFirstName(rs.getString("FirstName"));
+				user.setLastName(rs.getString("LastName"));
 				user.setEmail(rs.getString("email"));
 				user.setPassword(rs.getString("password"));
 				users.add(user);
@@ -104,7 +104,7 @@ public class UserDao {
 	public void updateUser(User user) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update users set firstname=?, lastname=?, email=?, password=? where userid=?");
+					.prepareStatement("update users set FirstName=?, LastName=?, email=?, password=? where userid=?");
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
 			preparedStatement.setString(3, user.getEmail());
@@ -145,11 +145,11 @@ public class UserDao {
 			if (!more) {
 				user.setValid(false);
 			} else if (more) {
-				String firstName = rs.getString("FirstName");
-				String lastName = rs.getString("LastName");
+				String FirstName = rs.getString("FirstName");
+				String LastName = rs.getString("LastName");
 				
-				user.setFirstName(firstName);
-				user.setLastName(lastName);
+				user.setFirstName(FirstName);
+				user.setLastName(LastName);
 				user.setValid(true);
 			}
 		} catch (Exception ex) {
