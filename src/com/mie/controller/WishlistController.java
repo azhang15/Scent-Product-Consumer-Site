@@ -14,7 +14,7 @@ import java.io.IOException;
 public class WishlistController extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
-	private static String WISHLIST = "/recom.jsp";
+	private static String WISHLIST = "/myAccount.jsp";
 	
 	private WishlistItemDao dao;
 	

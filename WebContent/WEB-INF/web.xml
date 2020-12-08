@@ -9,13 +9,23 @@
 	</welcome-file-list>
 	<servlet>
 		<description></description>
-		<display-name>StudentController</display-name>
-		<servlet-name>StudentController</servlet-name>
-		<servlet-class>com.mie.controller.StudentController</servlet-class>
+		<display-name>ProductController</display-name>
+		<servlet-name>ProductController</servlet-name>
+		<servlet-class>com.mie.controller.ProductController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>StudentController</servlet-name>
-		<url-pattern>/StudentController</url-pattern>
+		<servlet-name>ProductController</servlet-name>
+		<url-pattern>/ProductController</url-pattern>
+	</servlet-mapping>
+		<servlet>
+		<description></description>
+		<display-name>WishlistController</display-name>
+		<servlet-name>WishlistController</servlet-name>
+		<servlet-class>com.mie.controller.WishlistController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WishlistController</servlet-name>
+		<url-pattern>/WishlistController</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<description></description>
@@ -26,6 +36,16 @@
 	<servlet-mapping>
 		<servlet-name>SearchController</servlet-name>
 		<url-pattern>/SearchController</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>SignupController</display-name>
+		<servlet-name>SignupController</servlet-name>
+		<servlet-class>com.mie.controller.SignupController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SignupController</servlet-name>
+		<url-pattern>/SignupController</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<description></description>

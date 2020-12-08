@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 	
 public class WishlistItemDao {
@@ -52,8 +53,9 @@ public class WishlistItemDao {
 		} return item;
 	}
 	
-	public List<WishlistItem> getWishlist(int userId) {
+	public List<Product> getWishlist(int userId) {
 		List<WishlistItem> items = new ArrayList<WishlistItem>();
+		List<Product> products = new ArrayList<Product>();
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("select * from wishlist where userid=?");
@@ -66,9 +68,15 @@ public class WishlistItemDao {
 				item.setUserId(rs.getInt("userid"));
 				items.add(item);
 			}
+			Iterator i = items.iterator();
+			while (i.hasNext()) {
+				WishlistItem item = (WishlistItem) i.next();
+				Product product = ProductDao.getProduct(item.getProdId());
+				products.add(product);	
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} return items;
+		} return products;
 	}
 	
 	public void deleteWishlistItem(int WLItemId) {
