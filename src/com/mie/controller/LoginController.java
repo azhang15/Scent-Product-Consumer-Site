@@ -17,6 +17,8 @@ import com.mie.dao.*;
  * who succesfully log into the system.
  */
 public class LoginController extends HttpServlet {
+	
+	private static String ACCOUNT = "/myAccount.jsp";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, java.io.IOException {
@@ -49,7 +51,7 @@ public class LoginController extends HttpServlet {
 				 * Redirect to the main page.
 				 */
 				
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("myAccount.jsp");
 
 				/**
 				 * Set a timeout variable of 900 seconds (15 minutes) for this

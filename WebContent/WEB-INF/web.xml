@@ -9,6 +9,29 @@
 	</welcome-file-list>
 	<servlet>
 		<description></description>
+<<<<<<< HEAD
+=======
+		<display-name>ProductController</display-name>
+		<servlet-name>ProductController</servlet-name>
+		<servlet-class>com.mie.controller.ProductController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProductController</servlet-name>
+		<url-pattern>/ProductController</url-pattern>
+	</servlet-mapping>
+		<servlet>
+		<description></description>
+		<display-name>WishlistController</display-name>
+		<servlet-name>WishlistController</servlet-name>
+		<servlet-class>com.mie.controller.WishlistController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WishlistController</servlet-name>
+		<url-pattern>/WishlistController</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+>>>>>>> 193d5ca838f32a02cdcdac16a6525d68036cfcca
 		<display-name>SearchController</display-name>
 		<servlet-name>SearchController</servlet-name>
 		<servlet-class>com.mie.controller.SearchController</servlet-class>
@@ -16,6 +39,16 @@
 	<servlet-mapping>
 		<servlet-name>SearchController</servlet-name>
 		<url-pattern>/SearchController</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>SignupController</display-name>
+		<servlet-name>SignupController</servlet-name>
+		<servlet-class>com.mie.controller.SignupController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SignupController</servlet-name>
+		<url-pattern>/SignupController</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<description></description>
