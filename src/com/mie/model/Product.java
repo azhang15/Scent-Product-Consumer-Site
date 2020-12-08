@@ -5,7 +5,7 @@ import java.util.List;
 public class Product {
 	
 	private int prodId;
-	private String title;
+	public String title;
 	private String category;
 	private String brand;
 	private String fragranceFamily;

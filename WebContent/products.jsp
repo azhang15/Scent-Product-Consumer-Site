@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,7 +101,13 @@
     </div>
 
     <div class="contents" style="margin-left:25%;padding:1px 16px;">
-
+    
+		<c:forEach items="${products}" var="product">
+			<tr>
+				<td> title: <c:out value="${product.title}"/></td>
+			</tr>
+		</c:forEach>
+		
         <!-- product card 1 -->
         <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
             <div class="images">

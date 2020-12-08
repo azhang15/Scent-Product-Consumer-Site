@@ -10,6 +10,7 @@ import com.mie.dao.ProductDao;
 import com.mie.model.Filter;
 import com.mie.model.Product;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,28 +34,28 @@ public class ProductController extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String forward = LIST_PRODUCT;
-		String action = request.getParameter("action");
+		//String action = request.getParameter("action");
+		request.setAttribute("products", pdao.getAllProducts());
+//		if (action.equalsIgnoreCase("listProduct")) {
+//			request.setAttribute("products", pdao.getAllProducts());
+//		} else if (action.equalsIgnoreCase("filter")) {
+//	
+//			Filter filter = new Filter();
+//			//TODO: check parameter names after frontend finishes the filter page
+//			filter.setGender(request.getParameter("gender"));
+//			filter.setBrand(request.getParameter("brand"));
+//			filter.setCategory(request.getParameter("category"));
+//			filter.setFragranceFamily(request.getParameter("fragrancefamily"));
+//			filter.setNote(request.getParameter("note"));
+//			filter.setPriceRange(request.getParameter("pricerange"));
+//			// filter.setOccasion(request.getParameter("occasion"));
+//			// filter.setPersonality(request.getParameter("personality"));
+//
+//			request.setAttribute("products", pdao.filterProducts(filter));
+//		}
 		
-		if (action.equalsIgnoreCase("listProduct")) {
-			request.setAttribute("products", pdao.getAllProducts());
-		} else if (action.equalsIgnoreCase("filter")) {
-	
-			Filter filter = new Filter();
-			//TODO: check parameter names after frontend finishes the filter page
-			filter.setGender(request.getParameter("gender"));
-			filter.setBrand(request.getParameter("brand"));
-			filter.setCategory(request.getParameter("category"));
-			filter.setFragranceFamily(request.getParameter("fragrancefamily"));
-			filter.setNote(request.getParameter("note"));
-			filter.setPriceRange(request.getParameter("pricerange"));
-			// filter.setOccasion(request.getParameter("occasion"));
-			// filter.setPersonality(request.getParameter("personality"));
-
-			request.setAttribute("products", pdao.filterProducts(filter));
-		}
-		
-		RequestDispatcher view = request.getRequestDispatcher(forward);
-		view.forward(request,response);
+		RequestDispatcher view = request.getRequestDispatcher("/products.jsp");
+		view.forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
