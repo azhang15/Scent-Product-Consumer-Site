@@ -58,7 +58,7 @@ public class WishlistItemDao {
 		List<Product> products = new ArrayList<Product>();
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("select * from wishlist where userid=?");
+					.prepareStatement("SELECT * from Wishlist where userid=?");
 			preparedStatement.setInt(1, userId);
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
@@ -68,12 +68,14 @@ public class WishlistItemDao {
 				item.setUserId(rs.getInt("userid"));
 				items.add(item);
 			}
+			System.out.println(items.size());
+			
 			Iterator i = items.iterator();
 			while (i.hasNext()) {
 				WishlistItem item = (WishlistItem) i.next();
 				Product product = (new ProductDao()).getProduct(item.getProdId());
 				products.add(product);	
-			}
+			} System.out.println(products.size());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} return products;

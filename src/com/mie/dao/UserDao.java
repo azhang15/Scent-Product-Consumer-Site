@@ -41,7 +41,7 @@ public class UserDao {
 		User user = new User();
 		try {
 			PreparedStatement preparedStatment = connection
-					.prepareStatement("select * from users where userid =?");
+					.prepareStatement("select * from Users where userid =?");
 			preparedStatment.setInt(1, userId);
 			ResultSet rs = preparedStatment.executeQuery();
 			
@@ -61,7 +61,7 @@ public class UserDao {
 		List<User> users = new ArrayList<User>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from users");
+			ResultSet rs = statement.executeQuery("select * from Users");
 			while (rs.next()) {
 				User user = new User();
 				user.setUserId(rs.getInt("userid"));
@@ -81,7 +81,7 @@ public class UserDao {
 		List<User> users = new ArrayList<User>();
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("select * from users where FirstName LIKE ? OR LastName LIKE ? or email LIKE ?");
+					.prepareStatement("select * from Users where FirstName LIKE ? OR LastName LIKE ? or email LIKE ?");
 			preparedStatement.setString(1, "%" + keyword + "%");
 			preparedStatement.setString(2, "%" + keyword + "%");
 			preparedStatement.setString(3, "%" + keyword + "%");
@@ -104,7 +104,7 @@ public class UserDao {
 	public void updateUser(User user) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update users set FirstName=?, LastName=?, email=?, password=? where userid=?");
+					.prepareStatement("update Users set FirstName=?, LastName=?, email=?, password=? where userid=?");
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
 			preparedStatement.setString(3, user.getEmail());
@@ -118,7 +118,7 @@ public class UserDao {
 	public void deleteUser(int userId) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from users where userid=?");
+					.prepareStatement("delete from Users where userid=?");
 			preparedStatement.setInt(1, userId);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -145,11 +145,15 @@ public class UserDao {
 			if (!more) {
 				user.setValid(false);
 			} else if (more) {
+				int userid = rs.getInt("userid");
 				String FirstName = rs.getString("FirstName");
 				String LastName = rs.getString("LastName");
 				
+				user.setUserId(userid);
 				user.setFirstName(FirstName);
 				user.setLastName(LastName);
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
 				user.setValid(true);
 			}
 		} catch (Exception ex) {

@@ -43,7 +43,7 @@
             My Fragrance Collection
         </div>
 		
-		<div action="/Scent-Product-Consumer-Site/wishlist">
+		<div>
 			<c:forEach items="${wishlist}" var="product">
 	        <!-- product card 1 -->
 	        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
@@ -73,7 +73,7 @@
 		</div>
 
 
-        <!-- product card 2 -->
+        <!-- 
         <div class="container" style="margin-right: 25px" ;>
             <div class="images">
                 <img src="img/perfume.png" />
@@ -96,9 +96,10 @@
                 </div>
             </div>
         </div>
+        -->
 
 
-        <!-- product card 3 -->
+        <!-- 
         <div class="container" style="margin-right: 25px" ;>
             <div class="images">
                 <img src="img/perfume.png" />
@@ -121,6 +122,7 @@
                 </div>
             </div>
         </div>
+        -->
 
     </main>
 

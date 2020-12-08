@@ -1,6 +1,8 @@
 package com.mie.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +20,7 @@ import com.mie.dao.*;
  */
 public class LoginController extends HttpServlet {
 	
-	private static String ACCOUNT = "/myAccount.jsp";
+	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, java.io.IOException {
@@ -49,12 +51,19 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("email", user.getEmail());
 				session.setAttribute("firstname", user.getFirstName());
 				session.setAttribute("lastname", user.getLastName());
+				System.out.println(user);
+				
+				request.setAttribute("wishlist", (new WishlistItemDao()).getWishlist(user.getUserId()));
+				System.out.println((new WishlistItemDao()).getWishlist(user.getUserId()));
 				
 				/**
 				 * Redirect to the main page.
 				 */
 				
-				response.sendRedirect("myAccount.jsp");
+//				response.sendRedirect("myAccount.jsp");
+				
+				RequestDispatcher view = request.getRequestDispatcher("/myAccount.jsp");
+				view.forward(request, response);
 
 				/**
 				 * Set a timeout variable of 900 seconds (15 minutes) for this
