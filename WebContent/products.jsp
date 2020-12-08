@@ -101,39 +101,40 @@
     </div>
 
     <div class="contents" style="margin-left:25%;padding:1px 16px;">
-    
-		<c:forEach items="${products}" var="product">
-			<tr>
+    	<!-- 
+    		<tr>
 				<td> title: <c:out value="${product.title}"/></td>
 			</tr>
+    	 -->
+    
+		<c:forEach items="${products}" var="product">
+				<!-- product card 1 -->
+	        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
+	            <div class="images">
+	                <img src="img/perfume.png" />
+	            </div>
+	            <div class="product">
+	                <p><c:out value="${product.brand}"/></p>
+	                <h1 class="subheading"><c:out value="${product.title}"/></h1>
+	                <h4>$<c:out value="${product.price}"/></h4>
+	                <!-- 
+	                 <div class="rating">
+	                    <span class="fa fa-star checked"></span>
+	                    <span class="fa fa-star checked"></span>
+	                    <span class="fa fa-star checked"></span>
+	                    <span class="fa fa-star checked"></span>
+	                    <span class="fa fa-star"></span>
+	                </div>
+	                 -->
+	                <p class="desc"><c:out value="${product.occasion}"/></p>
+	                <div class="buttons" style="font-family: Playfair Display; ">
+	                    <button class="add ">Save Product ♥</button>
+	                </div>
+	            </div>
+	        </div>
 		</c:forEach>
 		
-        <!-- product card 1 -->
-        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
-            <div class="images">
-                <img src="img/perfume.png" />
-            </div>
-            <div class="product">
-                <p>Victor & Rolf</p>
-                <h1 class="subheading">Flowerbomb</h1>
-                <h4>$99.00</h4>
-                <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                </div>
-                <p class="desc">This veritable garden party in a bottle is an intoxicating perfume for women that is an enchanting whirl of cattleya, jasmine, and rose perfumes. Grounded in patchouli and vanilla, Flowerbomb is an addictive women’s fragrance of lavish
-                    beauty and voluptuous sensuality.</p>
-                <div class="buttons" style="font-family: Playfair Display; ">
-                    <button class="add ">Save Product ♥</button>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- product card 2 -->
+<!-- 
         <div class="container" style="margin-top: 75px ; " ;>
             <div class="images">
                 <img src="img/perfume.png" />
@@ -156,6 +157,8 @@
                 </div>
             </div>
         </div>
+ -->
+
     </div>
     <script src=" /js/products.js "></script>
 </body>

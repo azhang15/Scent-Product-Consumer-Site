@@ -370,7 +370,7 @@ public class ProductDao {
 		
 		try {
 			PreparedStatement preparedStatment = connection
-					.prepareStatement("select * from products");
+					.prepareStatement("select * from Products");
 			ResultSet rs = preparedStatment.executeQuery();
 			
 			//TODO: query productlinks and productnodes
