@@ -258,7 +258,7 @@
 		        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
 		            <div class="images">
 		                <!-- <img src="img/perfume.png" /> -->
-		                <<img src=<c:url value="${product.imageLink}"/> />
+                        <img src="<c:url value="${product.imageLink}"></c:url>" />
 		            </div>
 		            <div class="product">
 		                <p><c:out value="${product.brand}"/></p>
