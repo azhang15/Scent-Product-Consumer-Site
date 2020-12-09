@@ -48,11 +48,11 @@ public class SearchController extends HttpServlet {
 		
 		String keyword = request.getParameter("keyword");
 		// String brands[] = request.getParameterValues("brandcb")
-//		['chanl', 'CK', 'Brand3']
 
 		RequestDispatcher view = request.getRequestDispatcher(SEARCH_PRODUCT);
 		request.setAttribute("keyword", keyword);
 		request.setAttribute("products", dao.getProductByKeyword(keyword));
+		
 		/**
 		 * Redirect to the search results page after the list of products
 		 * matching the keywords has been retrieved.
