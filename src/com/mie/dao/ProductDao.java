@@ -169,7 +169,7 @@ public class ProductDao {
 		
 		originalProductList.addAll(allProducts.getAllProducts());
 		
-		for (Product product : originalProductList) {
+		for (Product product : originalProductList) { 
 			//filtering by gender
 			if (filter.getGender().equalsIgnoreCase("women")) {
 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {

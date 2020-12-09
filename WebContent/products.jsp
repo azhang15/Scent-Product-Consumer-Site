@@ -47,7 +47,7 @@
 
         <div class="filters">
             <!-- TODO: Add controller -->
-            <form action="FilterController" method = "POST">
+            <form action="ProductController" method = "POST">
                 <h3>Brand:</h3>
                 <div class="brand">
                 <!-- <%-- The name is what request.getParamter("NAME") --%>
@@ -105,134 +105,134 @@
                 </div>
                 <h3>Scent Notes:</h3>
                 <div class="notes">
-                    <input type="checkbox" />Leather Accord<br />
-                    <input type="checkbox" />amber<br />
-                    <input type="checkbox" />Amber Gris<br />
-                    <input type="checkbox" />Amber Wood<br />
-                    <input type="checkbox" />ambergris<br />
-                    <input type="checkbox" />amberwood<br />
-                    <input type="checkbox" />apple<br />
-                    <input type="checkbox" />aquatic notes<br />
-                    <input type="checkbox" />bamboo<br />
-                    <input type="checkbox" />basil<br />
-                    <input type="checkbox" />bergamot<br />
-                    <input type="checkbox" />birch leaf<br />
-                    <input type="checkbox" />Bitter Almond Oil<br />
-                    <input type="checkbox" />black peppers<br />
-                    <input type="checkbox" />blackcurrant<br />
-                    <input type="checkbox" />Blood orange<br />
-                    <input type="checkbox" />bourbon vanilla<br />
-                    <input type="checkbox" />Bulgarian Lavender<br />
-                    <input type="checkbox" />Bulgarian Rose<br />
-                    <input type="checkbox" />caramel accord<br />
-                    <input type="checkbox" />casablanca lily<br />
-                    <input type="checkbox" />Cashmeran Wood<br />
-                    <input type="checkbox" />Cedarwood<br />
-                    <input type="checkbox" />Cetalox<br />
-                    <input type="checkbox" />chinese pepper<br />
-                    <input type="checkbox" />Cinnamon<br />
-                    <input type="checkbox" />Cinnamon Spiced Bruleé<br />
-                    <input type="checkbox" />clean chypre accord<br />
-                    <input type="checkbox" />cloves buds<br />
-                    <input type="checkbox" />Coffee Accord<br />
-                    <input type="checkbox" />cognac<br />
-                    <input type="checkbox" />Crushed Sugar Cane<br />
-                    <input type="checkbox" />crystal moss accord<br />
-                    <input type="checkbox" />Damascus Rose<br />
-                    <input type="checkbox" />dark rum<br />
-                    <input type="checkbox" />Driftwood<br />
-                    <input type="checkbox" />Eucalyptus<br />
-                    <input type="checkbox" />flint<br />
-                    <input type="checkbox" />Fluffy Vanilla Marshmallow<br />
-                    <input type="checkbox" />Freesia<br />
-                    <input type="checkbox" />French Cade Wood<br />
-                    <input type="checkbox" />Fresh Kabocha Pumpkin<br />
-                    <input type="checkbox" />Fresh Mint<br />
-                    <input type="checkbox" />frosted grapefuit<br />
-                    <input type="checkbox" />Geranium<br />
-                    <input type="checkbox" />ginger<br />
-                    <input type="checkbox" />Goji Berry<br />
-                    <input type="checkbox" />Guaiac Wood<br />
-                    <input type="checkbox" />guaiacwood<br />
-                    <input type="checkbox" />honey<br />
-                    <input type="checkbox" />hot chili pepper<br />
-                    <input type="checkbox" />Huckleberry<br />
-                    <input type="checkbox" />immortal flower<br />
-                    <input type="checkbox" />incense<br />
-                    <input type="checkbox" />Italian Lemon<br />
-                    <input type="checkbox" />Jasmine<br />
-                    <input type="checkbox" />Jasmine Sambac<br />
-                    <input type="checkbox" />King William Pear<br />
-                    <input type="checkbox" />lavender<br />
-                    <input type="checkbox" />lavender essence<br />
-                    <input type="checkbox" />leather<br />
-                    <input type="checkbox" />lemon<br />
-                    <input type="checkbox" />lily<br />
-                    <input type="checkbox" />lily of the valley<br /> 
-                    <input type="checkbox" />magnolia<br />
-                    <input type="checkbox" />Mandarin<br />
-                    <input type="checkbox" />Mandarin Aquatic Note<br />
-                    <input type="checkbox" />Mandarin Orange<br />
-                    <input type="checkbox" />mimosa flower<br />
-                    <input type="checkbox" />mint leaves<br />
-                    <input type="checkbox" />musk<br />
-                    <input type="checkbox" />musk accord<br />
-                    <input type="checkbox" />neroli petals<br />
-                    <input type="checkbox" />oak wood<br />
-                    <input type="checkbox" />Orange<br />
-                    <input type="checkbox" />Orange Blossom<br />
-                    <input type="checkbox" />Orris Accord<br />
-                    <input type="checkbox" />Patchouli<br />
-                    <input type="checkbox" />pear<br />
-                    <input type="checkbox" />Peony<br />
-                    <input type="checkbox" />pepper<br />
-                    <input type="checkbox" />Pine<br />
-                    <input type="checkbox" />pineapple leaves<br />
-                    <input type="checkbox" />Pink Chypre<br />
-                    <input type="checkbox" />Pink Floral<br />
-                    <input type="checkbox" />Pomegranate<br />
-                    <input type="checkbox" />Raspberry<br />
-                    <input type="checkbox" />red berries<br />
-                    <input type="checkbox" />rice powder<br />
-                    <input type="checkbox" />Ripe Mango<br />
-                    <input type="checkbox" />rose<br />
-                    <input type="checkbox" />Rose Absolute<br />
-                    <input type="checkbox" />saffron<br />
-                    <input type="checkbox" />sage<br />
-                    <input type="checkbox" />Sandalwood<br />
-                    <input type="checkbox" />sea salt<br />
-                    <input type="checkbox" />spices<br />
-                    <input type="checkbox" />star anise<br />
-                    <input type="checkbox" />Strawberry<br />
-                    <input type="checkbox" />Tarocco Orange<br />
-                    <input type="checkbox" />tasty vanilla<br />
-                    <input type="checkbox" />Texas Cedarwood<br />
-                    <input type="checkbox" />thyme<br />
-                    <input type="checkbox" />tobacco leaf<br />
-                    <input type="checkbox" />tonka beans<br />
-                    <input type="checkbox" />tropical melon<br />
-                    <input type="checkbox" />Tumeric<br />
-                    <input type="checkbox" />vanilla<br />
-                    <input type="checkbox" />Vanilla Beans<br />
-                    <input type="checkbox" />Verbena<br />
-                    <input type="checkbox" />Vetiver<br />
-                    <input type="checkbox" />violet leaves<br />
-                    <input type="checkbox" />warm woods<br />
-                    <input type="checkbox" />Whipped Coconut Crema<br />
-                    <input type="checkbox" />White florals<br />
-                    <input type="checkbox" />white gardenia<br />
-                    <input type="checkbox" />white ginger<br />
-                    <input type="checkbox" />Woods<br />
-                    <input type="checkbox" />Ylang Ylang<br />
-                    <input type="checkbox" />yuzu lemon<br />
-                    <input type="checkbox" />Zesty Lemon<br />
+                    <input type="checkbox" name = "notescb" value="Leather Accord"/>Leather Accord<br />
+                    <input type="checkbox" name = "notescb" value="amber"/>amber<br />
+                    <input type="checkbox" name = "notescb" value="Amber Gris"/>Amber Gris<br />
+                    <input type="checkbox" name = "notescb" value="Amber Wood"/>Amber Wood<br />
+                    <input type="checkbox" name = "notescb" value="ambergris"/>ambergris<br />
+                    <input type="checkbox" name = "notescb" value="amberwood"/>amberwood<br />
+                    <input type="checkbox" name = "notescb" value="apple"/>apple<br />
+                    <input type="checkbox" name = "notescb" value="aquatic notes"/>aquatic notes<br />
+                    <input type="checkbox" name = "notescb" value="bamboo"/>bamboo<br />
+                    <input type="checkbox" name = "notescb" value="basil"/>basil<br />
+                    <input type="checkbox" name = "notescb" value="bergamot"/>bergamot<br />
+                    <input type="checkbox" name = "notescb" value="birch leaf"/>birch leaf<br />
+                    <input type="checkbox" name = "notescb" value="Bitter Almond Oil"/>Bitter Almond Oil<br />
+                    <input type="checkbox" name = "notescb" value="black peppers"/>black peppers<br />
+                    <input type="checkbox" name = "notescb" value="blackcurrant"/>blackcurrant<br />
+                    <input type="checkbox" name = "notescb" value="Blood orange"/>Blood orange<br />
+                    <input type="checkbox" name = "notescb" value="bourbon vanilla"/>bourbon vanilla<br />
+                    <input type="checkbox" name = "notescb" value="Bulgarian Lavender"/>Bulgarian Lavender<br />
+                    <input type="checkbox" name = "notescb" value="Bulgarian Rose"/>Bulgarian Rose<br />
+                    <input type="checkbox" name = "notescb" value="caramel accord"/>caramel accord<br />
+                    <input type="checkbox" name = "notescb" value="casablanca lily"/>casablanca lily<br />
+                    <input type="checkbox" name = "notescb" value="Cashmeran Wood"/>Cashmeran Wood<br />
+                    <input type="checkbox" name = "notescb" value="Cedarwood"/>Cedarwood<br />
+                    <input type="checkbox" name = "notescb" value="Cetalox"/>Cetalox<br />
+                    <input type="checkbox" name = "notescb" value="chinese pepper"/>chinese pepper<br />
+                    <input type="checkbox" name = "notescb" value="Cinnamon"/>Cinnamon<br />
+                    <input type="checkbox" name = "notescb" value="Cinnamon Spiced Bruleé"/>Cinnamon Spiced Bruleé<br />
+                    <input type="checkbox" name = "notescb" value="clean chypre accord"/>clean chypre accord<br />
+                    <input type="checkbox" name = "notescb" value="cloves buds"/>cloves buds<br />
+                    <input type="checkbox" name = "notescb" value="Coffee Accord"/>Coffee Accord<br />
+                    <input type="checkbox" name = "notescb" value="cognac"/>cognac<br />
+                    <input type="checkbox" name = "notescb" value="Crushed Sugar Cane"/>Crushed Sugar Cane<br />
+                    <input type="checkbox" name = "notescb" value="crystal moss accord"/>crystal moss accord<br />
+                    <input type="checkbox" name = "notescb" value="Damascus Rose"/>Damascus Rose<br />
+                    <input type="checkbox" name = "notescb" value="dark rum"/>dark rum<br />
+                    <input type="checkbox" name = "notescb" value="Driftwood"/>Driftwood<br />
+                    <input type="checkbox" name = "notescb" value="Eucalyptus"/>Eucalyptus<br />
+                    <input type="checkbox" name = "notescb" value="flint"/>flint<br />
+                    <input type="checkbox" name = "notescb" value="Fluffy Vanilla Marshmallow"/>Fluffy Vanilla Marshmallow<br />
+                    <input type="checkbox" name = "notescb" value="Freesia"/>Freesia<br />
+                    <input type="checkbox" name = "notescb" value="French Cade Wood"/>French Cade Wood<br />
+                    <input type="checkbox" name = "notescb" value="Fresh Kabocha Pumpkin"/>Fresh Kabocha Pumpkin<br />
+                    <input type="checkbox" name = "notescb" value="Fresh Mint"/>Fresh Mint<br />
+                    <input type="checkbox" name = "notescb" value="frosted grapefuit"/>frosted grapefuit<br />
+                    <input type="checkbox" name = "notescb" value="Geranium"/>Geranium<br />
+                    <input type="checkbox" name = "notescb" value="ginger"/>ginger<br />
+                    <input type="checkbox" name = "notescb" value="Goji Berry"/>Goji Berry<br />
+                    <input type="checkbox" name = "notescb" value="Guaiac Wood"/>Guaiac Wood<br />
+                    <input type="checkbox" name = "notescb" value="guaiacwood"/>guaiacwood<br />
+                    <input type="checkbox" name = "notescb" value="honey"/>honey<br />
+                    <input type="checkbox" name = "notescb" value="hot chili pepper"/>hot chili pepper<br />
+                    <input type="checkbox" name = "notescb" value="Huckleberry"/>Huckleberry<br />
+                    <input type="checkbox" name = "notescb" value="immortal flower"/>immortal flower<br />
+                    <input type="checkbox" name = "notescb" value="incense"/>incense<br />
+                    <input type="checkbox" name = "notescb" value="Italian Lemon"/>Italian Lemon<br />
+                    <input type="checkbox" name = "notescb" value="Jasmine"/>Jasmine<br />
+                    <input type="checkbox" name = "notescb" value="Jasmine Sambac"/>Jasmine Sambac<br />
+                    <input type="checkbox" name = "notescb" value="King William Pear"/>King William Pear<br />
+                    <input type="checkbox" name = "notescb" value="lavender"/>lavender<br />
+                    <input type="checkbox" name = "notescb" value="lavender essence"/>lavender essence<br />
+                    <input type="checkbox" name = "notescb" value="leather"/>leather<br />
+                    <input type="checkbox" name = "notescb" value="lemon"/>lemon<br />
+                    <input type="checkbox" name = "notescb" value="lily"/>lily<br />
+                    <input type="checkbox" name = "notescb" value="lily of the valley"/>lily of the valley<br />
+                    <input type="checkbox" name = "notescb" value="magnolia"/>magnolia<br />
+                    <input type="checkbox" name = "notescb" value="Mandarin"/>Mandarin<br />
+                    <input type="checkbox" name = "notescb" value="Mandarin Aquatic Note"/>Mandarin Aquatic Note<br />
+                    <input type="checkbox" name = "notescb" value="Mandarin Orange"/>Mandarin Orange<br />
+                    <input type="checkbox" name = "notescb" value="mimosa flower"/>mimosa flower<br />
+                    <input type="checkbox" name = "notescb" value="mint leaves"/>mint leaves<br />
+                    <input type="checkbox" name = "notescb" value="musk"/>musk<br />
+                    <input type="checkbox" name = "notescb" value="musk accord"/>musk accord<br />
+                    <input type="checkbox" name = "notescb" value="neroli petals"/>neroli petals<br />
+                    <input type="checkbox" name = "notescb" value="oak wood"/>oak wood<br />
+                    <input type="checkbox" name = "notescb" value="Orange"/>Orange<br />
+                    <input type="checkbox" name = "notescb" value="Orange Blossom"/>Orange Blossom<br />
+                    <input type="checkbox" name = "notescb" value="Orris Accord"/>Orris Accord<br />
+                    <input type="checkbox" name = "notescb" value="Patchouli"/>Patchouli<br />
+                    <input type="checkbox" name = "notescb" value="pear"/>pear<br />
+                    <input type="checkbox" name = "notescb" value="Peony"/>Peony<br />
+                    <input type="checkbox" name = "notescb" value="pepper"/>pepper<br />
+                    <input type="checkbox" name = "notescb" value="Pine"/>Pine<br />
+                    <input type="checkbox" name = "notescb" value="pineapple leaves"/>pineapple leaves<br />
+                    <input type="checkbox" name = "notescb" value="Pink Chypre"/>Pink Chypre<br />
+                    <input type="checkbox" name = "notescb" value="Pink Floral"/>Pink Floral<br />
+                    <input type="checkbox" name = "notescb" value="Pomegranate"/>Pomegranate<br />
+                    <input type="checkbox" name = "notescb" value="Raspberry"/>Raspberry<br />
+                    <input type="checkbox" name = "notescb" value="red berries"/>red berries<br />
+                    <input type="checkbox" name = "notescb" value="rice powder"/>rice powder<br />
+                    <input type="checkbox" name = "notescb" value="Ripe Mango"/>Ripe Mango<br />
+                    <input type="checkbox" name = "notescb" value="rose"/>rose<br />
+                    <input type="checkbox" name = "notescb" value="Rose Absolute"/>Rose Absolute<br />
+                    <input type="checkbox" name = "notescb" value="saffron"/>saffron<br />
+                    <input type="checkbox" name = "notescb" value="sage"/>sage<br />
+                    <input type="checkbox" name = "notescb" value="Sandalwood"/>Sandalwood<br />
+                    <input type="checkbox" name = "notescb" value="sea salt"/>sea salt<br />
+                    <input type="checkbox" name = "notescb" value="spices"/>spices<br />
+                    <input type="checkbox" name = "notescb" value="star anise"/>star anise<br />
+                    <input type="checkbox" name = "notescb" value="Strawberry"/>Strawberry<br />
+                    <input type="checkbox" name = "notescb" value="Tarocco Orange"/>Tarocco Orange<br />
+                    <input type="checkbox" name = "notescb" value="tasty vanilla"/>tasty vanilla<br />
+                    <input type="checkbox" name = "notescb" value="Texas Cedarwood"/>Texas Cedarwood<br />
+                    <input type="checkbox" name = "notescb" value="thyme"/>thyme<br />
+                    <input type="checkbox" name = "notescb" value="tobacco leaf"/>tobacco leaf<br />
+                    <input type="checkbox" name = "notescb" value="tonka beans"/>tonka beans<br />
+                    <input type="checkbox" name = "notescb" value="tropical melon"/>tropical melon<br />
+                    <input type="checkbox" name = "notescb" value="Tumeric"/>Tumeric<br />
+                    <input type="checkbox" name = "notescb" value="vanilla"/>vanilla<br />
+                    <input type="checkbox" name = "notescb" value="Vanilla Beans"/>Vanilla Beans<br />
+                    <input type="checkbox" name = "notescb" value="Verbena"/>Verbena<br />
+                    <input type="checkbox" name = "notescb" value="Vetiver"/>Vetiver<br />
+                    <input type="checkbox" name = "notescb" value="violet leaves"/>violet leaves<br />
+                    <input type="checkbox" name = "notescb" value="warm woods"/>warm woods<br />
+                    <input type="checkbox" name = "notescb" value="Whipped Coconut Crema"/>Whipped Coconut Crema<br />
+                    <input type="checkbox" name = "notescb" value="White florals"/>White florals<br />
+                    <input type="checkbox" name = "notescb" value="white gardenia"/>white gardenia<br />
+                    <input type="checkbox" name = "notescb" value="white ginger"/>white ginger<br />
+                    <input type="checkbox" name = "notescb" value="Woods"/>Woods<br />
+                    <input type="checkbox" name = "notescb" value="Ylang Ylang"/>Ylang Ylang<br />
+                    <input type="checkbox" name = "notescb" value="yuzu lemon"/>yuzu lemon<br />
+                    <input type="checkbox" name = "notescb" value="Zesty Lemon"/>Zesty Lemon<br />
                 </div>
                 <h3>Price Range:</h3>
                 <div class="price">
-                    <input type="checkbox" /> Under $50 <br />
-                    <input type="checkbox" /> $50 to $100 <br />
-                    <input type="checkbox" /> $100 to $200 <br />
-                    <input type="checkbox" /> Over $200 <br />
+                    <input type="checkbox" name = "pricecb" value = 0/> Under $50 <br />
+                    <input type="checkbox" name = "pricecb" value = 50/> $50 to $100 <br />
+                    <input type="checkbox" name = "pricecb" value = 100/> $100 to $200 <br />
+                    <input type="checkbox" name = "pricecb" value = 200/> Over $200 <br />
                 </div>
                 <input type="reset" , value="Reset" , style="font-family: Georgia, 'Times New Roman', Times, serif;">
                 <input type="submit" style="margin-top:15px;font-family: Georgia, 'Times New Roman', Times, serif;" , value="Apply">
