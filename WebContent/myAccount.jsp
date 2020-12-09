@@ -44,7 +44,7 @@
         </div>
 		
 		<div>
-			<c:forEach items="${wishlist}" var="product">
+			<c:forEach items="${wishlist}" var="product" varStatus="loop">
                 <c:if test="${loop.count == 1}">
                     	<!-- product card 1 -->
                     <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 30px;" ;>
