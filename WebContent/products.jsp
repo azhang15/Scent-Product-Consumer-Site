@@ -47,7 +47,7 @@
 
         <div class="filters">
             <!-- TODO: Add controller -->
-            <form action="ProductController" method = "POST">
+            <form method="POST">
                 <h3>Brand:</h3>
                 <div class="brand">
                 <!-- <%-- The name is what request.getParamter("NAME") --%>
@@ -255,11 +255,13 @@
 		        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
 		            <div class="images">
 		                <img src="img/perfume.png" />
+		                <img src=<c:out value="${product.title}"/> />
 		            </div>
 		            <div class="product">
 		                <p><c:out value="${product.brand}"/></p>
 		                <h1 class="subheading"><c:out value="${product.title}"/></h1>
 		                <h4>$<c:out value="${product.price}"/></h4>
+		                <h4 style="display: none;" name="prodid">$<c:out value="${product.prodId}"/></h4>
 		                <!-- 
 		                 <div class="rating">
 		                    <span class="fa fa-star checked"></span>
@@ -271,7 +273,7 @@
 		                 -->
 		                <p class="desc"><c:out value="${product.occasion}"/></p>
 		                <div class="buttons" style="font-family: Playfair Display; ">
-		                    <button class="add ">Save Product</button>
+		                    <button class="add " method="POST" action="/Scent-Product-Consumer-Site/WishlistController">Save Product</button>
 		                </div>
 		            </div>
 		        </div>

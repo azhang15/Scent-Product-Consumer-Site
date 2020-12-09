@@ -150,7 +150,7 @@
             </div>
 
             <div id="signupsheet" class="modal1">
-                <form class="modal2_content" action="/SignupController">
+                <form class="modal2_content" action="/Scent-Product-Consumer-Site/SignupController">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('signupsheet').style.display='none'" class="closeit" title="Close Modal1">&times;</span>
                     </div>

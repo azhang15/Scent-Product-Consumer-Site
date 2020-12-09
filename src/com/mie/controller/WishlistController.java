@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mie.dao.ProductDao;
 import com.mie.dao.WishlistItemDao;
+import com.mie.model.Product;
 import com.mie.model.User;
 import com.mie.model.WishlistItem;
 
@@ -19,36 +21,34 @@ public class WishlistController extends HttpServlet{
 	private static String WISHLIST = "/myAccount.jsp";
 	
 	private WishlistItemDao dao;
+	private ProductDao pdao;
 	
 	public WishlistController() {
 		super();
 		dao = new WishlistItemDao();
+		pdao = new ProductDao();
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String forward = WISHLIST;
-		String action = request.getParameter("action");
-		
-		HttpSession session = request.getSession(true);
-		User user = (User) session.getAttribute("currentSessionUser");
-		
-		int userId = user.getUserId();
-//		int userId = Integer.parseInt(request.getParameter("userId"));
-		request.setAttribute("wishlist", dao.getWishlist(userId));
-		System.out.println(userId);
-		
-		
-		
+//		String action = request.getParameter("action");
+//	
 //		if (action.equalsIgnoreCase("deleteWishlistItem")){
 //			int WLItemId = Integer.parseInt(request.getParameter("WLItemId"));
 //			int userId = Integer.parseInt(request.getParameter("userId"));
 //			dao.deleteWishlistItem(WLItemId);
 //			request.setAttribute("wishlist", dao.getWishlist(userId));
-//		} else if (action.equalsIgnoreCase("listWishlist")) {
-//			int userId = Integer.parseInt(request.getParameter("userId"));
-//			request.setAttribute("wishlist", dao.getWishlist(userId));
-//		} 
+//		}
+//		HttpSession session = request.getSession(true);
+//		session.setAttribute("currentSessionUser", user);
+//		session.setAttribute("email", user.getEmail());
+//		session.setAttribute("firstname", user.getFirstName());
+//		session.setAttribute("lastname", user.getLastName());
 		
+		String prodidStr = request.getParameter("prodid");
+		int prodid = Integer.parseInt("prodidStr");
+		
+		Product product = pdao.getProduct(prodid);
 		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
