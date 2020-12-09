@@ -79,14 +79,13 @@ public class WishlistController extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
 		User user = (User) session.getAttribute("currentSessionUser");
 		System.out.println(user);
 		
-		if (request.getSession(false) != null) {
-//			String prodidStr = request.getParameter("prodid");
+		if (user != null) {
 			String prodidStr = request.getParameter("prodid");
-			System.out.println(prodidStr);
+//			System.out.println(prodidStr);
 			int prodid = Integer.parseInt(prodidStr);
 			
 			long millis=System.currentTimeMillis();  
@@ -107,7 +106,7 @@ public class WishlistController extends HttpServlet{
 			RequestDispatcher view = request.getRequestDispatcher(LIST_PRODUCT);
 			view.forward(request, response);
 		} else {
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("index.jsp");
 		}
 		
 //		WishlistItem wlitem = new WishlistItem();
