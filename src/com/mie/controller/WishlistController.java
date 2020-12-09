@@ -25,6 +25,7 @@ public class WishlistController extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
 	private static String WISHLIST = "/myAccount.jsp";
+	private static String LIST_PRODUCT = "/products.jsp";
 	
 	private WishlistItemDao dao;
 	private ProductDao pdao;
@@ -49,39 +50,75 @@ public class WishlistController extends HttpServlet{
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("currentSessionUser");
 		
-		String prodidStr = request.getParameter("prodid");
-		int prodid = Integer.parseInt("prodidStr");
-		
-		long millis=System.currentTimeMillis();  
-		java.sql.Date date= new java.sql.Date(millis); 
-		
-		String pattern = "MM/dd/yyyy HH:mm:ss";
-		DateFormat df = new SimpleDateFormat(pattern);
-		Date today = Calendar.getInstance().getTime(); 
-		String todayAsString = df.format(today);
-		
-		WishlistItem item = new WishlistItem();
-		item.setProdId(prodid);
-		item.setUserId(user.getUserId());
-		item.setDateAdded(todayAsString);
-		
-		dao.addWishlistItem(item);
-		
-		RequestDispatcher view = request.getRequestDispatcher(forward);
-		view.forward(request, response);
+		if (request.getSession(false) != null) {
+			String prodidStr = request.getParameter("prodid");
+			int prodid = Integer.parseInt("prodidStr");
+			
+			long millis=System.currentTimeMillis();  
+			java.sql.Date date= new java.sql.Date(millis); 
+			
+			String pattern = "MM/dd/yyyy HH:mm:ss";
+			DateFormat df = new SimpleDateFormat(pattern);
+			Date today = Calendar.getInstance().getTime(); 
+			String todayAsString = df.format(today);
+			
+			WishlistItem item = new WishlistItem();
+			item.setProdId(prodid);
+			item.setUserId(user.getUserId());
+			item.setDateAdded(todayAsString);
+			
+			dao.addWishlistItem(item);
+			
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
+		} else {
+			response.sendRedirect("/index.jsp");
+		}
 		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WishlistItem wlitem = new WishlistItem();
-		dao.addWishlistItem(wlitem);
-		wlitem.setProdId(Integer.parseInt(request.getParameter("prodId")));
-		wlitem.setUserId(Integer.parseInt(request.getParameter("userId")));
 		
-		dao.addWishlistItem(wlitem);
-
-		RequestDispatcher view = request.getRequestDispatcher(WISHLIST);
-		request.setAttribute("wishlist", dao.getWishlist(Integer.parseInt(request.getParameter("userId"))));
-		view.forward(request, response);
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("currentSessionUser");
+		System.out.println(user);
+		
+		if (request.getSession(false) != null) {
+//			String prodidStr = request.getParameter("prodid");
+			String prodidStr = request.getParameter("prodid");
+			System.out.println(prodidStr);
+			int prodid = Integer.parseInt(prodidStr);
+			
+			long millis=System.currentTimeMillis();  
+			java.sql.Date date= new java.sql.Date(millis); 
+			
+			String pattern = "MM/dd/yyyy HH:mm:ss";
+			DateFormat df = new SimpleDateFormat(pattern);
+			Date today = Calendar.getInstance().getTime(); 
+			String todayAsString = df.format(today);
+			
+			WishlistItem item = new WishlistItem();
+			item.setProdId(prodid);
+			item.setUserId(user.getUserId());
+			item.setDateAdded(todayAsString);
+			
+			dao.addWishlistItem(item);
+			
+			RequestDispatcher view = request.getRequestDispatcher(LIST_PRODUCT);
+			view.forward(request, response);
+		} else {
+			response.sendRedirect("/index.jsp");
+		}
+		
+//		WishlistItem wlitem = new WishlistItem();
+//		dao.addWishlistItem(wlitem);
+//		wlitem.setProdId(Integer.parseInt(request.getParameter("prodId")));
+//		wlitem.setUserId(Integer.parseInt(request.getParameter("userId")));
+//		
+//		dao.addWishlistItem(wlitem);
+//
+//		RequestDispatcher view = request.getRequestDispatcher(WISHLIST);
+//		request.setAttribute("wishlist", dao.getWishlist(Integer.parseInt(request.getParameter("userId"))));
+//		view.forward(request, response);
 	}
 }
