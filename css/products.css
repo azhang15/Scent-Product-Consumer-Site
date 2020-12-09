@@ -42,7 +42,7 @@
 }
 
 p {
-    font-size: 0.6em;
+    font-size: 1.2em;
     color: #BA7E7E;
     letter-spacing: 1px;
 }
@@ -60,7 +60,7 @@ p {
 } */
 
 img {
-    width: 170px;
+    width: 200px;
     margin-top: 20px;
 }
 
@@ -69,21 +69,20 @@ img {
     width: 50%;
     height: 100%;
     top: 5%;
-    left: 45%;
+    left: 55%;
 }
 
 .desc {
     text-transform: none;
     letter-spacing: 0;
-    margin-bottom: 17px;
-    color: #4E4E4E;
-    font-size: .7em;
+    margin-bottom: 10px;
+    color: #9e415d;
+    font-size: 0.9em;
     line-height: 1.5em;
     margin-right: 5px;
     text-align: left;
     width: 200px;
-    height: 75px;
-    overflow: scroll;
+    height: 20px;
 }
 
 button {
