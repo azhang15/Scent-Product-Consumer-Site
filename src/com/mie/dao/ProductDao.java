@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ProductDao {
@@ -164,124 +165,41 @@ public class ProductDao {
 	public List<Product> filterProducts(Filter filter) {
 		List<Product> originalProductList = new ArrayList<Product>();
 		List<Product> productList = new ArrayList<Product>();
-		List<Product> productByKeyword = new ArrayList<Product>();
 		ProductDao allProducts = new ProductDao();
 		
 		originalProductList.addAll(allProducts.getAllProducts());
 		
-		for (Product product : originalProductList) { 
-			//filtering by gender
-			if (filter.getGender().equalsIgnoreCase("women")) {
-				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
-					productList.add(product);
+		if (filter.getBrand().get(0).equals("default") && filter.getPriceRange().get(0) == -1 && filter.getNote().get(0).equals("default")) {
+			return originalProductList;
+		}
+		else {
+			for (Product product : originalProductList) {
+				if (!filter.getBrand().get(0).equals("default")) {
+					for (String brand : filter.getBrand()) {
+						if (product.getBrand().equalsIgnoreCase(brand)) {
+							productList.add(product);
+						}
+					}
 				}
-			}
-			else if (filter.getGender().equalsIgnoreCase("men")) {
-				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
-					productList.add(product);
+				if (filter.getPriceRange().get(0) != -1) {
+					int max = Collections.max(filter.getPriceRange());
+					if (product.getPrice() <= max) {
+						if (!productList.contains(product)) {
+							productList.add(product);
+						}
+					}
 				}
-			}
-			else if (filter.getGender().equalsIgnoreCase("neutral")) {
-				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
-					productList.add(product);
+				if (filter.getNote().get(0).equals("default")) {
+					for (String note : filter.getNote()) {
+						for (String prodNote : product.getNotes()) {
+							if (prodNote.equalsIgnoreCase(note)) {
+								if (!productList.contains(product)) {
+									productList.add(product);
+								}
+							}
+						}
+					}
 				}
-			}
-			
-			//filtering by brand
-			if (filter.getBrand().equalsIgnoreCase(product.getBrand())) {
-				productList.add(product);
-			}
-			
-			//filtering by category
-			if (filter.getCategory().equalsIgnoreCase("wear")) {
-				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
-					productList.add(product);
-				}
-			}
-			else if (filter.getCategory().equalsIgnoreCase("body")) {
-				if (product.getCategory().equals("Hair Mist")) {
-					productList.add(product);
-				}
-			}
-			else if (filter.getCategory().equalsIgnoreCase("home")) {
-				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
-					productList.add(product);
-				}
-			}
-			
-			//filtering by fragrance family
-			if (filter.getFragranceFamily().equalsIgnoreCase(product.getFragranceFamily())) {
-				productList.add(product);
-			}
-			
-			//filtering by price
-			//finish after front end is done, to ensure the filter price variable matches up properly
-			if (filter.getPriceRange().equals("Under $50")) {
-				if (product.getPrice() < 50) {
-					productList.add(product);
-				}
-			}
-			else if (filter.getPriceRange().equals("$50 to $100")) {
-				if (product.getPrice() >= 50 && product.getPrice() < 100) {
-					productList.add(product);
-				}
-			}
-			else if (filter.getPriceRange().equals("$100 to $200")) {
-				if (product.getPrice() >= 100 && product.getPrice() < 200) {
-					productList.add(product);
-				}
-			}
-			else if (filter.getPriceRange().equals("Over $200")) {
-				if (product.getPrice() >= 200) {
-					productList.add(product);
-				}
-			}
-			
-			//filtering by scent notes
-			for (String note : product.getNotes()) {
-				if (filter.getNote().equalsIgnoreCase(note)) {
-					productList.add(product);
-				}
-			}
-			
-			//filtering by occasion
-			if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
-				productList.add(product);
-			}
-			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
-				productList.add(product);
-			}
-			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
-				productList.add(product);
-			}
-			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
-				productList.add(product);
-			}
-			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
-				productList.add(product);
-			}
-			else if (filter.getOccasion().equalsIgnoreCase(product.getOccasion())) {
-				productList.add(product);
-			}
-			
-			//filtering by personality	
-			if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
-				productList.add(product);
-			}
-			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
-				productList.add(product);
-			}
-			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
-				productList.add(product);
-			}
-			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
-				productList.add(product);
-			}
-			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
-				productList.add(product);
-			}
-			else if (filter.getPersonality().equalsIgnoreCase(product.getPersonality())) {
-				productList.add(product);
 			}
 		}
 		
