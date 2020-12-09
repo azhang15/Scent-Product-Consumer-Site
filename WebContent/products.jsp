@@ -56,7 +56,7 @@
                     <input type="checkbox" name = "brandcb" value="Acqua di Parma"/>Acqua di Parma<br />
                     <input type="checkbox" name = "brandcb" value="Armani Beauty"/>Armani Beauty <br />
                     <input type="checkbox" name = "brandcb" value="Atelier Cologne"/>Atelier Cologne<br />
-                    <input type="checkbox" name = "brandcb" value="Burberry "/>Burberry<br />
+                    <input type="checkbox" name = "brandcb" value="Burberry"/>Burberry<br />
                     <input type="checkbox" name = "brandcb" value="BVLGARI"/>BVLGARI<br />
                     <input type="checkbox" name = "brandcb" value="Calvin Klein"/>Calvin Klein<br />
                     <input type="checkbox" name = "brandcb" value="Capri Blue"/>Capri Blue<br />
