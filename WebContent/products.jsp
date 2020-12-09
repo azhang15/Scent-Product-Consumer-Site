@@ -233,11 +233,11 @@
                 </div>
                 <h3>Price Range:</h3>
                 <div class="price">
-                    <input type="checkbox" name = "pricecb" value = 0 checked=checked/> Show All <br />
-                    <input type="checkbox" name = "pricecb" value = 50/> Under $50 <br />
-                    <input type="checkbox" name = "pricecb" value = 100/> $50 to $100 <br />
-                    <input type="checkbox" name = "pricecb" value = 200/> $100 to $200 <br />
-                    <input type="checkbox" name = "pricecb" value = 10000/> Over $200 <br />
+                    <input type="checkbox" name = "pricecb" value = "0" checked=checked/> Show All <br />
+                    <input type="checkbox" name = "pricecb" value = "50"/> Under $50 <br />
+                    <input type="checkbox" name = "pricecb" value = "100"/> $50 to $100 <br />
+                    <input type="checkbox" name = "pricecb" value = "200"/> $100 to $200 <br />
+                    <input type="checkbox" name = "pricecb" value = "10000"/> Over $200 <br />
                 </div>
                 <input type="reset" , value="Reset" , style="font-family: Georgia, 'Times New Roman', Times, serif;">
                 <input type="submit" style="margin-top:15px;font-family: Georgia, 'Times New Roman', Times, serif;" , value="Apply">
@@ -256,20 +256,23 @@
 			<c:forEach items="${products}" var="product" varStatus="loop">
                 <c:if test="${loop.count == 1}">
                     	<!-- product card 1 -->
-                    <div class="container" style="margin-top: 75px;margin-right: 30px;margin-left: 30px;" ;>
+                    <div class="container" style="margin-top: 75px;margin-right: 30px;" ;>
                         <div class="images">
                             <!-- <img src="img/perfume.png" /> -->
                             <img src="<c:url value="${product.imageLink}"></c:url>" />
                         </div>
-                        <div class="product">
+                        <div class="product" style="width: 150px;">
                             <p><c:out value="${product.brand}"/></p>
                             <h1 class="subheading"><c:out value="${product.title}"/></h1>
                             <h3>$<c:out value="${product.price}"/></h3>
                             <p class="desc"><c:out value="${product.personality}"/></p>
                             <div class="buttons" style="font-family: Playfair Display; ">
-                                <form method="POST" action="/Scent-Product-Consumer-Site/wishlist">
+                            	<!-- 
+                            	<form method="POST" action="/Scent-Product-Consumer-Site/wishlist">
                                     <button name="prodid" type="submit" class="add" value="${product.prodId}">Save Product</button>
                                 </form>
+                            	  -->
+                               <button name="prodid" type="submit" class="add" value="${product.prodId}">Save Product</button>
                             </div>
                         </div>
                     </div>
@@ -281,15 +284,18 @@
                             <!-- <img src="img/perfume.png" /> -->
                             <img src="<c:url value="${product.imageLink}"></c:url>" />
                         </div>
-                        <div class="product">
+                        <div class="product" style="width: 150px;">
                             <p><c:out value="${product.brand}"/></p>
                             <h1 class="subheading"><c:out value="${product.title}"/></h1>
                             <h3>$<c:out value="${product.price}"/></h3>
                             <p class="desc"><c:out value="${product.personality}"/></p>
                             <div class="buttons" style="font-family: Playfair Display; ">
-                                <form method="POST" action="/Scent-Product-Consumer-Site/wishlist">
+                                <!-- 
+                            	<form method="POST" action="/Scent-Product-Consumer-Site/wishlist">
                                     <button name="prodid" type="submit" class="add" value="${product.prodId}">Save Product</button>
                                 </form>
+                            	  -->
+                               <button name="prodid" type="submit" class="add" value="${product.prodId}">Save Product</button>
                             </div>
                         </div>
                     </div>

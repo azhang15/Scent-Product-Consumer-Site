@@ -51,6 +51,7 @@ p {
     font-size: 1.2em;
     color: #4E4E4E;
     margin-top: -5px;
+    maxwidth: 150px;
 }
 
 

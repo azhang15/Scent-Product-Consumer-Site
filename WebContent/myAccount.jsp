@@ -52,11 +52,11 @@
                             <!-- <img src="img/perfume.png" /> -->
                             <img src="<c:url value="${product.imageLink}"></c:url>" />
                         </div>
-                        <div class="product">
+                        <div class="product" style="width: 150px;">
                             <p><c:out value="${product.brand}"/></p>
                             <h1 class="subheading"><c:out value="${product.title}"/></h1>
                             <h3>$<c:out value="${product.price}"/></h3>
-                            <p class="desc"><c:out value="${product.occasion}"/></p>
+                            <p class="desc"><c:out value="${product.personality}"/></p>
                             <div class="buttons" style="font-family: Playfair Display; ">
                                 <form method="POST" action="/Scent-Product-Consumer-Site/wishlist">
                                     <div class="buttons" style="font-family: Playfair Display; ">
@@ -74,11 +74,11 @@
                             <!-- <img src="img/perfume.png" /> -->
                             <img src="<c:url value="${product.imageLink}"></c:url>" />
                         </div>
-                        <div class="product">
+                        <div class="product" style="width: 150px;">
                             <p><c:out value="${product.brand}"/></p>
                             <h1 class="subheading"><c:out value="${product.title}"/></h1>
                             <h3>$<c:out value="${product.price}"/></h3>
-                            <p class="desc"><c:out value="${product.occasion}"/></p>
+                            <p class="desc"><c:out value="${product.personality}"/></p>
                             <div class="buttons" style="font-family: Playfair Display; ">
                                 <form method="POST" action="/Scent-Product-Consumer-Site/wishlist">
                                     <div class="buttons" style="font-family: Playfair Display; ">

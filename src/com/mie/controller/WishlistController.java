@@ -106,7 +106,7 @@ public class WishlistController extends HttpServlet{
 			RequestDispatcher view = request.getRequestDispatcher(LIST_PRODUCT);
 			view.forward(request, response);
 		} else {
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("index.jsp#login");
 		}
 		
 //		WishlistItem wlitem = new WishlistItem();
