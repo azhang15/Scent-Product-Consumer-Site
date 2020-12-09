@@ -1,5 +1,6 @@
 package com.mie.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Product {
@@ -10,8 +11,8 @@ public class Product {
 	private String brand;
 	private String fragranceFamily;
 	private float price;
-	private List<String> links;
-	private List<String> notes;
+	private List<String> links = new ArrayList<String>();
+	private List<String> notes = new ArrayList<String>();
 	private String imageLink;
 	private String occasion;
 	private String personality;
@@ -73,7 +74,7 @@ public class Product {
 	
 	public void setLinks(List<String> links) {
 		// TODO Auto-generated method stub
-		this.links = links;
+		this.links.addAll(links);
 	}
 
 	public List<String> getNotes() {
@@ -81,7 +82,7 @@ public class Product {
 	}
 
 	public void setNotes(List<String> notes) {
-		this.notes = notes;
+		this.notes.addAll(notes);
 	}
 	
 	public String getImageLink() {

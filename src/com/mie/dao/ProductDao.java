@@ -169,7 +169,10 @@ public class ProductDao {
 		
 		originalProductList.addAll(allProducts.getAllProducts());
 		
-		if (filter.getBrand().get(0).equals("default") && filter.getNote().get(0).equals("default")) { //filter.getPriceRange().get(0) == -1
+		System.out.println("enters filter function");
+		System.out.println(allProducts.getAllProducts());
+		
+		if (filter.getBrand().get(0).equals("default") && filter.getPriceRange().get(0).equals("0") && filter.getNote().get(0).equals("default")) { //filter.getPriceRange().get(0) == -1
 			return originalProductList;
 		}
 		else {
@@ -177,19 +180,44 @@ public class ProductDao {
 				if (!filter.getBrand().get(0).equals("default")) {
 					for (String brand : filter.getBrand()) {
 						if (product.getBrand().equalsIgnoreCase(brand)) {
-							productList.add(product);
+							if (!productList.contains(product)) {
+								productList.add(product);
+							}
 						}
 					}
 				}
-//				if (filter.getPriceRange().get(0) != -1) {
-//					int max = Collections.max(filter.getPriceRange());
-//					if (product.getPrice() <= max) {
-//						if (!productList.contains(product)) {
-//							productList.add(product);
-//						}
-//					}
-//				}
-				if (filter.getNote().get(0).equals("default")) {
+				if (!filter.getPriceRange().get(0).equals("0")) {
+					for (String price : filter.getPriceRange()) {
+						if (price.equalsIgnoreCase("10000")) {
+							if (!productList.contains(product)) {
+								productList.add(product);
+							}
+						}
+						else if (price.equalsIgnoreCase("200")) {
+							if (product.getPrice() < 200) {
+								if (!productList.contains(product)) {
+									productList.add(product);
+								}
+							}
+						}
+						else if (price.equalsIgnoreCase("100")) {
+							if (product.getPrice() < 100) {
+								if (!productList.contains(product)) {
+									productList.add(product);
+								}
+							}
+						}
+						else if (price.equalsIgnoreCase("50")) {
+							if (product.getPrice() < 50) {
+								if (!productList.contains(product)) {
+									productList.add(product);
+								}
+							}
+						}
+						
+					}
+				}
+				if (!filter.getNote().get(0).equals("default")) {
 					for (String note : filter.getNote()) {
 						for (String prodNote : product.getNotes()) {
 							if (prodNote.equalsIgnoreCase(note)) {
@@ -286,25 +314,26 @@ public class ProductDao {
 	public List<Product> getAllProducts() {
 		List<Product> productList = new ArrayList<Product>();
 		
-		try {
+
+try {
 			PreparedStatement preparedStatment = connection
-					.prepareStatement("select * from Products");
+					.prepareStatement("select * from Products", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = preparedStatment.executeQuery();
 			
 			//TODO: query productlinks and productnodes
 			String query = "SELECT P.prodId, L.link FROM ProductLinks L INNER JOIN Products P ON L.prodId = P.prodId";
-			PreparedStatement preparedStatment2 = connection.prepareStatement(query);
+			PreparedStatement preparedStatment2 = connection.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs2 = preparedStatment2.executeQuery();
 			
 			String query2 = "SELECT P.prodId, N.note FROM ProductNotes N INNER JOIN Products P ON N.prodId = P.prodId";
-			PreparedStatement preparedStatment3 = connection.prepareStatement(query2);
+			PreparedStatement preparedStatment3 = connection.prepareStatement(query2, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs3 = preparedStatment3.executeQuery();
 			
 			while (rs.next()) {
 				Product product = new Product();
 				List<String> links = new ArrayList<String>();
-				List<String> notes = new ArrayList<String>();
-				product.setProdId(rs.getInt("prodid"));
+				List<String> notes = new ArrayList<String>();		
+				product.setProdId(rs.getInt("prodId"));
 				product.setTitle(rs.getString("title"));
 				product.setCategory(rs.getString("category"));
 				product.setBrand(rs.getString("brand"));
@@ -313,19 +342,21 @@ public class ProductDao {
 				product.setOccasion(rs.getString("occasion"));
 				product.setPersonality(rs.getString("personality"));
 				product.setImageLink(rs.getString("imageLink"));
-				 
+				
 				while (rs2.next()) {
-					if (rs.getInt("prodid") == rs2.getInt("prodid")) {
+					if (rs.getInt("prodId") == rs2.getInt("prodId")) {
 						links.add(rs2.getString("link"));
 					}	
 				}
+				rs2.beforeFirst();
 				product.setLinks(links);
 				links.clear();
 				while (rs3.next()) {
-					if (rs.getInt("prodid") == rs3.getInt("prodid")) {
+					if (rs.getInt("prodId") == rs3.getInt("prodId")) {
 						notes.add(rs3.getString("note"));
 					}	
 				}
+				rs3.beforeFirst();
 				product.setNotes(notes);
 				notes.clear();
 				productList.add(product);
@@ -333,6 +364,7 @@ public class ProductDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		return productList;
 	}
 }

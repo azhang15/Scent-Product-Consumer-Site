@@ -1,3 +1,4 @@
+
 package com.mie.controller;
 
 import javax.servlet.RequestDispatcher;
@@ -48,28 +49,26 @@ public class ProductController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Filter filter = new Filter();
-//		String test = request.getParameterValues("brandcb");
 		String[] brand = request.getParameterValues("brandcb");
 		List<String> brands = new ArrayList<String>();
 		for (int i = 0; i < brand.length; i++) {
 			brands.add(brand[i]);
 		}
-		String[] note = request.getParameterValues("note");
+		String[] note = request.getParameterValues("notescb");
 		List<String> notesList = new ArrayList<String>();
 		for (int i = 0; i < note.length; i++) {
 			notesList.add(note[i]);
 		}
-		//int[] price = request.getParameter("pricerange");
-				
-//		//TODO: check parameter names after frontend finishes the filter page
-//		filter.setGender(request.getParameter("gender"));
+		String[] price = request.getParameterValues("pricecb");
+		List<String> priceList = new ArrayList<String>();
+		for (int i = 0; i < price.length; i++) {
+			priceList.add(price[i]);
+		}
+		
 		filter.setBrand(brands);
-//		filter.setCategory(request.getParameter("category"));
-//		filter.setFragranceFamily(request.getParameter("fragrancefamily"));
 		filter.setNote(notesList);
-		//filter.setPriceRange();
-//		filter.setOccasion(request.getParameter("occasion"));
-//		filter.setPersonality(request.getParameter("personality"));
+		filter.setPriceRange(priceList);
+
 
 		request.setAttribute("products", pdao.filterProducts(filter));
 		
