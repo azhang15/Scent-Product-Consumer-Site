@@ -258,19 +258,17 @@
 		        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
 		            <div class="images">
 		                <!-- <img src="img/perfume.png" /> -->
-		                <img src=<c:url value="${product.imageLink}"/> />
+                        <img src="<c:url value="${product.imageLink}"></c:url>" />
 		            </div>
 		            <div class="product">
 		                <p><c:out value="${product.brand}"/></p>
 		                <h1 class="subheading"><c:out value="${product.title}"/></h1>
                         <h3>$<c:out value="${product.price}"/></h3>
-                        <div class="rating">
-                            <c:out value="${product.rating}"/> Stars
-                        </div>
-		                <h4 style="display: none;" name="prodid">$<c:out value="${product.prodId}"/></h4>
 		                <p class="desc"><c:out value="${product.occasion}"/></p>
 		                <div class="buttons" style="font-family: Playfair Display; ">
-		                    <button class="add " method="POST" action="/Scent-Product-Consumer-Site/WishlistController">Save Product</button>
+		                	<form method="POST" action="/Scent-Product-Consumer-Site/wishlist">
+		                		<button name="prodid" type="submit" class="add" value="${product.prodId}">Save Product</button>
+		                	</form>
 		                </div>
 		            </div>
 		        </div>
