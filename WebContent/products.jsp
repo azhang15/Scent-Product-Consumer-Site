@@ -47,10 +47,12 @@
 
         <div class="filters">
             <!-- TODO: Add controller -->
-            <form method="POST" action="ProductController">
+            <form action="FilterController" method = "POST">
                 <h3>Brand:</h3>
                 <div class="brand">
-                    <input type="checkbox" />Acqua di Parma<br />
+                <%-- The name is what request.getParamter("NAME") --%>
+                <%-- request.getParamter("NAME") = VALUE --%>
+                    <input type="checkbox" name = "brandcb" value="Acqua di Parma"/>Acqua di Parma<br />
                     <input type="checkbox" />Armani Beauty <br />
                     <input type="checkbox" />Atelier Cologne<br />
                     <input type="checkbox" />Burberry<br />
@@ -89,9 +91,8 @@
                     <input type="checkbox" />Versace<br />
                     <input type="checkbox" />Viktor&Rolf<br />
                     <input type="checkbox" />Voluspa<br />
-                    <input type="checkbox" />Yves Saint Laurent<br />
+                    <input type="checkbox" name = "brandcb"/>Yves Saint Laurent<br />
                 </div>
-                <!-- 
                 <h3>Rating:</h3>
                 <div class="filter-menu">
                     <select id="dropdown" name="rating">
@@ -102,131 +103,18 @@
                         <option value=1>1 star & above</option>
                     </select>
                 </div>
-                 -->
-                
                 <h3>Scent Notes:</h3>
-                <div class="notes"></div>
-                    <input type="checkbox" />Leather Accord<br />
-                    <input type="checkbox" />amber<br />
-                    <input type="checkbox" />Amber Gris<br />
-                    <input type="checkbox" />Amber Wood<br />
-                    <input type="checkbox" />ambergris<br />
-                    <input type="checkbox" />amberwood<br />
-                    <input type="checkbox" />apple<br />
-                    <input type="checkbox" />aquatic notes<br />
-                    <input type="checkbox" />bamboo<br />
-                    <input type="checkbox" />basil<br />
-                    <input type="checkbox" />bergamot<br />
-                    <input type="checkbox" />birch leaf<br />
-                    <input type="checkbox" />Bitter Almond Oil<br />
-                    <input type="checkbox" />black peppers<br />
-                    <input type="checkbox" />blackcurrant<br />
-                    <input type="checkbox" />Blood orange<br />
-                    <input type="checkbox" />bourbon vanilla<br />
-                    <input type="checkbox" />Bulgarian Lavender<br />
-                    <input type="checkbox" />Bulgarian Rose<br />
-                    <input type="checkbox" />caramel accord<br />
-                    <input type="checkbox" />casablanca lily<br />
-                    <input type="checkbox" />Cashmeran Wood<br />
-                    <input type="checkbox" />Cedarwood<br />
-                    <input type="checkbox" />Cetalox<br />
-                    <input type="checkbox" />chinese pepper<br />
-                    <input type="checkbox" />Cinnamon<br />
-                    <input type="checkbox" />Cinnamon Spiced Bruleé<br />
-                    <input type="checkbox" />clean chypre accord<br />
-                    <input type="checkbox" />cloves buds<br />
-                    <input type="checkbox" />Coffee Accord<br />
-                    <input type="checkbox" />cognac<br />
-                    <input type="checkbox" />Crushed Sugar Cane<br />
-                    <input type="checkbox" />crystal moss accord<br />
-                    <input type="checkbox" />Damascus Rose<br />
-                    <input type="checkbox" />dark rum<br />
-                    <input type="checkbox" />Driftwood<br />
-                    <input type="checkbox" />Eucalyptus<br />
-                    <input type="checkbox" />flint<br />
-                    <input type="checkbox" />Fluffy Vanilla Marshmallow<br />
-                    <input type="checkbox" />Freesia<br />
-                    <input type="checkbox" />French Cade Wood<br />
-                    <input type="checkbox" />Fresh Kabocha Pumpkin<br />
-                    <input type="checkbox" />Fresh Mint<br />
-                    <input type="checkbox" />frosted grapefuit<br />
-                    <input type="checkbox" />Geranium<br />
-                    <input type="checkbox" />ginger<br />
-                    <input type="checkbox" />Goji Berry<br />
-                    <input type="checkbox" />Guaiac Wood<br />
-                    <input type="checkbox" />guaiacwood<br />
-                    <input type="checkbox" />honey<br />
-                    <input type="checkbox" />hot chili pepper<br />
-                    <input type="checkbox" />Huckleberry<br />
-                    <input type="checkbox" />immortal flower<br />
-                    <input type="checkbox" />incense<br />
-                    <input type="checkbox" />Italian Lemon<br />
-                    <input type="checkbox" />Jasmine<br />
-                    <input type="checkbox" />Jasmine Sambac<br />
-                    <input type="checkbox" />King William Pear<br />
-                    <input type="checkbox" />lavender<br />
-                    <input type="checkbox" />lavender essence<br />
-                    <input type="checkbox" />leather<br />
-                    <input type="checkbox" />lemon<br />
-                    <input type="checkbox" />lily<br />
-                    <input type="checkbox" />lily of the valley<br /> 
-                    <input type="checkbox" />magnolia<br />
-                    <input type="checkbox" />Mandarin<br />
-                    <input type="checkbox" />Mandarin Aquatic Note<br />
-                    <input type="checkbox" />Mandarin Orange<br />
-                    <input type="checkbox" />mimosa flower<br />
-                    <input type="checkbox" />mint leaves<br />
-                    <input type="checkbox" />musk<br />
-                    <input type="checkbox" />musk accord<br />
-                    <input type="checkbox" />neroli petals<br />
-                    <input type="checkbox" />oak wood<br />
-                    <input type="checkbox" />Orange<br />
-                    <input type="checkbox" />Orange Blossom<br />
-                    <input type="checkbox" />Orris Accord<br />
-                    <input type="checkbox" />Patchouli<br />
-                    <input type="checkbox" />pear<br />
-                    <input type="checkbox" />Peony<br />
-                    <input type="checkbox" />pepper<br />
-                    <input type="checkbox" />Pine<br />
-                    <input type="checkbox" />pineapple leaves<br />
-                    <input type="checkbox" />Pink Chypre<br />
-                    <input type="checkbox" />Pink Floral<br />
-                    <input type="checkbox" />Pomegranate<br />
-                    <input type="checkbox" />Raspberry<br />
-                    <input type="checkbox" />red berries<br />
-                    <input type="checkbox" />rice powder<br />
-                    <input type="checkbox" />Ripe Mango<br />
-                    <input type="checkbox" />rose<br />
-                    <input type="checkbox" />Rose Absolute<br />
-                    <input type="checkbox" />saffron<br />
-                    <input type="checkbox" />sage<br />
-                    <input type="checkbox" />Sandalwood<br />
-                    <input type="checkbox" />sea salt<br />
-                    <input type="checkbox" />spices<br />
-                    <input type="checkbox" />star anise<br />
-                    <input type="checkbox" />Strawberry<br />
-                    <input type="checkbox" />Tarocco Orange<br />
-                    <input type="checkbox" />tasty vanilla<br />
-                    <input type="checkbox" />Texas Cedarwood<br />
-                    <input type="checkbox" />thyme<br />
-                    <input type="checkbox" />tobacco leaf<br />
-                    <input type="checkbox" />tonka beans<br />
-                    <input type="checkbox" />tropical melon<br />
-                    <input type="checkbox" />Tumeric<br />
-                    <input type="checkbox" />vanilla<br />
-                    <input type="checkbox" />Vanilla Beans<br />
-                    <input type="checkbox" />Verbena<br />
-                    <input type="checkbox" />Vetiver<br />
-                    <input type="checkbox" />violet leaves<br />
-                    <input type="checkbox" />warm woods<br />
-                    <input type="checkbox" />Whipped Coconut Crema<br />
-                    <input type="checkbox" />White florals<br />
-                    <input type="checkbox" />white gardenia<br />
-                    <input type="checkbox" />white ginger<br />
-                    <input type="checkbox" />Woods<br />
-                    <input type="checkbox" />Ylang Ylang<br />
-                    <input type="checkbox" />yuzu lemon<br />
-                    <input type="checkbox" />Zesty Lemon<br />
+                <div class="notes">
+                    <input type="checkbox" /> <br />
+                    <input type="checkbox" /> Armani Beauty <br />
+                    <input type="checkbox" /> This is checkbox <br />
+                    <input type="checkbox" /> This is checkbox <br />
+                    <input type="checkbox" /> This is checkbox <br />
+                    <input type="checkbox" /> This is checkbox <br />
+                    <input type="checkbox" /> This is checkbox <br />
+                    <input type="checkbox" /> This is checkbox <br />
+                    <input type="checkbox" /> This is checkbox <br />
+                    <input type="checkbox" /> This is checkbox <br />
                 </div>
                 <h3>Price Range:</h3>
                 <div class="price">
@@ -248,34 +136,33 @@
     	<!-- 
     		<div class="contents" style="margin-left:25%;padding:1px 16px;" method="GET" href="ProductController?action=listProduct" name="products" >
     	 -->
-    	<div class="contents" style="margin-left:25%;padding:1px 16px;"> 
-			<c:forEach items="${products}" var="product">
-					<!-- product card 1 -->
-		        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
-		            <div class="images">
-		                <img src=<c:out value="${product.imageLink}"/> />
-		            </div>
-		            <div class="product">
-		                <p><c:out value="${product.brand}"/></p>
-		                <h1 class="subheading"><c:out value="${product.title}"/></h1>
-		                <h4>$<c:out value="${product.price}"/></h4>
-		                <!-- 
-		                 <div class="rating">
-		                    <span class="fa fa-star checked"></span>
-		                    <span class="fa fa-star checked"></span>
-		                    <span class="fa fa-star checked"></span>
-		                    <span class="fa fa-star checked"></span>
-		                    <span class="fa fa-star"></span>
-		                </div>
-		                 -->
-		                <p class="desc"><c:out value="${product.occasion}"/></p>
-		                <div class="buttons" style="font-family: Playfair Display; ">
-		                    <button class="add ">Save Product ♥</button>
-		                </div>
-		            </div>
-		        </div>
-			</c:forEach>
-		</div>
+    
+		<c:forEach items="${products}" var="product">
+				<!-- product card 1 -->
+	        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
+	            <div class="images">
+	                <img src="img/perfume.png" />
+	            </div>
+	            <div class="product">
+	                <p><c:out value="${product.brand}"/></p>
+	                <h1 class="subheading"><c:out value="${product.title}"/></h1>
+	                <h4>$<c:out value="${product.price}"/></h4>
+	                <!-- 
+	                 <div class="rating">
+	                    <span class="fa fa-star checked"></span>
+	                    <span class="fa fa-star checked"></span>
+	                    <span class="fa fa-star checked"></span>
+	                    <span class="fa fa-star checked"></span>
+	                    <span class="fa fa-star"></span>
+	                </div>
+	                 -->
+	                <p class="desc"><c:out value="${product.occasion}"/></p>
+	                <div class="buttons" style="font-family: Playfair Display; ">
+	                    <button class="add ">Save Product ♥</button>
+	                </div>
+	            </div>
+	        </div>
+		</c:forEach>
 		
 <!-- 
         <div class="container" style="margin-top: 75px ; " ;>
