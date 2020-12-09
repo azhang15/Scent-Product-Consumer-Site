@@ -15,6 +15,11 @@ import com.mie.model.User;
 import com.mie.model.WishlistItem;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 
 public class WishlistController extends HttpServlet{
 	
@@ -41,18 +46,26 @@ public class WishlistController extends HttpServlet{
 //			request.setAttribute("wishlist", dao.getWishlist(userId));
 //		}
 		
-		User user = UserDao;
-		
-		HttpSession session = request.getSession(true);
-		session.setAttribute("currentSessionUser", user);
-		session.setAttribute("email", user.getEmail());
-		session.setAttribute("firstname", user.getFirstName());
-		session.setAttribute("lastname", user.getLastName());
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("currentSessionUser");
 		
 		String prodidStr = request.getParameter("prodid");
 		int prodid = Integer.parseInt("prodidStr");
 		
-		Product product = pdao.getProduct(prodid);
+		long millis=System.currentTimeMillis();  
+		java.sql.Date date= new java.sql.Date(millis); 
+		
+		String pattern = "MM/dd/yyyy HH:mm:ss";
+		DateFormat df = new SimpleDateFormat(pattern);
+		Date today = Calendar.getInstance().getTime(); 
+		String todayAsString = df.format(today);
+		
+		WishlistItem item = new WishlistItem();
+		item.setProdId(prodid);
+		item.setUserId(user.getUserId());
+		item.setDateAdded(todayAsString);
+		
+		dao.addWishlistItem(item);
 		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);

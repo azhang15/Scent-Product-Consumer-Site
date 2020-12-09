@@ -63,7 +63,7 @@ public class ProductController extends HttpServlet{
 		RequestDispatcher view = request.getRequestDispatcher("/products.jsp");
 		view.forward(request, response);
 		
-		System.out.println("blah");
+		System.out.println("filter reaches product controller");
 		
 	}
 }
