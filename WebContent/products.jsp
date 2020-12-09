@@ -50,16 +50,46 @@
             <form action="">
                 <h3>Brand:</h3>
                 <div class="brand">
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
+                    <input type="checkbox" />Acqua di Parma<br />
+                    <input type="checkbox" />Armani Beauty <br />
+                    <input type="checkbox" />Atelier Cologne<br />
+                    <input type="checkbox" />Burberry<br />
+                    <input type="checkbox" />BVLGARI<br />
+                    <input type="checkbox" />Calvin Klein<br />
+                    <input type="checkbox" />Capri Blue<br />
+                    <input type="checkbox" />Chloe<br />
+                    <input type="checkbox" />Dior<br />
+                    <input type="checkbox" />Dolce&Gabbana<br />
+                    <input type="checkbox" />Etat Libre d'Orange<br />
+                    <input type="checkbox" />Floral Street<br />
+                    <input type="checkbox" />Guerlain<br />
+                    <input type="checkbox" />Hermes<br />
+                    <input type="checkbox" />Jean Paul Gaultier<br />
+                    <input type="checkbox" />Jo Malone London<br />
+                    <input type="checkbox" />Juliette Has a Gun<br />
+                    <input type="checkbox" />Kilian<br />
+                    <input type="checkbox" />Lancome<br />
+                    <input type="checkbox" />Maison Louis Marie<br />
+                    <input type="checkbox" />Marc Jacobs Fragrances<br />
+                    <input type="checkbox" />Montblanc<br />
+                    <input type="checkbox" />Moschino<br />
+                    <input type="checkbox" />Mugler<br />
+                    <input type="checkbox" />Narciso Rodriguez<br />
+                    <input type="checkbox" />NEST New York<br />
+                    <input type="checkbox" />Paco Rabanne<br />
+                    <input type="checkbox" />philosophy<br />
+                    <input type="checkbox" />PHLUR<br />
+                    <input type="checkbox" />prada<br />
+                    <input type="checkbox" />Ralph Lauren<br />
+                    <input type="checkbox" />Serge Lutens<br />
+                    <input type="checkbox" />TOCCA<br />
+                    <input type="checkbox" />Tom Ford<br />
+                    <input type="checkbox" />Tory Burch<br />
+                    <input type="checkbox" />Valentino<br />
+                    <input type="checkbox" />Versace<br />
+                    <input type="checkbox" />Viktor&Rolf<br />
+                    <input type="checkbox" />Voluspa<br />
+                    <input type="checkbox" />Yves Saint Laurent<br />
                 </div>
                 <h3>Rating:</h3>
                 <div class="filter-menu">
@@ -73,8 +103,8 @@
                 </div>
                 <h3>Scent Notes:</h3>
                 <div class="notes">
-                    <input type="checkbox" /> This is checkbox <br />
-                    <input type="checkbox" /> This is checkbox <br />
+                    <input type="checkbox" /> <br />
+                    <input type="checkbox" /> Armani Beauty <br />
                     <input type="checkbox" /> This is checkbox <br />
                     <input type="checkbox" /> This is checkbox <br />
                     <input type="checkbox" /> This is checkbox <br />
