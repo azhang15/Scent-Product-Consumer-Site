@@ -52,6 +52,7 @@
                 <div class="brand">
                 <!-- <%-- The name is what request.getParamter("NAME") --%>
                 <%-- request.getParamter("NAME") = VALUE --%> -->
+                    <input type="checkbox" name = "brandcb" value="default" checked=checked/>Show All<br />
                     <input type="checkbox" name = "brandcb" value="Acqua di Parma"/>Acqua di Parma<br />
                     <input type="checkbox" name = "brandcb" value="Armani Beauty"/>Armani Beauty <br />
                     <input type="checkbox" name = "brandcb" value="Atelier Cologne"/>Atelier Cologne<br />
@@ -107,6 +108,7 @@
                  -->
                 <h3>Scent Notes:</h3>
                 <div class="notes">
+                    <input type="checkbox" name = "notescb" value="default" checked=checked/>Show All<br />
                     <input type="checkbox" name = "notescb" value="Leather Accord"/>Leather Accord<br />
                     <input type="checkbox" name = "notescb" value="amber"/>amber<br />
                     <input type="checkbox" name = "notescb" value="Amber Gris"/>Amber Gris<br />
@@ -231,10 +233,11 @@
                 </div>
                 <h3>Price Range:</h3>
                 <div class="price">
-                    <input type="checkbox" name = "pricecb" value = 0/> Under $50 <br />
-                    <input type="checkbox" name = "pricecb" value = 50/> $50 to $100 <br />
-                    <input type="checkbox" name = "pricecb" value = 100/> $100 to $200 <br />
-                    <input type="checkbox" name = "pricecb" value = 200/> Over $200 <br />
+                    <input type="checkbox" name = "pricecb" value = 0 checked=checked/> Show All <br />
+                    <input type="checkbox" name = "pricecb" value = 50/> Under $50 <br />
+                    <input type="checkbox" name = "pricecb" value = 100/> $50 to $100 <br />
+                    <input type="checkbox" name = "pricecb" value = 200/> $100 to $200 <br />
+                    <input type="checkbox" name = "pricecb" value = 10000/> Over $200 <br />
                 </div>
                 <input type="reset" , value="Reset" , style="font-family: Georgia, 'Times New Roman', Times, serif;">
                 <input type="submit" style="margin-top:15px;font-family: Georgia, 'Times New Roman', Times, serif;" , value="Apply">
