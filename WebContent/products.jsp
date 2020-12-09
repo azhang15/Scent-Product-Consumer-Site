@@ -47,7 +47,7 @@
 
         <div class="filters">
             <!-- TODO: Add controller -->
-            <form action="">
+            <form method="POST" action="ProductController">
                 <h3>Brand:</h3>
                 <div class="brand">
                     <input type="checkbox" />Acqua di Parma<br />
@@ -91,6 +91,7 @@
                     <input type="checkbox" />Voluspa<br />
                     <input type="checkbox" />Yves Saint Laurent<br />
                 </div>
+                <!-- 
                 <h3>Rating:</h3>
                 <div class="filter-menu">
                     <select id="dropdown" name="rating">
@@ -101,6 +102,8 @@
                         <option value=1>1 star & above</option>
                     </select>
                 </div>
+                 -->
+                
                 <h3>Scent Notes:</h3>
                 <div class="notes"></div>
                     <input type="checkbox" />Leather Accord<br />
@@ -245,33 +248,34 @@
     	<!-- 
     		<div class="contents" style="margin-left:25%;padding:1px 16px;" method="GET" href="ProductController?action=listProduct" name="products" >
     	 -->
-    
-		<c:forEach items="${products}" var="product">
-				<!-- product card 1 -->
-	        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
-	            <div class="images">
-	                <img src="img/perfume.png" />
-	            </div>
-	            <div class="product">
-	                <p><c:out value="${product.brand}"/></p>
-	                <h1 class="subheading"><c:out value="${product.title}"/></h1>
-	                <h4>$<c:out value="${product.price}"/></h4>
-	                <!-- 
-	                 <div class="rating">
-	                    <span class="fa fa-star checked"></span>
-	                    <span class="fa fa-star checked"></span>
-	                    <span class="fa fa-star checked"></span>
-	                    <span class="fa fa-star checked"></span>
-	                    <span class="fa fa-star"></span>
-	                </div>
-	                 -->
-	                <p class="desc"><c:out value="${product.occasion}"/></p>
-	                <div class="buttons" style="font-family: Playfair Display; ">
-	                    <button class="add ">Save Product ♥</button>
-	                </div>
-	            </div>
-	        </div>
-		</c:forEach>
+    	<div class="contents" style="margin-left:25%;padding:1px 16px;"> 
+			<c:forEach items="${products}" var="product">
+					<!-- product card 1 -->
+		        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
+		            <div class="images">
+		                <img src=<c:out value="${product.imageLink}"/> />
+		            </div>
+		            <div class="product">
+		                <p><c:out value="${product.brand}"/></p>
+		                <h1 class="subheading"><c:out value="${product.title}"/></h1>
+		                <h4>$<c:out value="${product.price}"/></h4>
+		                <!-- 
+		                 <div class="rating">
+		                    <span class="fa fa-star checked"></span>
+		                    <span class="fa fa-star checked"></span>
+		                    <span class="fa fa-star checked"></span>
+		                    <span class="fa fa-star checked"></span>
+		                    <span class="fa fa-star"></span>
+		                </div>
+		                 -->
+		                <p class="desc"><c:out value="${product.occasion}"/></p>
+		                <div class="buttons" style="font-family: Playfair Display; ">
+		                    <button class="add ">Save Product ♥</button>
+		                </div>
+		            </div>
+		        </div>
+			</c:forEach>
+		</div>
 		
 <!-- 
         <div class="container" style="margin-top: 75px ; " ;>

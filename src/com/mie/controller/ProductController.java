@@ -60,39 +60,26 @@ public class ProductController extends HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Product product = new Product();
+		String forward = LIST_PRODUCT;
+		String action = request.getParameter("action");
 		
-		product.setTitle(request.getParameter("title"));
-		product.setCategory(request.getParameter("category"));
-		product.setBrand(request.getParameter("brand"));
-		product.setFragranceFamily(request.getParameter("fragrancefamily"));
+		Filter filter = new Filter();
+//		//TODO: check parameter names after frontend finishes the filter page
+		filter.setGender(request.getParameter("gender"));
+		filter.setBrand(request.getParameter("brand"));
+		filter.setCategory(request.getParameter("category"));
+		filter.setFragranceFamily(request.getParameter("fragrancefamily"));
+		filter.setNote(request.getParameter("note"));
+		filter.setPriceRange(request.getParameter("pricerange"));
+		filter.setOccasion(request.getParameter("occasion"));
+		filter.setPersonality(request.getParameter("personality"));
 
-		String[] linksArr = request.getParameterValues("links");
-		List<String> linksArrList = new ArrayList<String>();
-		Collections.addAll(linksArrList, linksArr);
-		product.setLinks(linksArrList);
-
-		String[] notesArr = request.getParameterValues("notes");
-		List<String> notesArrList = new ArrayList<String>();
-		Collections.addAll(notesArrList, notesArr);
-		product.setLinks(notesArrList);
-		String prodid = request.getParameter("prodid");
+		request.setAttribute("products", pdao.filterProducts(filter));
 		
-		/**
-		 * If the 'prodid' field in the form is empty, the new product will
-		 * be added to the list of Product objects.
-		 */
-		if (prodid == null || prodid.isEmpty()) {
-			pdao.addProduct(product);
-		} else {
-			// editing a student --> update accordingly
-			product.setProdId(Integer.parseInt(prodid));
-			pdao.updateProduct(product);
-		}
+		RequestDispatcher view = request.getRequestDispatcher("/products.jsp");
+		view.forward(request, response);
 		
-		RequestDispatcher view = request.getRequestDispatcher(LIST_PRODUCT);
-		request.setAttribute("product", pdao.getAllProducts());
-		view.forward(request,  response);
+		System.out.println("blah");
 		
 	}
 }
