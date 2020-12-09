@@ -48,7 +48,7 @@ public class SearchController extends HttpServlet {
 		
 		String keyword = request.getParameter("keyword");
 		// String brands[] = request.getParameterValues("brandcb")
-		['chanl', 'CK', 'Brand3']
+//		['chanl', 'CK', 'Brand3']
 
 		RequestDispatcher view = request.getRequestDispatcher(SEARCH_PRODUCT);
 		request.setAttribute("keyword", keyword);

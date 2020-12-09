@@ -60,13 +60,11 @@ public class ProductController extends HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String forward = LIST_PRODUCT;
-		String action = request.getParameter("action");
 		
 		Filter filter = new Filter();
 //		//TODO: check parameter names after frontend finishes the filter page
 		filter.setGender(request.getParameter("gender"));
-		filter.setBrand(request.getParameter("brand"));
+		filter.setBrand(request.getParameter("brandcb"));
 		filter.setCategory(request.getParameter("category"));
 		filter.setFragranceFamily(request.getParameter("fragrancefamily"));
 		filter.setNote(request.getParameter("note"));

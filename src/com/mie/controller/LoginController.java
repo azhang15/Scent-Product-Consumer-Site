@@ -51,10 +51,10 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("email", user.getEmail());
 				session.setAttribute("firstname", user.getFirstName());
 				session.setAttribute("lastname", user.getLastName());
-				System.out.println(user);
+//				System.out.println(user);
 				
 				request.setAttribute("wishlist", (new WishlistItemDao()).getWishlist(user.getUserId()));
-				System.out.println((new WishlistItemDao()).getWishlist(user.getUserId()));
+//				System.out.println((new WishlistItemDao()).getWishlist(user.getUserId()));
 				
 				/**
 				 * Redirect to the main page.

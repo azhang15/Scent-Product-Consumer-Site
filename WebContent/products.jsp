@@ -47,7 +47,7 @@
 
         <div class="filters">
             <!-- TODO: Add controller -->
-            <form action="FilterController" method = "POST">
+            <form action="ProductController" method = "post">
                 <h3>Brand:</h3>
                 <div class="brand">
                 <%-- The name is what request.getParamter("NAME") --%>
@@ -93,8 +93,9 @@
                     <input type="checkbox" />Voluspa<br />
                     <input type="checkbox" name = "brandcb"/>Yves Saint Laurent<br />
                 </div>
+                <!-- 
                 <h3>Rating:</h3>
-                <div class="filter-menu">
+                 <div class="filter-menu">
                     <select id="dropdown" name="rating">
                         <option value=5>5 stars</option>
                         <option value=4>4 stars & above</option>
@@ -103,10 +104,11 @@
                         <option value=1>1 star & above</option>
                     </select>
                 </div>
+                 -->
                 <h3>Scent Notes:</h3>
                 <div class="notes">
                     <input type="checkbox" /> <br />
-                    <input type="checkbox" /> Armani Beauty <br />
+                    <input type="checkbox" name="note"/> Armani Beauty <br />
                     <input type="checkbox" /> This is checkbox <br />
                     <input type="checkbox" /> This is checkbox <br />
                     <input type="checkbox" /> This is checkbox <br />
@@ -118,10 +120,10 @@
                 </div>
                 <h3>Price Range:</h3>
                 <div class="price">
-                    <input type="checkbox" /> Under $50 <br />
-                    <input type="checkbox" /> $50 to $100 <br />
-                    <input type="checkbox" /> $100 to $200 <br />
-                    <input type="checkbox" /> Over $200 <br />
+                    <input type="checkbox" name="pricerange"/> Under $50 <br />
+                    <input type="checkbox" name="pricerange"/> $50 to $100 <br />
+                    <input type="checkbox" name="pricerange"/> $100 to $200 <br />
+                    <input type="checkbox" name="pricerange"/> Over $200 <br />
                 </div>
                 <input type="reset" , value="Reset" , style="font-family: Georgia, 'Times New Roman', Times, serif;">
                 <input type="submit" style="margin-top:15px;font-family: Georgia, 'Times New Roman', Times, serif;" , value="Apply">
@@ -136,33 +138,34 @@
     	<!-- 
     		<div class="contents" style="margin-left:25%;padding:1px 16px;" method="GET" href="ProductController?action=listProduct" name="products" >
     	 -->
-    
-		<c:forEach items="${products}" var="product">
-				<!-- product card 1 -->
-	        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
-	            <div class="images">
-	                <img src="img/perfume.png" />
-	            </div>
-	            <div class="product">
-	                <p><c:out value="${product.brand}"/></p>
-	                <h1 class="subheading"><c:out value="${product.title}"/></h1>
-	                <h4>$<c:out value="${product.price}"/></h4>
-	                <!-- 
-	                 <div class="rating">
-	                    <span class="fa fa-star checked"></span>
-	                    <span class="fa fa-star checked"></span>
-	                    <span class="fa fa-star checked"></span>
-	                    <span class="fa fa-star checked"></span>
-	                    <span class="fa fa-star"></span>
-	                </div>
-	                 -->
-	                <p class="desc"><c:out value="${product.occasion}"/></p>
-	                <div class="buttons" style="font-family: Playfair Display; ">
-	                    <button class="add ">Save Product ♥</button>
-	                </div>
-	            </div>
-	        </div>
-		</c:forEach>
+    	<div class="contents" style="margin-left:25%;padding:1px 16px;">
+			<c:forEach items="${products}" var="product">
+					<!-- product card 1 -->
+		        <div class="container" style="margin-top: 75px;margin-left: 30px;margin-right: 50px;" ;>
+		            <div class="images">
+		                <img src="img/perfume.png" />
+		            </div>
+		            <div class="product">
+		                <p><c:out value="${product.brand}"/></p>
+		                <h1 class="subheading"><c:out value="${product.title}"/></h1>
+		                <h4>$<c:out value="${product.price}"/></h4>
+		                <!-- 
+		                 <div class="rating">
+		                    <span class="fa fa-star checked"></span>
+		                    <span class="fa fa-star checked"></span>
+		                    <span class="fa fa-star checked"></span>
+		                    <span class="fa fa-star checked"></span>
+		                    <span class="fa fa-star"></span>
+		                </div>
+		                 -->
+		                <p class="desc"><c:out value="${product.occasion}"/></p>
+		                <div class="buttons" style="font-family: Playfair Display; ">
+		                    <button class="add ">Save Product</button>
+		                </div>
+		            </div>
+		        </div>
+			</c:forEach>
+		</div>
 		
 <!-- 
         <div class="container" style="margin-top: 75px ; " ;>

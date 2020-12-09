@@ -65,7 +65,7 @@
 	                 -->
 	                <p class="desc"><c:out value="${product.occasion}"/></p>
 	                <div class="buttons" style="font-family: Playfair Display; ">
-	                    <button class="add ">Save Product ♥</button>
+	                    <button class="add ">Remove from Wishlist</button>
 	                </div>
 	            </div>
 	        </div>
