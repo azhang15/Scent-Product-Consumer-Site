@@ -231,17 +231,10 @@
                 </div>
                 <h3>Price Range:</h3>
                 <div class="price">
-<<<<<<< HEAD
-                    <input type="checkbox" name="pricerange"/> Under $50 <br />
-                    <input type="checkbox" name="pricerange"/> $50 to $100 <br />
-                    <input type="checkbox" name="pricerange"/> $100 to $200 <br />
-                    <input type="checkbox" name="pricerange"/> Over $200 <br />
-=======
                     <input type="checkbox" name = "pricecb" value = 0/> Under $50 <br />
                     <input type="checkbox" name = "pricecb" value = 50/> $50 to $100 <br />
                     <input type="checkbox" name = "pricecb" value = 100/> $100 to $200 <br />
                     <input type="checkbox" name = "pricecb" value = 200/> Over $200 <br />
->>>>>>> branch 'main' of https://github.com/azhang15/Scent-Product-Consumer-Site.git
                 </div>
                 <input type="reset" , value="Reset" , style="font-family: Georgia, 'Times New Roman', Times, serif;">
                 <input type="submit" style="margin-top:15px;font-family: Georgia, 'Times New Roman', Times, serif;" , value="Apply">

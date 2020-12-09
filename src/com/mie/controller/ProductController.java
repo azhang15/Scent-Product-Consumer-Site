@@ -39,22 +39,8 @@ public class ProductController extends HttpServlet{
 		request.setAttribute("products", pdao.getAllProducts());
 //		if (action.equalsIgnoreCase("listProduct")) {
 //			request.setAttribute("products", pdao.getAllProducts());
-//		} else if (action.equalsIgnoreCase("filter")) {
-//	
-//			Filter filter = new Filter();
-//			//TODO: check parameter names after frontend finishes the filter page
-//			filter.setGender(request.getParameter("gender"));
-//			filter.setBrand(request.getParameter("brand"));
-//			filter.setCategory(request.getParameter("category"));
-//			filter.setFragranceFamily(request.getParameter("fragrancefamily"));
-//			filter.setNote(request.getParameter("note"));
-//			filter.setPriceRange(request.getParameter("pricerange"));
-//			// filter.setOccasion(request.getParameter("occasion"));
-//			// filter.setPersonality(request.getParameter("personality"));
-//
-//			request.setAttribute("products", pdao.filterProducts(filter));
 //		}
-//		
+	
 		RequestDispatcher view = request.getRequestDispatcher("/products.jsp");
 		view.forward(request, response);
 	}
