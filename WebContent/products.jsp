@@ -256,7 +256,7 @@
 			<c:forEach items="${products}" var="product" varStatus="loop">
                 <c:if test="${loop.count == 1}">
                     	<!-- product card 1 -->
-                    <div class="container" style="margin-top: 75px; margin-right: 30px; margin-left: 30px;" ;>
+                    <div class="container" style="margin-top: 75px;margin-right: 30px;margin-left: 30px;" ;>
                         <div class="images">
                             <!-- <img src="img/perfume.png" /> -->
                             <img src="<c:url value="${product.imageLink}"></c:url>" />
@@ -265,7 +265,7 @@
                             <p><c:out value="${product.brand}"/></p>
                             <h1 class="subheading"><c:out value="${product.title}"/></h1>
                             <h3>$<c:out value="${product.price}"/></h3>
-                            <p class="desc"><c:out value="${product.occasion}"/></p>
+                            <p class="desc"><c:out value="${product.personality}"/></p>
                             <div class="buttons" style="font-family: Playfair Display; ">
                                 <form method="POST" action="/Scent-Product-Consumer-Site/wishlist">
                                     <button name="prodid" type="submit" class="add" value="${product.prodId}">Save Product</button>
@@ -276,7 +276,7 @@
                 </c:if>
                 <c:if test="${loop.count > 1}">
                     	<!-- product card 2 -->
-                    <div class="container" style="margin-top: 75px; margin-right: 30px;" ;>
+                    <div class="container" style="margin-top: 75px; margin-right: 50px;" ;>
                         <div class="images">
                             <!-- <img src="img/perfume.png" /> -->
                             <img src="<c:url value="${product.imageLink}"></c:url>" />
@@ -285,7 +285,7 @@
                             <p><c:out value="${product.brand}"/></p>
                             <h1 class="subheading"><c:out value="${product.title}"/></h1>
                             <h3>$<c:out value="${product.price}"/></h3>
-                            <p class="desc"><c:out value="${product.occasion}"/></p>
+                            <p class="desc"><c:out value="${product.personality}"/></p>
                             <div class="buttons" style="font-family: Playfair Display; ">
                                 <form method="POST" action="/Scent-Product-Consumer-Site/wishlist">
                                     <button name="prodid" type="submit" class="add" value="${product.prodId}">Save Product</button>
