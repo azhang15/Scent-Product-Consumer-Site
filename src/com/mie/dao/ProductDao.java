@@ -169,7 +169,7 @@ public class ProductDao {
 		
 		originalProductList.addAll(allProducts.getAllProducts());
 		
-		if (filter.getBrand().get(0).equals("default") && filter.getPriceRange().get(0) == -1 && filter.getNote().get(0).equals("default")) {
+		if (filter.getBrand().get(0).equals("default") && filter.getNote().get(0).equals("default")) { //filter.getPriceRange().get(0) == -1
 			return originalProductList;
 		}
 		else {
@@ -181,14 +181,14 @@ public class ProductDao {
 						}
 					}
 				}
-				if (filter.getPriceRange().get(0) != -1) {
-					int max = Collections.max(filter.getPriceRange());
-					if (product.getPrice() <= max) {
-						if (!productList.contains(product)) {
-							productList.add(product);
-						}
-					}
-				}
+//				if (filter.getPriceRange().get(0) != -1) {
+//					int max = Collections.max(filter.getPriceRange());
+//					if (product.getPrice() <= max) {
+//						if (!productList.contains(product)) {
+//							productList.add(product);
+//						}
+//					}
+//				}
 				if (filter.getNote().get(0).equals("default")) {
 					for (String note : filter.getNote()) {
 						for (String prodNote : product.getNotes()) {

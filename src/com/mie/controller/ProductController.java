@@ -48,15 +48,28 @@ public class ProductController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Filter filter = new Filter();
+//		String test = request.getParameterValues("brandcb");
+		String[] brand = request.getParameterValues("brandcb");
+		List<String> brands = new ArrayList<String>();
+		for (int i = 0; i < brand.length; i++) {
+			brands.add(brand[i]);
+		}
+		String[] note = request.getParameterValues("note");
+		List<String> notesList = new ArrayList<String>();
+		for (int i = 0; i < note.length; i++) {
+			notesList.add(note[i]);
+		}
+		//int[] price = request.getParameter("pricerange");
+				
 //		//TODO: check parameter names after frontend finishes the filter page
-		filter.setGender(request.getParameter("gender"));
-		filter.setBrand(request.getParameter("brandcb"));
-		filter.setCategory(request.getParameter("category"));
-		filter.setFragranceFamily(request.getParameter("fragrancefamily"));
-		filter.setNote(request.getParameter("note"));
-		filter.setPriceRange(request.getParameter("pricerange"));
-		filter.setOccasion(request.getParameter("occasion"));
-		filter.setPersonality(request.getParameter("personality"));
+//		filter.setGender(request.getParameter("gender"));
+		filter.setBrand(brands);
+//		filter.setCategory(request.getParameter("category"));
+//		filter.setFragranceFamily(request.getParameter("fragrancefamily"));
+		filter.setNote(notesList);
+		//filter.setPriceRange();
+//		filter.setOccasion(request.getParameter("occasion"));
+//		filter.setPersonality(request.getParameter("personality"));
 
 		request.setAttribute("products", pdao.filterProducts(filter));
 		

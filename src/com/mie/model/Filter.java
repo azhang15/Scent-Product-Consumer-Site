@@ -6,9 +6,12 @@ import java.util.List;
 public class Filter {
 	
 //	private String gender;
+//	private String[] brand;
 	private List<String> brand;
 //	private String category;
 //	private String fragranceFamily;
+//	private String[] note;
+//	private int[] priceRange;
 	private List<String> note;
 	private List<Integer> priceRange = new ArrayList<Integer>();
 //	 private String occasion;
@@ -18,6 +21,9 @@ public class Filter {
 //		return gender;
 //	}
 	
+//	public String[] getBrand() {
+//		return brand;
+//	}
 	public List<String> getBrand() {
 		return brand;
 	}
@@ -30,6 +36,13 @@ public class Filter {
 //		return fragranceFamily;
 //	}
 	
+//	public String[] getNote() {
+//		return note;
+//	}
+//	
+//	public int[] getPriceRange() {
+//		return priceRange;
+//	}
 	public List<String> getNote() {
 		return note;
 	}
@@ -37,7 +50,7 @@ public class Filter {
 	public List<Integer> getPriceRange() {
 		return priceRange;
 	}
-	
+
 //	 public String getOccasion() {
 //	 	return occasion;
 //	 }
@@ -48,6 +61,12 @@ public class Filter {
 //	
 //	public void setGender(String gender) {
 //		this.gender = gender;
+//	}
+	
+//	public void setBrand(String[] brand) {
+//		for (int i = 0; i < brand.length; i++) {
+//			this.brand[i] = brand[i];
+//		}
 //	}
 	
 	public void setBrand(List<String> brand) {
@@ -62,6 +81,13 @@ public class Filter {
 //		this.category = ff;
 //	}
 	
+//	public void setNote(String[] note) {
+//		this.note = note;
+//	}
+//	
+//	public void setPriceRange(int[] priceRange) {
+//		this.priceRange = priceRange;
+//	}
 	public void setNote(List<String> note) {
 		this.note = note;
 	}
@@ -69,6 +95,7 @@ public class Filter {
 	public void setPriceRange(List<Integer> priceRange) {
 		this.priceRange = priceRange;
 	}
+
 	
 //	 public void setOccasion(String occasion) {
 //	 	this.occasion = occasion;
