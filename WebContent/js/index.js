@@ -31,3 +31,12 @@ function showProducts() {
         y.style.display = "none";
     }
 }
+
+function checkLogin() {
+	   if (request.getSession(true)) {
+		   window.location.href = "myAccount.jsp";
+	   } else {
+		   window.location.href = "index.jsp";
+	   }
+}
+	       

@@ -37,12 +37,12 @@
     <div class="top" style="letter-spacing: 2px;">
         <ul>
             <li style="float:left!important" class="barlist"><a href="#">Fragrance Finder</a></li>
-            <li style="padding-right: 30px;" class="barlist"><a href="myAccount.jsp">My Account</a></li>
+            <li style="padding-right: 30px;" class="barlist"><a href="index.jsp" onclick=checkLogin(); return false;>My Account</a></li>
             <li style="padding-right: 30px;" class="barlist"><a href="<%=request.getContextPath()%>/product">Find Products</a></li>
             <li class="barlist"><a href="#filter">Home</a></li>
         </ul>
     </div>
-
+	
     <!-- the good afternoon what do you want to smell part -->
     <div class="header">
         <h1 id="greetings"></h1>
@@ -188,10 +188,6 @@
                 </form>
             </div>
         </div>
-
-
-
-
 
         <!-- myscript -->
         <script src=" /js/index.js "></script>

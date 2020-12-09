@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mie.dao.ProductDao;
+import com.mie.dao.UserDao;
 import com.mie.dao.WishlistItemDao;
 import com.mie.model.Product;
 import com.mie.model.User;
@@ -39,11 +40,14 @@ public class WishlistController extends HttpServlet{
 //			dao.deleteWishlistItem(WLItemId);
 //			request.setAttribute("wishlist", dao.getWishlist(userId));
 //		}
-//		HttpSession session = request.getSession(true);
-//		session.setAttribute("currentSessionUser", user);
-//		session.setAttribute("email", user.getEmail());
-//		session.setAttribute("firstname", user.getFirstName());
-//		session.setAttribute("lastname", user.getLastName());
+		
+		User user = UserDao;
+		
+		HttpSession session = request.getSession(true);
+		session.setAttribute("currentSessionUser", user);
+		session.setAttribute("email", user.getEmail());
+		session.setAttribute("firstname", user.getFirstName());
+		session.setAttribute("lastname", user.getLastName());
 		
 		String prodidStr = request.getParameter("prodid");
 		int prodid = Integer.parseInt("prodidStr");
