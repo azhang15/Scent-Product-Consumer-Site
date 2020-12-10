@@ -170,9 +170,6 @@ public class ProductDao {
 		
 		originalProductList.addAll(allProducts.getAllProducts());
 		
-		System.out.println("enters filter function");
-		System.out.println(allProducts.getAllProducts());
-		
 		if (filter.getBrand().get(0).equals("default") && filter.getPriceRange().get(0).equals("0") && filter.getNote().get(0).equals("default")) { //filter.getPriceRange().get(0) == -1
 			return originalProductList;
 		}
@@ -319,77 +316,68 @@ public class ProductDao {
 		
 		originalProductList.addAll(allProducts.getAllProducts());
 		
-		for (Product product : originalProductList) { 
- 			if (quiz.getGender().equalsIgnoreCase("women")) {
- 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
- 					productList.add(product);
- 				}
- 			}
- 			else if (quiz.getGender().equalsIgnoreCase("men")) {
- 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
- 					productList.add(product);
- 				}
- 			}
- 			else if (quiz.getGender().equalsIgnoreCase("neutral")) {
- 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
- 					productList.add(product);
- 				}
- 			}
- 			
- 			if (quiz.getCategory().equalsIgnoreCase("wear")) {
- 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
- 					productList.add(product);
- 				}
- 			}
- 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
- 				if (product.getCategory().equals("Hair Mist")) {
- 					productList.add(product);
- 				}
- 			}
- 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
- 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
- 					productList.add(product);
- 				}
- 			}
- 			
- 			if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
- 				productList.add(product);
- 			}
-
- 				
- 			if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
- 				productList.add(product);
- 			}
- 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
- 				productList.add(product);
- 			}
+		if (quiz.getGender().equalsIgnoreCase("showall") && quiz.getCategory().equalsIgnoreCase("showall") && quiz.getOccasion().equalsIgnoreCase("showall") && quiz.getPersonality().equalsIgnoreCase("showall")) {
+			return originalProductList;
+		}
+		else {
+			for (Product product : originalProductList) { 
+	 			if (quiz.getGender().equalsIgnoreCase("women")) {
+	 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+	 					if (!productList.contains(product)) {
+							productList.add(product);
+						}
+	 				}
+	 			}
+	 			else if (quiz.getGender().equalsIgnoreCase("men")) {
+	 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+	 					if (!productList.contains(product)) {
+							productList.add(product);
+						}
+	 				}
+	 			}
+	 			else if (quiz.getGender().equalsIgnoreCase("neutral")) {
+	 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+	 					if (!productList.contains(product)) {
+							productList.add(product);
+						}
+	 				}
+	 			}
+	 			
+	 			if (quiz.getCategory().equalsIgnoreCase("wear")) {
+	 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+	 					if (!productList.contains(product)) {
+							productList.add(product);
+						}
+	 				}
+	 			}
+	 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+	 				if (product.getCategory().equals("Hair Mist")) {
+	 					if (!productList.contains(product)) {
+							productList.add(product);
+						}
+	 				}
+	 			}
+	 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+	 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+	 					if (!productList.contains(product)) {
+							productList.add(product);
+						}
+	 				}
+	 			}
+	 			
+	 			if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+	 				if (!productList.contains(product)) {
+						productList.add(product);
+					}
+	 			}
+	
+	 			if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+	 				if (!productList.contains(product)) {
+						productList.add(product);
+					}
+	 			}
+			}
+	 
 		}
  			
 		
