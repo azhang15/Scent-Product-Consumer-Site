@@ -102,26 +102,15 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Quiz quiz = new Quiz();
-		String[] brand = request.getParameterValues("brandcb");
-		List<String> brands = new ArrayList<String>();
-		for (int i = 0; i < brand.length; i++) {
-			brands.add(brand[i]);
-		}
-		String[] note = request.getParameterValues("notescb");
-		List<String> notesList = new ArrayList<String>();
-		for (int i = 0; i < note.length; i++) {
-			notesList.add(note[i]);
-		}
-		String[] price = request.getParameterValues("pricecb");
-		List<String> priceList = new ArrayList<String>();
-		for (int i = 0; i < price.length; i++) {
-			priceList.add(price[i]);
-		}
+		String[] gender = request.getParameterValues("gender");	
+		String[] category = request.getParameterValues("category");
+		String[] occasion = request.getParameterValues("occasion");
+		String[] personality = request.getParameterValues("personality");
 		
-		quiz.setBrand(brands);
-		quiz.setNote(notesList);
-		quiz.setPriceRange(priceList);
-
+		quiz.setGender(gender[0]);
+		quiz.setCategory(category[0]);
+		quiz.setOccasion(occasion[0]);
+		quiz.setPersonality(personality[0]);
 
 		request.setAttribute("products", pdao.searchByQuiz(quiz));
 		

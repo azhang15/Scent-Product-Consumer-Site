@@ -2,6 +2,7 @@ package com.mie.dao;
 
 import com.mie.model.Filter;
 import com.mie.model.Product;
+import com.mie.model.Quiz;
 import com.mie.model.User;
 import com.mie.util.DbUtil;
 
@@ -310,12 +311,96 @@ public class ProductDao {
 			e.printStackTrace();
 		} 
 	}
+	
+	public List<Product> searchByQuiz(Quiz quiz) {
+		List<Product> productList = new ArrayList<Product>();
+		ProductDao allProducts = new ProductDao();
+		List<Product> originalProductList = new ArrayList<Product>();
 		
+		originalProductList.addAll(allProducts.getAllProducts());
+		
+		for (Product product : originalProductList) { 
+ 			if (quiz.getGender().equalsIgnoreCase("women")) {
+ 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+ 					productList.add(product);
+ 				}
+ 			}
+ 			else if (quiz.getGender().equalsIgnoreCase("men")) {
+ 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+ 					productList.add(product);
+ 				}
+ 			}
+ 			else if (quiz.getGender().equalsIgnoreCase("neutral")) {
+ 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+ 					productList.add(product);
+ 				}
+ 			}
+ 			
+ 			if (quiz.getCategory().equalsIgnoreCase("wear")) {
+ 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+ 					productList.add(product);
+ 				}
+ 			}
+ 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+ 				if (product.getCategory().equals("Hair Mist")) {
+ 					productList.add(product);
+ 				}
+ 			}
+ 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+ 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+ 					productList.add(product);
+ 				}
+ 			}
+ 			
+ 			if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+ 				productList.add(product);
+ 			}
+
+ 				
+ 			if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+ 				productList.add(product);
+ 			}
+ 			else if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+ 				productList.add(product);
+ 			}
+		}
+ 			
+		
+		return productList;
+	}
+	
 	public List<Product> getAllProducts() {
 		List<Product> productList = new ArrayList<Product>();
 		
 
-try {
+		try {
 			PreparedStatement preparedStatment = connection
 					.prepareStatement("select * from Products", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = preparedStatment.executeQuery();
