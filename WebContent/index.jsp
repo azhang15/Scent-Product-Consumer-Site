@@ -58,7 +58,7 @@
         <h1>Find your perfect fragrance.</h1>
         <div class="filterbar">
             <!-- TODO: Add the controller name inside the action -->
-            <form action="/LoginController" method="POST">
+            <form action="/Scent-Product-Consumer-Site/LoginController" method="POST">
                 <div style="margin-top:10px;">
                     <label>Who are you shopping for?</label>
                     <br>
@@ -121,7 +121,7 @@
             <br>
             <br>
             <div id="loginsheet" class="modal1">
-                <form class="modal1_content" action="/LoginController">
+                <form class="modal1_content" action="/Scent-Product-Consumer-Site/LoginController">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('loginsheet').style.display='none'" class="closeit" title="Close Modal1">&times;</span>
                         <img src="img/avatar.jpg" alt="Avatar" class="avatar">

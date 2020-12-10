@@ -111,12 +111,14 @@ public class LoginController extends HttpServlet {
 		quiz.setCategory(category[0]);
 		quiz.setOccasion(occasion[0]);
 		quiz.setPersonality(personality[0]);
+		
+//		System.out.println(quiz.getPersonality());
 
 		request.setAttribute("products", pdao.searchByQuiz(quiz));
 		
 		RequestDispatcher view = request.getRequestDispatcher("/products.jsp");
 		view.forward(request, response);
 		
-//		System.out.println("quiz reaches product controller");
+		System.out.println("quiz reaches product controller");
 	}
 }
