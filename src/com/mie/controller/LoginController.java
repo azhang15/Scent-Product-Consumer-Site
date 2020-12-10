@@ -1,6 +1,8 @@
 package com.mie.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +23,13 @@ import com.mie.dao.*;
 public class LoginController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	
+	private ProductDao pdao;
+	
+	public LoginController() {
+		super();
+		pdao = new ProductDao();
+	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, java.io.IOException {
@@ -88,5 +97,37 @@ public class LoginController extends HttpServlet {
 			 */
 			System.out.println(theException);
 		}
+	} 
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		Quiz quiz = new Quiz();
+		String[] brand = request.getParameterValues("brandcb");
+		List<String> brands = new ArrayList<String>();
+		for (int i = 0; i < brand.length; i++) {
+			brands.add(brand[i]);
+		}
+		String[] note = request.getParameterValues("notescb");
+		List<String> notesList = new ArrayList<String>();
+		for (int i = 0; i < note.length; i++) {
+			notesList.add(note[i]);
+		}
+		String[] price = request.getParameterValues("pricecb");
+		List<String> priceList = new ArrayList<String>();
+		for (int i = 0; i < price.length; i++) {
+			priceList.add(price[i]);
+		}
+		
+		quiz.setBrand(brands);
+		quiz.setNote(notesList);
+		quiz.setPriceRange(priceList);
+
+
+		request.setAttribute("products", pdao.searchByQuiz(quiz));
+		
+		RequestDispatcher view = request.getRequestDispatcher("/products.jsp");
+		view.forward(request, response);
+		
+//		System.out.println("quiz reaches product controller");
 	}
 }
