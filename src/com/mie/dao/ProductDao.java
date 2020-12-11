@@ -170,59 +170,166 @@ public class ProductDao {
 		
 		originalProductList.addAll(allProducts.getAllProducts());
 		
-		if (filter.getBrand().get(0).equals("default") && filter.getPriceRange().get(0).equals("0") && filter.getNote().get(0).equals("default")) { //filter.getPriceRange().get(0) == -1
+		boolean brandIsDefault = false; //Set to true if the quiz filter is set at default for any of the options
+		boolean priceIsDefault = false;
+		boolean noteIsDefault = false;
+		
+		if (filter.getBrand().get(0).equals("default")) {
+			brandIsDefault = true;
+		}
+		if (filter.getPriceRange().get(0).equals("0")) {
+			priceIsDefault = true;
+		}
+		if (filter.getNote().get(0).equals("default")) {
+			noteIsDefault = true;
+		}
+		
+		if (brandIsDefault && priceIsDefault && noteIsDefault) { 
 			return originalProductList;
 		}
-		else {
+		else if (brandIsDefault && priceIsDefault) {
 			for (Product product : originalProductList) {
-				if (!filter.getBrand().get(0).equals("default")) {
-					for (String brand : filter.getBrand()) {
-						if (product.getBrand().equalsIgnoreCase(brand)) {
+				for (String note : filter.getNote()) {
+					for (String prodNote : product.getNotes()) {
+						if (prodNote.equalsIgnoreCase(note)) {
 							if (!productList.contains(product)) {
 								productList.add(product);
 							}
 						}
 					}
 				}
-				if (!filter.getPriceRange().get(0).equals("0")) {
-					for (String price : filter.getPriceRange()) {
-						if (price.equalsIgnoreCase("10000")) {
+			}
+		}
+		else if (brandIsDefault && noteIsDefault) {
+			for (Product product : originalProductList) {
+				for (String price : filter.getPriceRange()) {
+					if (price.equalsIgnoreCase("10000")) {
+						if (!productList.contains(product)) {
+							productList.add(product);
+						}
+					}
+					else if (price.equalsIgnoreCase("200")) {
+						if (product.getPrice() < 200) {
 							if (!productList.contains(product)) {
 								productList.add(product);
 							}
 						}
-						else if (price.equalsIgnoreCase("200")) {
-							if (product.getPrice() < 200) {
-								if (!productList.contains(product)) {
-									productList.add(product);
-								}
+					}
+					else if (price.equalsIgnoreCase("100")) {
+						if (product.getPrice() < 100) {
+							if (!productList.contains(product)) {
+								productList.add(product);
 							}
 						}
-						else if (price.equalsIgnoreCase("100")) {
-							if (product.getPrice() < 100) {
-								if (!productList.contains(product)) {
-									productList.add(product);
-								}
+					}
+					else if (price.equalsIgnoreCase("50")) {
+						if (product.getPrice() < 50) {
+							if (!productList.contains(product)) {
+								productList.add(product);
 							}
 						}
-						else if (price.equalsIgnoreCase("50")) {
-							if (product.getPrice() < 50) {
-								if (!productList.contains(product)) {
-									productList.add(product);
-								}
-							}
+					}
+					
+				}
+			}
+		}
+		else if (priceIsDefault && noteIsDefault) {
+			for (Product product : originalProductList) {
+				for (String brand : filter.getBrand()) {
+					if (product.getBrand().equalsIgnoreCase(brand)) {
+						if (!productList.contains(product)) {
+							productList.add(product);
 						}
-						
 					}
 				}
-				if (!filter.getNote().get(0).equals("default")) {
-					for (String note : filter.getNote()) {
-						for (String prodNote : product.getNotes()) {
-							if (prodNote.equalsIgnoreCase(note)) {
+			}
+		}
+		else if (brandIsDefault) {
+			for (Product product : originalProductList) {
+				for (String note : filter.getNote()) {
+					for (String prodNote : product.getNotes()) {
+						if (prodNote.equalsIgnoreCase(note)) {
+							for (String price : filter.getPriceRange()) {
+								if (price.equalsIgnoreCase("10000")) {
+									if (!productList.contains(product)) {
+										productList.add(product);
+									}
+								}
+								else if (price.equalsIgnoreCase("200")) {
+									if (product.getPrice() < 200) {
+										if (!productList.contains(product)) {
+											productList.add(product);
+										}
+									}
+								}
+								else if (price.equalsIgnoreCase("100")) {
+									if (product.getPrice() < 100) {
+										if (!productList.contains(product)) {
+											productList.add(product);
+										}
+									}
+								}
+								else if (price.equalsIgnoreCase("50")) {
+									if (product.getPrice() < 50) {
+										if (!productList.contains(product)) {
+											productList.add(product);
+										}
+									}
+								}	
+							}
+						}
+					}
+				}
+			}
+		}
+		else if (priceIsDefault) {
+			for (Product product : originalProductList) {
+				for (String note : filter.getNote()) {
+					for (String prodNote : product.getNotes()) {
+						if (prodNote.equalsIgnoreCase(note)) {
+							for (String brand : filter.getBrand()) {
+								if (product.getBrand().equalsIgnoreCase(brand)) {
+									if (!productList.contains(product)) {
+										productList.add(product);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		else if (noteIsDefault) {
+			for (Product product : originalProductList) {
+				for (String brand : filter.getBrand()) {
+					if (product.getBrand().equalsIgnoreCase(brand)) {
+						for (String price : filter.getPriceRange()) {
+							if (price.equalsIgnoreCase("10000")) {
 								if (!productList.contains(product)) {
 									productList.add(product);
 								}
 							}
+							else if (price.equalsIgnoreCase("200")) {
+								if (product.getPrice() < 200) {
+									if (!productList.contains(product)) {
+										productList.add(product);
+									}
+								}
+							}
+							else if (price.equalsIgnoreCase("100")) {
+								if (product.getPrice() < 100) {
+									if (!productList.contains(product)) {
+										productList.add(product);
+									}
+								}
+							}
+							else if (price.equalsIgnoreCase("50")) {
+								if (product.getPrice() < 50) {
+									if (!productList.contains(product)) {
+										productList.add(product);
+									}
+								}
+							}	
 						}
 					}
 				}
@@ -313,13 +420,32 @@ public class ProductDao {
 		List<Product> productList = new ArrayList<Product>();
 		ProductDao allProducts = new ProductDao();
 		List<Product> originalProductList = new ArrayList<Product>();
+
+		boolean genderIsShowall = false; //Set to true if the quiz filter is set at showall for any of the options
+		boolean categoryIsShowall = false;
+		boolean occasionIsShowall = false;
+		boolean personalityIsShowall = false;
 		
 		originalProductList.addAll(allProducts.getAllProducts());
 		
-		if (quiz.getGender().equalsIgnoreCase("showall") && quiz.getCategory().equalsIgnoreCase("showall") && quiz.getOccasion().equalsIgnoreCase("showall") && quiz.getPersonality().equalsIgnoreCase("showall")) {
+		if (quiz.getGender().equalsIgnoreCase("showall")) {
+			genderIsShowall = true;
+		}
+		if (quiz.getCategory().equalsIgnoreCase("showall")) {
+			categoryIsShowall = true;
+		}
+		if (quiz.getOccasion().equalsIgnoreCase("showall")) {
+			occasionIsShowall = true;
+		}
+		if (quiz.getPersonality().equalsIgnoreCase("showall")) {
+			personalityIsShowall = true;
+		}
+		
+		if (genderIsShowall && categoryIsShowall && occasionIsShowall && personalityIsShowall) {
 			return originalProductList;
 		}
-		else {
+		else if (categoryIsShowall && occasionIsShowall && personalityIsShowall) {
+			//only filter for gender
 			for (Product product : originalProductList) { 
 	 			if (quiz.getGender().equalsIgnoreCase("women")) {
 	 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
@@ -342,8 +468,12 @@ public class ProductDao {
 						}
 	 				}
 	 			}
-	 			
-	 			if (quiz.getCategory().equalsIgnoreCase("wear")) {
+			}
+		}
+		else if (genderIsShowall && occasionIsShowall && personalityIsShowall) {
+			//only filter for category
+			for (Product product : originalProductList) {
+				if (quiz.getCategory().equalsIgnoreCase("wear")) {
 	 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
 	 					if (!productList.contains(product)) {
 							productList.add(product);
@@ -364,22 +494,454 @@ public class ProductDao {
 						}
 	 				}
 	 			}
-	 			
-	 			if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
-	 				if (!productList.contains(product)) {
-						productList.add(product);
-					}
-	 			}
-	
-	 			if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+			}
+		}
+		else if (genderIsShowall && categoryIsShowall && personalityIsShowall) {
+			//only filter for occasion
+			for (Product product : originalProductList) {
+				if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
 	 				if (!productList.contains(product)) {
 						productList.add(product);
 					}
 	 			}
 			}
-	 
 		}
- 			
+		else if (genderIsShowall && categoryIsShowall && occasionIsShowall) {
+			//only filter for personality
+			for (Product product : originalProductList) {
+				if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+	 				if (!productList.contains(product)) {
+						productList.add(product);
+					}
+	 			}
+			}
+		}
+		else if (genderIsShowall && categoryIsShowall) {
+			//only filter for occasion and personality
+			for (Product product : originalProductList) {
+				if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+					if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+		 				if (!productList.contains(product)) {
+							productList.add(product);
+						}
+					}
+	 			}
+			}
+			
+		}
+		else if (genderIsShowall && occasionIsShowall) {
+			//only filter for category and personality
+			for (Product product : originalProductList) {
+				if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+		 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+		 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+		 				if (product.getCategory().equals("Hair Mist")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+		 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+		 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+	 			}
+			}
+		}
+		else if (genderIsShowall && personalityIsShowall) {
+			//only filter for category and occasion
+			for (Product product : originalProductList) {
+				if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+		 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+		 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+		 				if (product.getCategory().equals("Hair Mist")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+		 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+		 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+	 			}
+			}
+		}
+		else if (categoryIsShowall && occasionIsShowall) {
+			//only filter for gender and personality
+			for (Product product : originalProductList) {
+				if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+					if (quiz.getGender().equalsIgnoreCase("women")) {
+		 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+		 			else if (quiz.getGender().equalsIgnoreCase("men")) {
+		 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+		 			else if (quiz.getGender().equalsIgnoreCase("neutral")) {
+		 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+	 			}
+			}
+		}
+		else if (categoryIsShowall && personalityIsShowall) {
+			//only filter for gender and occasion
+			for (Product product : originalProductList) {
+				if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+					if (quiz.getGender().equalsIgnoreCase("women")) {
+		 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+		 			else if (quiz.getGender().equalsIgnoreCase("men")) {
+		 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+		 			else if (quiz.getGender().equalsIgnoreCase("neutral")) {
+		 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (!productList.contains(product)) {
+								productList.add(product);
+							}
+		 				}
+		 			}
+	 			}
+	 			
+			}
+		}
+		else if (occasionIsShowall && personalityIsShowall) {
+			//only filter for gender and category
+			for (Product product : originalProductList) {
+				if (quiz.getGender().equalsIgnoreCase("women")) {
+	 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+	 					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+	 		 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+	 		 					if (!productList.contains(product)) {
+	 								productList.add(product);
+	 							}
+	 		 				}
+	 		 			}
+	 		 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+	 		 				if (product.getCategory().equals("Hair Mist")) {
+	 		 					if (!productList.contains(product)) {
+	 								productList.add(product);
+	 							}
+	 		 				}
+	 		 			}
+	 		 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+	 		 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+	 		 					if (!productList.contains(product)) {
+	 								productList.add(product);
+	 							}
+	 		 				}
+	 		 			}
+	 				}
+	 			}
+	 			else if (quiz.getGender().equalsIgnoreCase("men")) {
+	 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+	 					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+	 		 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+	 		 					if (!productList.contains(product)) {
+	 								productList.add(product);
+	 							}
+	 		 				}
+	 		 			}
+	 		 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+	 		 				if (product.getCategory().equals("Hair Mist")) {
+	 		 					if (!productList.contains(product)) {
+	 								productList.add(product);
+	 							}
+	 		 				}
+	 		 			}
+	 		 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+	 		 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+	 		 					if (!productList.contains(product)) {
+	 								productList.add(product);
+	 							}
+	 		 				}
+	 		 			}
+	 				}
+	 			}
+	 			else if (quiz.getGender().equalsIgnoreCase("neutral")) {
+	 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+	 					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+	 		 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+	 		 					if (!productList.contains(product)) {
+	 								productList.add(product);
+	 							}
+	 		 				}
+	 		 			}
+	 		 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+	 		 				if (product.getCategory().equals("Hair Mist")) {
+	 		 					if (!productList.contains(product)) {
+	 								productList.add(product);
+	 							}
+	 		 				}
+	 		 			}
+	 		 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+	 		 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+	 		 					if (!productList.contains(product)) {
+	 								productList.add(product);
+	 							}
+	 		 				}
+	 		 			}
+	 				}
+	 			}
+			}
+		}
+		else if (genderIsShowall) {
+			for (Product product : originalProductList) {
+				if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+					if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+						if (quiz.getCategory().equalsIgnoreCase("wear")) {
+			 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+			 					if (!productList.contains(product)) {
+									productList.add(product);
+								}
+			 				}
+			 			}
+			 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+			 				if (product.getCategory().equals("Hair Mist")) {
+			 					if (!productList.contains(product)) {
+									productList.add(product);
+								}
+			 				}
+			 			}
+			 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+			 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+			 					if (!productList.contains(product)) {
+									productList.add(product);
+								}
+			 				}
+			 			}
+					}
+	 			}
+			}
+		}
+		else if (categoryIsShowall) {
+			for (Product product : originalProductList) {
+				if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+					if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+						if (quiz.getGender().equalsIgnoreCase("women")) {
+			 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+			 					if (!productList.contains(product)) {
+									productList.add(product);
+								}
+			 				}
+			 			}
+			 			else if (quiz.getGender().equalsIgnoreCase("men")) {
+			 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+			 					if (!productList.contains(product)) {
+									productList.add(product);
+								}
+			 				}
+			 			}
+			 			else if (quiz.getGender().equalsIgnoreCase("neutral")) {
+			 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+			 					if (!productList.contains(product)) {
+									productList.add(product);
+								}
+			 				}
+			 			}
+					}
+	 			}
+			}
+		}
+		else if (occasionIsShowall) {
+			for (Product product : originalProductList) {
+				if (quiz.getPersonality().equalsIgnoreCase(product.getPersonality())) {
+					if (quiz.getGender().equalsIgnoreCase("women")) {
+		 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+				 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+				 				if (product.getCategory().equals("Hair Mist")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+				 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+		 				}
+		 			}
+		 			else if (quiz.getGender().equalsIgnoreCase("men")) {
+		 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+				 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+				 				if (product.getCategory().equals("Hair Mist")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+				 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+		 				}
+		 			}
+		 			else if (quiz.getGender().equalsIgnoreCase("neutral")) {
+		 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+				 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+				 				if (product.getCategory().equals("Hair Mist")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+				 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+		 				}
+		 			}
+	 			}
+			}
+		}
+		else if (personalityIsShowall) {
+			for (Product product : originalProductList) {
+				if (quiz.getOccasion().equalsIgnoreCase(product.getOccasion())) {
+					if (quiz.getGender().equalsIgnoreCase("women")) {
+		 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+				 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+				 				if (product.getCategory().equals("Hair Mist")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+				 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+		 				}
+		 			}
+		 			else if (quiz.getGender().equalsIgnoreCase("men")) {
+		 				if (product.getCategory().equals("Cologne") || product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+				 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+				 				if (product.getCategory().equals("Hair Mist")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+				 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+		 				}
+		 			}
+		 			else if (quiz.getGender().equalsIgnoreCase("neutral")) {
+		 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Hair Mist") || product.getCategory().equals("Room Spray")) {
+		 					if (quiz.getCategory().equalsIgnoreCase("wear")) {
+				 				if (product.getCategory().equals("Perfume") || product.getCategory().equals("Cologne")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("body")) {
+				 				if (product.getCategory().equals("Hair Mist")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+				 			else if (quiz.getCategory().equalsIgnoreCase("home")) {
+				 				if (product.getCategory().equals("Candle") || product.getCategory().equals("Diffuser") || product.getCategory().equals("Room Spray")) {
+				 					if (!productList.contains(product)) {
+										productList.add(product);
+									}
+				 				}
+				 			}
+		 				}
+		 			}
+	 			}
+			}
+		}
 		
 		return productList;
 	}

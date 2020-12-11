@@ -235,8 +235,8 @@
                 <div class="price">
                     <input type="checkbox" name = "pricecb" value = "0" checked=checked/> Show All <br />
                     <input type="checkbox" name = "pricecb" value = "50"/> Under $50 <br />
-                    <input type="checkbox" name = "pricecb" value = "100"/> $50 to $100 <br />
-                    <input type="checkbox" name = "pricecb" value = "200"/> $100 to $200 <br />
+                    <input type="checkbox" name = "pricecb" value = "100"/> Under $100 <br />
+                    <input type="checkbox" name = "pricecb" value = "200"/> Under $200 <br />
                     <input type="checkbox" name = "pricecb" value = "10000"/> Over $200 <br />
                 </div>
                 <input type="reset" , value="Reset" , style="font-family: Georgia, 'Times New Roman', Times, serif;">

@@ -85,18 +85,24 @@
                     <br>
                     <select name="occasion">
                     <option value="showall">Show all</option>
-                    <option value="date">Date Night</option>
-                    <option value="office">Office</option>
-                    <option value="outdoors">Outdoors Adventures</option>
+                    <option value="Vacation">Vacation</option>
+                    <option value="Nighttime">Night time</option>
+                    <option value="Daytime">Daytime</option>
+                    <option value="Date">Date</option>
+                    <option value="Office">Office</option>
+                    <option value="Work">Work</option>
                   </select>
                     <div style="margin-top:30px;">
                         <label>What's your personality?</label>
                         <br>
                         <select name="personality">
                     <option value="showall">Show all</option>
-                    <option value="seductive">Seductive</option>
-                    <option value="bright">Bright and Bubbly</option>
-                    <option value="sweet">Sweet</option>
+                    <option value="Relaxed">Relaxed</option>
+                    <option value="Dramatic">Dramatic</option>
+                    <option value="Feminine">Feminine</option>
+                    <option value="Rebellious">Rebellious</option>
+                    <option value="Classic">Classic</option>
+                    <option value="Creative">Creative</option>
                   </select>
                     </div>
                     <br>
